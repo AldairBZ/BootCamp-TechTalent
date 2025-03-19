@@ -1,9 +1,0 @@
-
-/**
- * 
- */
-/**
- * 
- */
-module C2JavaBasics {
-}

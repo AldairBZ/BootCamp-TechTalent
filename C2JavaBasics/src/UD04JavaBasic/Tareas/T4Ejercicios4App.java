@@ -1,4 +1,4 @@
-package UD04JavaBasic;
+package UD04JavaBasic.Tareas;
 
 public class T4Ejercicios4App {
 
