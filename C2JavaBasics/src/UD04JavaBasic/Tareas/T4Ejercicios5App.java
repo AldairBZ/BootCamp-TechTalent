@@ -5,7 +5,7 @@ public class T4Ejercicios5App {
 	public static void main(String[] args) {
 
 		int A=3, B=7, C=13 , D=27;
-		int B1= B;
+		int Binicial= B;
 		
         // Muestra el valor de cada variable
         System.out.println("Valores iniciales:");
@@ -21,7 +21,7 @@ public class T4Ejercicios5App {
 		System.out.println("Asigno a C igual a A y tenemos B igual a " + (C));
 		A=D;
 		System.out.println("Asigno a A igual a D y tenemos B igual a " + (A));
-		D=B1;
+		D=Binicial;
 		System.out.println("Asigno a D igual a B y tenemos D igual a " + (D));
 
 	}
