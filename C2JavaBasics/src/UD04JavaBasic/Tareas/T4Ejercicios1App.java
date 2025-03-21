@@ -1,13 +1,13 @@
-package UD04JavaBasic.Tareas;
+	package UD04JavaBasic.Tareas;
 
 public class T4Ejercicios1App {
 	public static void main(String[] args) {
-		// Declaration de 2 variables de tipo numeric
+		// Declaration de 2 variables de tipo numerico
 		int numero1=15;
 		int numero2=7;
 		
 		//Operaciones aritmeticas y mostrar resultados en pantalla
-		System.out.println("El resultado de la suma de"+ numero1
+		System.out.println("El resultado de la suma de"+numero1
 				+"mas"+numero2+" es igual a "+(numero2)
 				+"\nResta: " +(numero1-numero2)
 				+"\nMultiplicacion: " +(numero1*numero2)
