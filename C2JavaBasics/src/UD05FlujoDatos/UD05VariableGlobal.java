@@ -8,8 +8,7 @@ public class UD05VariableGlobal {
 		
 		int variableMetodo=40;
 		for (int i=0;i<10;i++) {
-			System.out.println("la variable i vale" + 1);
-			//Aqui existe la variable i
+			System.out.println("la variable i vale" + 1);//Aqui existe la variable i
 		}
 //System.out.println("la variable i vale")+ 1);
 //aqui no existe la variable i
@@ -22,7 +21,7 @@ public static void main(String[]args) {
 //  Aqui ya no existe esta vatiable
 	    int variableLocal1=20;
 	    if (variableGlobal==10) {
-	    	int variableLocal12=30;
+	    	int variableLocal2=30;
 	    	System.out.print("La variable local 1 vale" + variableLocal1);
 	    	
 	    }
