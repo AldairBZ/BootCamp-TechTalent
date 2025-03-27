@@ -103,7 +103,9 @@ public class UD7Tienda {
 		inventario.forEach((producto, info) -> {
 			listaProductos.append(producto)
 					.append(" → Precio: ").append(info.get("precio"))
-					.append("€, Stock: ").append(info.get("stock").intValue()).append("\n");
+					.append("€, Stock: ").append(info.get("stock").intValue())
+					.append(", IVA: ").append(info.get("iva")
+					.append("\n");
 		});
 		JOptionPane.showMessageDialog(null, listaProductos.toString());
 	}
