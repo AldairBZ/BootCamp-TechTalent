@@ -15,7 +15,7 @@ public class T6Ej02App {
 		
 		while (cantRadoms > 0) {
 			//Acciones de rangos y randoms
-			rangoMin = Integer.parseint(JOptionPane.showInputDialog("" + "Introduce el rango minimo: "));
+			rangoMin = Integer.parseInt(JOptionPane.showInputDialog("" + "Introduce el rango minimo: "));
 			rangoMax = Integer.parseInt(JOptionPane.showInputDialog("" + "Introduce el rango maximo: "));
 			System.out.println(enteroRandom(rangoMin, rangoMax));
 			cantRadoms--;

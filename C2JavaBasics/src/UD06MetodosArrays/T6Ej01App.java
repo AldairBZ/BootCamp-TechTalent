@@ -71,4 +71,4 @@ public class T6Ej01App {
 	private static double cuadrado(double lado) {
 		return (lado * lado);
 	}
-}
+}	
