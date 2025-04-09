@@ -8,6 +8,7 @@ public class Tienda2 {
 	private static final Scanner scanner = new Scanner(System.in);
 	private static final HashMap<String, HashMap<String, Double>> inventario = new HashMap<>();
 	private static final ArrayList<Double> carrito = new ArrayList<>();
+	private static double suma;
 
 	public static void main(String[] args) {
 		inicializarInventario();
@@ -166,11 +167,11 @@ public class Tienda2 {
 			return;
 		}
 
-		double suma = 0;
+		setSuma(0);
 		double totalConIVA = 0;
 		for (String producto : inventario.keySet()) {
 			for (double precio : carrito) {
-				suma += precio;
+				setSuma(getSuma() + precio);
 				totalConIVA += precio * (1 + inventario.get(producto).get("iva"));
 			}
 		}
@@ -185,6 +186,18 @@ public class Tienda2 {
 			JOptionPane.showMessageDialog(null, "Cambio a devolver: " + String.format("%.2f", cambio) + "€");
 			carrito.clear();
 		}
+	}
+
+	public static Scanner getScanner() {
+		return scanner;
+	}
+
+	public static double getSuma() {
+		return suma;
+	}
+
+	public static void setSuma(double suma) {
+		Tienda2.suma = suma;
 	}
 
 }

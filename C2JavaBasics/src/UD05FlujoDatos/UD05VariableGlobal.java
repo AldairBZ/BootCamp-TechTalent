@@ -3,6 +3,7 @@ package UD05FlujoDatos;
 public class UD05VariableGlobal {
 	
 	static int variableGlobal = 10;
+	private static int variableLocal2;
 	
 	public static void metodoPrueba(){
 		
@@ -21,7 +22,7 @@ public static void main(String[]args) {
 //  Aqui ya no existe esta vatiable
 	    int variableLocal1=20;
 	    if (variableGlobal==10) {
-	    	int variableLocal2=30;
+	    	setVariableLocal2(30);
 	    	System.out.print("La variable local 1 vale" + variableLocal1);
 	    	
 	    }
@@ -31,4 +32,10 @@ public static void main(String[]args) {
         metodoPrueba();
         
         }
+public static int getVariableLocal2() {
+	return variableLocal2;
+}
+public static void setVariableLocal2(int variableLocal2) {
+	UD05VariableGlobal.variableLocal2 = variableLocal2;
+}
 }
