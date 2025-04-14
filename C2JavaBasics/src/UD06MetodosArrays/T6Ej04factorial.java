@@ -5,7 +5,6 @@ public class T6Ej04factorial {
 
 	public static void main(String[] args) {
 
-
 		int numero = 0;
 		Scanner sc = new Scanner(System.in);
 
@@ -18,8 +17,6 @@ public class T6Ej04factorial {
 
 //		System.out.println("El factorial de " + numero +" generado es: " + factorial(numero));
 
-
-
 	}
 
 	// Cáclulo del factorial de un número entero
@@ -28,11 +25,6 @@ public class T6Ej04factorial {
 		for (int i = n; i >= 2; i--) {
 			n *= i - 1;
 		}
-
-		// Incrementando
-//		for (int i = 1; i <= n; i++) {
-//			n *= i;
-//		}
 
 		return n;
 	}
@@ -47,6 +39,5 @@ public class T6Ej04factorial {
 			return n * factorial(n - 1);
 		}
 	}
-
 
 }

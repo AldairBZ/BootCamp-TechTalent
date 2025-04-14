@@ -48,4 +48,4 @@ public class T6Ej05dec2bin {
 		return binario.toString(); // StringBuilder --> String
 	}
 
-}
+}	
