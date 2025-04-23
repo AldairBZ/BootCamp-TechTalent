@@ -76,10 +76,11 @@ public class T6Ej10App {
 
 	private static int sizeArray() {
 	
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Introduce el tamaño del array:");
-		int size = sc.nextInt();
-		return size;
+		try (Scanner sc = new Scanner(System.in)) {
+			System.out.println("Introduce el tamaño del array:");
+			int size = sc.nextInt();
+			return size;
+		}
 	}
 
 	private static int buscarMayor(int[] numerosPrimos) {

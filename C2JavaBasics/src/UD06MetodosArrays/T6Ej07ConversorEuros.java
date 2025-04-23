@@ -22,16 +22,8 @@ public class T6Ej07ConversorEuros {
 		valor = valorConsole.nextInt();
 		valorConsole.nextLine(); // Netegem el \n
 
-		//Ejemplo de cálculo directo
-//		System.out.println("La conversió de " + valor + " € són "
-//				+ "\n£" + (valor * 0.84) 	+ " (libras)"
-//				+ "\n$" + (valor * 1.09) + " (dólares)"+ "\n¥" + (valor * 162.09) 
-//				+ " (yenes)");
-		
-		//Filtro de divisa correcta solo si yo escribo "libras, yenes o dolares" correctamente 
-		// Me deja continuar con el código
 		do {
-			System.out.println("Indica a quina divisa vols convertir:");
+			System.out.println("Indica a que divisa quieres convertir:");
 			System.out.println("libras");
 			System.out.println("dolares");
 			System.out.println("yenes"); // assignem el valor
@@ -56,7 +48,7 @@ public class T6Ej07ConversorEuros {
 				System.out.println("Divisa no reconocida.");
 				break;
 		}
-		System.out.println("Valor actual a  14/03/2025");
+		System.out.println("Valor actual a  16/04/2025");
 		valorConsole.close();
 
 	}

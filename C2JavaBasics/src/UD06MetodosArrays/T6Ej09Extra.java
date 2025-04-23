@@ -42,11 +42,12 @@ public class T6Ej09Extra {
 	}
 
 	private static int sizeArray() {
-		// Pide por consola el tamaño del array
-		Scanner sc = new Scanner(System.in);
-		System.out.println("Introduce el tamaño del array:");
-		int size = sc.nextInt();
-		return size;
+		try (// Pide por consola el tamaño del array
+		Scanner sc = new Scanner(System.in)) {
+			System.out.println("Introduce el tamaño del array:");
+			int size = sc.nextInt();
+			return size;
+		}
 	}
 
 }
