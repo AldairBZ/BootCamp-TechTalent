@@ -1,0 +1,2 @@
+
+SELECT * FROM `scheneider`.`empleados`;
