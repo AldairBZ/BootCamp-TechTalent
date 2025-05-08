@@ -33,6 +33,7 @@ public class Ej02VentasApp {
 		}
 	}
 
+
 	// Método para seleccionar IVA y calcular totales
 	public static double[] seleccionarIVA(Scanner sc, ArrayList<Double> carrito) {
 		double suma = 0; 
