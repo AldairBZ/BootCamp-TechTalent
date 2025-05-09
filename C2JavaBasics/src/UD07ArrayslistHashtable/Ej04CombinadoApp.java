@@ -5,7 +5,6 @@ import java.util.*;
 
 public class Ej04CombinadoApp {
 
-    private static final Scanner scanner = new Scanner(System.in);
     private static final HashMap<String, HashMap<String, Double>> inventario = new HashMap<>();
     private static final ArrayList<Double> carrito = new ArrayList<>();
 
