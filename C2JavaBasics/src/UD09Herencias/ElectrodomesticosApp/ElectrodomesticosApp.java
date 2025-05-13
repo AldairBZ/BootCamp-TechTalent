@@ -37,8 +37,8 @@ public class ElectrodomesticosApp {
             }
         }
 
-        System.out.println("🧺 Total Lavadoras: " + totalLavadoras + " €");
-        System.out.println("📺 Total Televisores: " + totalTelevisores + " €");
-        System.out.println("⚡ Total Electrodomésticos: " + totalElectrodomesticos + " €");
+        System.out.println(" Total Lavadoras: " + totalLavadoras + " €");
+        System.out.println(" Total Televisores: " + totalTelevisores + " €");
+        System.out.println(" Total Electrodomésticos: " + totalElectrodomesticos + " €");
     }
 }
