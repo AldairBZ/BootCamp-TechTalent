@@ -1,3 +1,6 @@
 /calculadora.class
 /VentanaCalculadora.class
 /PanelBotones.class
+/PanelBotones$BotonListerner.class
+/Calculadora.class
+/PanelBotones$BotonListener.class
