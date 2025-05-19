@@ -7,11 +7,11 @@ public class VentanaCalculadora extends JFrame {
     private JTextField campoResultado;
 
     public VentanaCalculadora() {
-        setTitle("Calculadora");
-        setSize(400, 500);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null); // Centrada
-        setLayout(new BorderLayout());
+        setTitle("Calculadora"); //titulo
+        setSize(400, 500); //Medidas de la ventana
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Cierre de ventana por defecto
+        setLocationRelativeTo(null); // Centra la pantalla
+        setLayout(new BorderLayout()); //Organiza en zona
         setResizable(true); // ✅ Se puede redimensionar
 
         // Crear campo de texto solo lectura
