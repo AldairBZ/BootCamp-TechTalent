@@ -12,7 +12,7 @@ public class VentanaCalculadora extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Cierre de ventana por defecto
         setLocationRelativeTo(null); // Centra la pantalla
         setLayout(new BorderLayout()); //Organiza en zona
-        setResizable(true); // ✅ Se puede redimensionar
+        setResizable(true); //  Se puede redimensionar
 
         // Crear campo de texto solo lectura
         campoResultado = new JTextField();
