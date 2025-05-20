@@ -1,21 +1,26 @@
 package UD19SwingAWT;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
 public class PanelBotones extends JPanel {
 
-    private JTextField campo;
-    private String operadorActual = "";
-    private double operando1 = 0;
-    private boolean nuevoNumero = true;
+    private JTextField campo;           // Campo donde se muestra el resultado
+    private String operadorActual = ""; // Guarda el operador seleccionado
+    private double operando1 = 0;       // Primer operando
+    private boolean nuevoNumero = true; // Controla si debe iniciar nuevo número
 
+    // Constructor del panel de botones
     public PanelBotones(JTextField campo) {
         this.campo = campo;
-        setLayout(new GridLayout(6, 4, 5, 5)); // 6 filas, 4 columnas, separación 5px
 
-        String[] botones = {
-            "^", "√", "C", "←",
+        // Diseño del panel: 6 filas, 4 columnas
+        setLayout(new GridLayout(6, 4, 5, 5));
+
+        // Etiquetas de los botones en orden
+        String[] etiquetas = {
+            "√", "^", "←", "C",
             "7", "8", "9", "÷",
             "4", "5", "6", "×",
             "1", "2", "3", "-",
@@ -23,18 +28,20 @@ public class PanelBotones extends JPanel {
             "", "", "=", ""
         };
 
-        for (String texto : botones) {
+        // Crear cada botón según la etiqueta
+        for (String texto : etiquetas) {
             if (texto.equals("")) {
-                add(new JLabel()); // espacios vacíos
+                add(new JLabel()); // Añadir espacio vacío
             } else {
                 JButton btn = new JButton(texto);
                 btn.setFont(new Font("Arial", Font.BOLD, 20));
-                btn.addActionListener(new BotonListener());
+                btn.addActionListener(new BotonListener()); // Asignar acción
                 add(btn);
             }
         }
     }
 
+    // Clase interna para manejar eventos de los botones
     private class BotonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -46,44 +53,75 @@ public class PanelBotones extends JPanel {
                     operando1 = 0;
                     operadorActual = "";
                     break;
+
                 case "←":
-                    if (!campo.getText().isEmpty()) {
-                        campo.setText(campo.getText().substring(0, campo.getText().length() - 1));
+                    String actual = campo.getText();
+                    if (!actual.isEmpty()) {
+                        campo.setText(actual.substring(0, actual.length() - 1));
                     }
                     break;
+
                 case "+":
                 case "-":
                 case "×":
                 case "÷":
                 case "^":
-                    operando1 = Double.parseDouble(campo.getText());
-                    operadorActual = texto;
-                    nuevoNumero = true;
-                    break;
-                case "=":
-                    double operando2 = Double.parseDouble(campo.getText());
-                    double resultado = 0;
-                    switch (operadorActual) {
-                        case "+": resultado = operando1 + operando2; break;
-                        case "-": resultado = operando1 - operando2; break;
-                        case "×": resultado = operando1 * operando2; break;
-                        case "÷": resultado = operando2 != 0 ? operando1 / operando2 : 0; break;
-                        case "^": resultado = Math.pow(operando1, operando2); break;
+                    if (!campo.getText().isEmpty()) {
+                        operando1 = Double.parseDouble(campo.getText());
+                        operadorActual = texto;
+                        nuevoNumero = true;
                     }
-                    campo.setText(String.valueOf(resultado));
-                    nuevoNumero = true;
                     break;
+
+                case "=":
+                    if (!campo.getText().isEmpty() && !operadorActual.isEmpty()) {
+                        double operando2 = Double.parseDouble(campo.getText());
+                        double resultado = 0;
+
+                        switch (operadorActual) {
+                            case "+": resultado = operando1 + operando2; break;
+                            case "-": resultado = operando1 - operando2; break;
+                            case "×": resultado = operando1 * operando2; break;
+                            case "÷": 
+                                if (operando2 == 0) {
+                                    campo.setFont(new Font("Consolas", Font.BOLD, 21));
+                                    campo.setText("No puedes dividir entre 0, tonto");
+                                    nuevoNumero = true;
+                                    return; // Salir del método para que no se ejecute el resto
+                                } else {
+                                    resultado = operando1 / operando2;
+                                }
+                                break;
+                            case "^": resultado = Math.pow(operando1, operando2); break;
+                        }
+
+                        // Formatear el resultado
+                        String resultadoFormateado = (resultado == (int) resultado)
+                            ? String.valueOf((int) resultado)
+                            : String.valueOf(resultado);
+
+                        campo.setText(resultadoFormateado);
+                        nuevoNumero = true;
+                        operadorActual = "";
+                    }
+                    break;
+
                 case "√":
-                    double valor = Double.parseDouble(campo.getText());
-                    campo.setText(String.valueOf(Math.sqrt(valor)));
+                    if (!campo.getText().isEmpty()) {
+                        double valor = Double.parseDouble(campo.getText());
+                        campo.setText(String.valueOf(Math.sqrt(valor)));
+                        nuevoNumero = true;
+                    }
                     break;
+
                 case "±":
                     if (!campo.getText().isEmpty()) {
-                        double num = Double.parseDouble(campo.getText());
-                        campo.setText(String.valueOf(-num));
+                        double valor = Double.parseDouble(campo.getText());
+                        campo.setText(String.valueOf(-valor));
                     }
                     break;
-                default:
+
+                default: // Números y punto decimal
                     if (nuevoNumero) {
                         campo.setText(texto);
                         nuevoNumero = false;
@@ -94,4 +132,16 @@ public class PanelBotones extends JPanel {
             }
         }
     }
+    public void cambiarTema(Color fondo, Color texto) {
+        Component[] componentes = getComponents();
+        for (Component c : componentes) {
+            if (c instanceof JButton) {
+                c.setBackground(fondo);
+                c.setForeground(texto);
+            }
+        }
+        setBackground(fondo); // Cambia el fondo del panel también
+    }
+
 }
+

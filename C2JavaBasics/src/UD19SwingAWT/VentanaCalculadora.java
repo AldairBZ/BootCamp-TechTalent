@@ -5,6 +5,7 @@ import java.awt.*;
 public class VentanaCalculadora extends JFrame {
 
     private JTextField campoResultado;
+    private PanelBotones panelBotones;
 
     public VentanaCalculadora() {
         setTitle("Calculadora"); //titulo
@@ -12,6 +13,27 @@ public class VentanaCalculadora extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //Cierre de ventana por defecto
         setLocationRelativeTo(null); // Centra la pantalla
         setLayout(new BorderLayout()); //Organiza en zona
+        JMenuBar barraMenu = new JMenuBar();
+        JMenu menuOpciones = new JMenu("Opciones");
+        
+        JMenuItem itemTemaClaro = new JMenuItem("Tema Claro");
+        JMenuItem itemTemaOscuro = new JMenuItem("Tema Oscuro");
+        JMenuItem itemHistorial = new JMenuItem("Historial");
+        JMenuItem itemSalir = new JMenuItem("Salir");
+        
+        itemTemaClaro.addActionListener(e -> cambiarTema(true));
+        itemTemaOscuro.addActionListener(e -> cambiarTema(false));
+        itemHistorial.addActionListener(e -> JOptionPane.showMessageDialog(this, "Aqui va el historial"));
+        itemSalir.addActionListener(e -> System.exit(0));
+        
+        menuOpciones.add(itemTemaClaro);
+        menuOpciones.add(itemTemaOscuro);
+        menuOpciones.add(itemHistorial);
+        menuOpciones.add(itemSalir);
+        
+        barraMenu.add(menuOpciones);
+        setJMenuBar(barraMenu);
+        
         setResizable(true); //  Se puede redimensionar
 
         // Crear campo de texto solo lectura
@@ -26,7 +48,22 @@ public class VentanaCalculadora extends JFrame {
         add(campoResultado, BorderLayout.NORTH);
 
         // Panel de botones
-        PanelBotones panel = new PanelBotones(campoResultado);
-        add(panel, BorderLayout.CENTER);
+        panelBotones = new PanelBotones(campoResultado);
+        add(panelBotones, BorderLayout.CENTER);
+    }
+    
+    private void cambiarTema(boolean claro) {
+    	Color fondo = claro ? Color.white : Color.DARK_GRAY;
+    	Color texto = claro ? Color.black : Color.WHITE;
+    	
+    	campoResultado.setBackground(fondo);
+    	campoResultado.setForeground(texto);
+    	
+    	//Tambien actualiza el panel de botones
+    	panelBotones.cambiarTema(fondo, texto);
+    	
+    	//Refresca la interfaz
+    	SwingUtilities.updateComponentTreeUI(this);
+    
     }
 }
