@@ -6,142 +6,126 @@ import java.awt.event.*;
 
 public class PanelBotones extends JPanel {
 
-    private JTextField campo;           // Campo donde se muestra el resultado
-    private String operadorActual = ""; // Guarda el operador seleccionado
-    private double operando1 = 0;       // Primer operando
-    private boolean nuevoNumero = true; // Controla si debe iniciar nuevo número
+    private JTextField campoOperador;
+    private JTextField campoResultado;
+    private DefaultListModel<String> modeloHistorial;
 
-    // Constructor del panel de botones
-    public PanelBotones(JTextField campo) {
-        this.campo = campo;
+    private String operadorActual = "";
+    private double operando1 = 0;
+    private boolean nuevoNumero = true;
 
-        // Diseño del panel: 6 filas, 4 columnas
+    public PanelBotones(JTextField campoOperador, JTextField campoResultado, DefaultListModel<String> modeloHistorial) {
+        this.campoOperador = campoOperador;
+        this.campoResultado = campoResultado;
+        this.modeloHistorial = modeloHistorial;
+
         setLayout(new GridLayout(6, 4, 5, 5));
 
-        // Etiquetas de los botones en orden
         String[] etiquetas = {
             "√", "^", "←", "C",
             "7", "8", "9", "÷",
             "4", "5", "6", "×",
             "1", "2", "3", "-",
-            "±", "0", ".", "+",
-            "", "", "=", ""
+            ".", "0", "+", "=",
         };
 
-        // Crear cada botón según la etiqueta
         for (String texto : etiquetas) {
             if (texto.equals("")) {
-                add(new JLabel()); // Añadir espacio vacío
+                add(new JLabel());
             } else {
                 JButton btn = new JButton(texto);
                 btn.setFont(new Font("Arial", Font.BOLD, 20));
-                btn.addActionListener(new BotonListener()); // Asignar acción
+                btn.addActionListener(new BotonListener());
+
+                if (texto.equals("=")) {
+                    btn.setFont(new Font("Arial", Font.BOLD, 24));
+                }
+
                 add(btn);
             }
         }
     }
 
-    // Clase interna para manejar eventos de los botones
+    public void cambiarTema(Color fondo, Color texto, Color botones, Color bordes) {
+        setBackground(fondo);
+        for (Component c : getComponents()) {
+            if (c instanceof JButton btn) {
+                btn.setBackground(botones);
+                btn.setForeground(texto);
+                btn.setBorder(BorderFactory.createLineBorder(bordes, 2, true));
+                btn.setFocusPainted(false);
+            }
+        }
+    }
+
     private class BotonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             String texto = ((JButton) e.getSource()).getText();
 
+            if ("0123456789.".contains(texto)) {
+                if (nuevoNumero) {
+                    campoResultado.setText(texto);
+                    nuevoNumero = false;
+                } else {
+                    campoResultado.setText(campoResultado.getText() + texto);
+                }
+                return;
+            }
+
             switch (texto) {
+                case "+": case "-": case "×": case "÷": case "^":
+                    operando1 = Double.parseDouble(campoResultado.getText());
+                    operadorActual = texto;
+                    campoOperador.setText(texto);
+                    nuevoNumero = true;
+                    break;
+
+                case "=":
+                    double operando2 = Double.parseDouble(campoResultado.getText());
+                    double resultado = calcularResultado(operando1, operando2);
+                    campoResultado.setText(String.valueOf(resultado));
+                    modeloHistorial.addElement(operando1 + " " + operadorActual + " " + operando2 + " = " + resultado);
+                    campoOperador.setText("");
+                    nuevoNumero = true;
+                    break;
+
                 case "C":
-                    campo.setText("");
-                    operando1 = 0;
+                    campoResultado.setText("");
+                    campoOperador.setText("");
+                    nuevoNumero = true;
                     operadorActual = "";
                     break;
 
                 case "←":
-                    String actual = campo.getText();
-                    if (!actual.isEmpty()) {
-                        campo.setText(actual.substring(0, actual.length() - 1));
-                    }
-                    break;
-
-                case "+":
-                case "-":
-                case "×":
-                case "÷":
-                case "^":
-                    if (!campo.getText().isEmpty()) {
-                        operando1 = Double.parseDouble(campo.getText());
-                        operadorActual = texto;
-                        nuevoNumero = true;
-                    }
-                    break;
-
-                case "=":
-                    if (!campo.getText().isEmpty() && !operadorActual.isEmpty()) {
-                        double operando2 = Double.parseDouble(campo.getText());
-                        double resultado = 0;
-
-                        switch (operadorActual) {
-                            case "+": resultado = operando1 + operando2; break;
-                            case "-": resultado = operando1 - operando2; break;
-                            case "×": resultado = operando1 * operando2; break;
-                            case "÷": 
-                                if (operando2 == 0) {
-                                    campo.setFont(new Font("Consolas", Font.BOLD, 21));
-                                    campo.setText("No puedes dividir entre 0, tonto");
-                                    nuevoNumero = true;
-                                    return; // Salir del método para que no se ejecute el resto
-                                } else {
-                                    resultado = operando1 / operando2;
-                                }
-                                break;
-                            case "^": resultado = Math.pow(operando1, operando2); break;
-                        }
-
-                        // Formatear el resultado
-                        String resultadoFormateado = (resultado == (int) resultado)
-                            ? String.valueOf((int) resultado)
-                            : String.valueOf(resultado);
-
-                        campo.setText(resultadoFormateado);
-                        nuevoNumero = true;
-                        operadorActual = "";
+                    String current = campoResultado.getText();
+                    if (!current.isEmpty()) {
+                        campoResultado.setText(current.substring(0, current.length() - 1));
                     }
                     break;
 
                 case "√":
-                    if (!campo.getText().isEmpty()) {
-                        double valor = Double.parseDouble(campo.getText());
-                        campo.setText(String.valueOf(Math.sqrt(valor)));
+                    String val = campoResultado.getText();
+                    if (!val.isEmpty()) {
+                        double num = Double.parseDouble(val);
+                        double sqrt = Math.sqrt(num);
+                        campoResultado.setText(String.valueOf(sqrt));
+                        modeloHistorial.addElement("√" + num + " = " + sqrt);
                         nuevoNumero = true;
                     }
                     break;
-
-                case "±":
-                    if (!campo.getText().isEmpty()) {
-                        double valor = Double.parseDouble(campo.getText());
-                        campo.setText(String.valueOf(-valor));
-                    }
-                    break;
-
-                default: // Números y punto decimal
-                    if (nuevoNumero) {
-                        campo.setText(texto);
-                        nuevoNumero = false;
-                    } else {
-                        campo.setText(campo.getText() + texto);
-                    }
-                    break;
             }
         }
     }
-    public void cambiarTema(Color fondo, Color texto) {
-        Component[] componentes = getComponents();
-        for (Component c : componentes) {
-            if (c instanceof JButton) {
-                c.setBackground(fondo);
-                c.setForeground(texto);
-            }
-        }
-        setBackground(fondo); // Cambia el fondo del panel también
-    }
 
+    private double calcularResultado(double op1, double op2) {
+        return switch (operadorActual) {
+            case "+" -> op1 + op2;
+            case "-" -> op1 - op2;
+            case "×" -> op1 * op2;
+            case "÷" -> (op2 == 0) ? Double.NaN : op1 / op2;
+            case "^" -> Math.pow(op1, op2);
+            default -> 0;
+        };
+    }
 }
-
