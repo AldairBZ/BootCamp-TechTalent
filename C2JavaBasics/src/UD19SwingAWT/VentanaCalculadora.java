@@ -60,9 +60,9 @@ public class VentanaCalculadora extends JFrame {
         campoResultado.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10));
 
         JPanel panelCampos = new JPanel(new BorderLayout());
-        panelCampos.add(campoOperador, BorderLayout.WEST);
+        panelCampos.add(campoOperador, BorderLayout.NORTH);
         panelCampos.add(campoResultado, BorderLayout.CENTER);
-        panelCampos.setPreferredSize(new Dimension(400, 70));
+        panelCampos.setPreferredSize(new Dimension(400, 90));
 
         add(panelCampos, BorderLayout.NORTH);
 
@@ -89,10 +89,10 @@ public class VentanaCalculadora extends JFrame {
                 bordes = Color.LIGHT_GRAY;
                 break;
             case NEON:
-                fondo = new Color(20, 20, 30);
-                texto = new Color(180, 0, 255);     // Morado neón
-                botones = new Color(0, 255, 255);   // Cian brillante
-                bordes = new Color(100, 255, 255);
+                fondo = new Color(30, 30, 40);//negro azulado
+                texto = new Color(180, 0, 255);//morado neon
+                botones = new Color(30, 30, 40); //Mismo color del fondo solo que se marca con borde
+                bordes = new Color(100, 255, 255);//Borde neon fino
                 break;
             default:
                 fondo = Color.WHITE;

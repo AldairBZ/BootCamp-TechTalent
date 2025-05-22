@@ -70,14 +70,15 @@ public class PanelBotones extends JPanel {
                 } else {
                     campoResultado.setText(campoResultado.getText() + texto);
                 }
+                
                 return;
             }
 
             switch (texto) {
-                case "+": case "-": case "×": case "÷": case "^":
+                case "+": case "-": case "×": case "^":
                     operando1 = Double.parseDouble(campoResultado.getText());
                     operadorActual = texto;
-                    campoOperador.setText(texto);
+                    campoOperador.setText(operando1 + " " + texto);
                     nuevoNumero = true;
                     break;
 
@@ -85,8 +86,8 @@ public class PanelBotones extends JPanel {
                     double operando2 = Double.parseDouble(campoResultado.getText());
                     double resultado = calcularResultado(operando1, operando2);
                     campoResultado.setText(String.valueOf(resultado));
+                    campoOperador.setText(operando1 + " " + operadorActual + " " + operando2); // NUEVO
                     modeloHistorial.addElement(operando1 + " " + operadorActual + " " + operando2 + " = " + resultado);
-                    campoOperador.setText("");
                     nuevoNumero = true;
                     break;
                     
