@@ -1,7 +1,0 @@
-INDEX VERSION 1.4+C:\Users\Mati\Desktop\Techtalent\Repositorio-TechTalent-2025\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-366397366.index
-1591138325.index
-2687798118.index
-2157970223.index
-2810954500.index
-2216675482.index
