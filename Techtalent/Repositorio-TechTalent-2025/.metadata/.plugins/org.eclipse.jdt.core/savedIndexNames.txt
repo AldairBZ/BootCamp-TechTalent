@@ -1,0 +1,10 @@
+INDEX VERSION 1.134+C:\Users\Mati\Desktop\Techtalent\Repositorio-TechTalent-2025\.metadata\.plugins\org.eclipse.jdt.core
+1861425201.index
+1865797976.index
+1297490410.index
+2687798118.index
+1067094681.index
+3413270776.index
+943031389.index
+1712988076.index
+3268461556.index

@@ -69,7 +69,7 @@ public class VentanaCalculadora extends JFrame {
         panelBotones = new PanelBotones(campoOperador, campoResultado, modeloHistorial);
         add(panelBotones, BorderLayout.CENTER);
 
-        cambiarTema(Tema.NEON);
+        cambiarTema(Tema.CLARO);
     }
 
     private void cambiarTema(Tema tema) {

@@ -89,7 +89,7 @@ public class PanelBotones extends JPanel {
                     campoOperador.setText("");
                     nuevoNumero = true;
                     break;
-
+                    
                 case "C":
                     campoResultado.setText("");
                     campoOperador.setText("");

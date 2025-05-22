@@ -1,0 +1,29 @@
+package UD19SwingAWT;
+
+import javax.swing.*;
+
+public class VentanaCalculadora extends JFrame {
+
+    public VentanaCalculadora() {
+        setTitle("Calculadora");
+        setSize(400, 500);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+
+        JTextField campoResultado = new JTextField();
+        campoResultado.setFont(new java.awt.Font("Arial", java.awt.Font.PLAIN, 24));
+        campoResultado.setHorizontalAlignment(JTextField.RIGHT);
+
+        // Desactiva la edición directa
+        campoResultado.setEditable(false);
+
+        add(campoResultado, "North");
+        add(new PanelBotones(campoResultado), "Center");
+
+        setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        new VentanaCalculadora();
+    }
+}
