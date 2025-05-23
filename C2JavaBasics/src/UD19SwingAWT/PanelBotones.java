@@ -25,9 +25,7 @@ public class PanelBotones extends JPanel {
 				"+", "=" };
 
 		for (String texto : etiquetas) {
-			if (texto.equals("")) {
-				add(new JLabel());
-			} else {
+			
 				JButton btn = new JButton(texto);
 				btn.setFont(new Font("Arial", Font.BOLD, 20));
 				btn.addActionListener(new BotonListener());
@@ -37,7 +35,7 @@ public class PanelBotones extends JPanel {
 				add(btn);
 			}
 		}
-	}
+	
 
 	public void cambiarTema(Color fondo, Color texto, Color botones, Color bordes) {
 		setBackground(fondo);
@@ -86,31 +84,37 @@ public class PanelBotones extends JPanel {
 			}
 
 			case "=" -> {
-				try {
-					if (campoResultado.getText().isEmpty() || campoResultado.getText().equals(".")) {
-						campoResultado.setText("0");
-					}
+			    try {
+			        if (campoResultado.getText().isEmpty() || campoResultado.getText().equals(".")) {
+			            campoResultado.setText("0");
+			        }
 
-					double operando2 = Double.parseDouble(campoResultado.getText());
-					double resultado = calcularResultado(operando1, operando2);
+			        double operando2 = Double.parseDouble(campoResultado.getText());
+			        double resultado = calcularResultado(operando1, operando2);
 
-					String resultadoFormateado = formatearNumero(resultado);
-					String operando1Formateado = formatearNumero(operando1);
-					String operando2Formateado = formatearNumero(operando2);
+			        String resultadoFormateado = formatearNumero(resultado);
+			        String operando1Formateado = formatearNumero(operando1);
+			        String operando2Formateado = formatearNumero(operando2);
 
-					campoResultado.setText(resultadoFormateado);
-					campoOperador.setText(operando1Formateado + " " + operadorActual + " " + operando2Formateado);
-					modeloHistorial.addElement(operando1Formateado + " " + operadorActual + " " + operando2Formateado
-							+ " = " + resultadoFormateado);
-					nuevoNumero = true;
-					operadorActual = "";
-				} catch (ArithmeticException ex) {
-					campoResultado.setText("Error/Cero no, crack");
-					campoOperador.setText("");
-					nuevoNumero = true;
-					operadorActual = "";
-				}
+			        String operacionCompleta = operando1Formateado + " " + operadorActual + " " + operando2Formateado;
+
+			        campoResultado.setText(resultadoFormateado);
+			        campoOperador.setText(operacionCompleta);
+			        modeloHistorial.addElement(operacionCompleta + " = " + resultadoFormateado);
+			        
+			        // Guardar en la base de datos
+			        HistorialBD.guardarOperacion(operacionCompleta, resultado);
+
+			        nuevoNumero = true;
+			        operadorActual = "";
+			    } catch (ArithmeticException ex) {
+			        campoResultado.setText("Error/Cero no, crack");
+			        campoOperador.setText("");
+			        nuevoNumero = true;
+			        operadorActual = "";
+			    }
 			}
+
 
 			case "C" -> {
 				campoResultado.setText("");

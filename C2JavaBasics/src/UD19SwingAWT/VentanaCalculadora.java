@@ -2,6 +2,9 @@ package UD19SwingAWT;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionAdapter;
 
 public class VentanaCalculadora extends JFrame {
 
@@ -11,17 +14,16 @@ public class VentanaCalculadora extends JFrame {
     private DefaultListModel<String> modeloHistorial = new DefaultListModel<>();
     private JList<String> listaHistorial = new JList<>(modeloHistorial);
 
-    public enum Tema {
-        CLARO, OSCURO, NEON
-    }
+
+    public enum Tema {CLARO, OSCURO, NEON}
 
     public VentanaCalculadora() {
+    	 setUndecorated(true);
         setTitle("Calculadora");
-        setSize(400, 500);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        setLayout(new BorderLayout());
-
+    	 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+         setLocationRelativeTo(null);
+         setLayout(new BorderLayout());
+    
         JMenuBar barraMenu = new JMenuBar();
         JMenu menuOpciones = new JMenu("Opciones");
 
@@ -70,6 +72,23 @@ public class VentanaCalculadora extends JFrame {
         add(panelBotones, BorderLayout.CENTER);
 
         cambiarTema(Tema.CLARO);
+        pack();   
+        setMinimumSize(new Dimension(400, 500));
+        
+     // Movimiento de ventana sin bordes
+        Point mouseClickPoint = new Point();
+        addMouseListener(new MouseAdapter() {
+            public void mousePressed(MouseEvent e) {
+                mouseClickPoint.setLocation(e.getPoint());
+            }
+        });
+        addMouseMotionListener(new MouseMotionAdapter() {
+            public void mouseDragged(MouseEvent e) {
+                Point currentScreenLocation = e.getLocationOnScreen();
+                setLocation(currentScreenLocation.x - mouseClickPoint.x, currentScreenLocation.y - mouseClickPoint.y);
+            }
+        });
+
     }
 
     private void cambiarTema(Tema tema) {
@@ -101,11 +120,11 @@ public class VentanaCalculadora extends JFrame {
                 bordes = Color.GRAY;
         }
 
+        getContentPane().setBackground(fondo);
         campoOperador.setBackground(fondo);
         campoOperador.setForeground(texto);
         campoResultado.setBackground(fondo);
         campoResultado.setForeground(texto);
-
         panelBotones.cambiarTema(fondo, texto, botones, bordes);
 
         SwingUtilities.updateComponentTreeUI(this);
