@@ -75,6 +75,10 @@ public class PanelBotones extends JPanel {
 			case "×":
 			case "^":
 			case "÷":
+			    if (campoResultado.getText().isEmpty() || campoResultado.getText().equals(".")) {
+			        campoResultado.setText("0");
+			    }
+
 			    if (!operadorActual.isEmpty() && !nuevoNumero) {
 			        double operando2 = Double.parseDouble(campoResultado.getText());
 			        operando1 = calcularResultado(operando1, operando2);
@@ -82,7 +86,7 @@ public class PanelBotones extends JPanel {
 			    } else {
 			        operando1 = Double.parseDouble(campoResultado.getText());
 			    }
-			    
+
 			    operadorActual = texto;
 			    campoOperador.setText(formatearNumero(operando1) + " " + texto);
 			    nuevoNumero = true;
@@ -90,6 +94,10 @@ public class PanelBotones extends JPanel {
 
 			case "=":
 			    try {
+			        if (campoResultado.getText().isEmpty() || campoResultado.getText().equals(".")) {
+			            campoResultado.setText("0");
+			        }
+
 			        double operando2 = Double.parseDouble(campoResultado.getText());
 			        double resultado = calcularResultado(operando1, operando2);
 
