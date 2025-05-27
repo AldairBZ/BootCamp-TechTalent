@@ -1,4 +1,4 @@
-package UD18JDBC.AppJDBC;
+package UD18JDBC;
 
 import javax.swing.*;
 import java.awt.*;
