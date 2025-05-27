@@ -1,3 +1,5 @@
+CREATE DATABASE Biblioteca;
+USE Biblioteca;
 CREATE TABLE Libro (
     ClaveLibro INT,
     Titulo VARCHAR(255),
