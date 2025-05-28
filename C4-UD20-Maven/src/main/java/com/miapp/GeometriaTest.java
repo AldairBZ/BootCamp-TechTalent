@@ -1,10 +1,11 @@
 package com.miapp;
+
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class GeometriaTest {
 
-    Geometria geo = new Geometria();
+    private Geometria geo = new Geometria();
 
     @Test
     public void testAreaCuadrado() {
