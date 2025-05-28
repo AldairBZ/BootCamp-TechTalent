@@ -1,27 +1,38 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
-                             http://maven.apache.org/xsd/maven-4.0.0.xsd"> 
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.example</groupId>
-  <artifactId>spring-mvc-juniotgn</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+
+  <groupId>com.ejemplo</groupId>
+  <artifactId>springmvcapp</artifactId>
+  <version>1.0</version>
   <packaging>war</packaging>
-  
-  
+
+  <properties>
+    <java.version>21</java.version>
+  </properties>
+
   <dependencies>
-  	<!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
-	<dependency>
-	    <groupId>org.springframework</groupId>
-	    <artifactId>spring-webmvc</artifactId>
-	    <version>6.2.7</version>
-	</dependency>
-	<!-- https://mvnrepository.com/artifact/jakarta.servlet/jakarta.servlet-api -->
-	<dependency>
-	    <groupId>jakarta.servlet</groupId>
-	    <artifactId>jakarta.servlet-api</artifactId>
-	    <version>6.1.0</version>
-	    <scope>provided</scope>
-	</dependency>
+    <dependency>
+      <groupId>org.springframework</groupId>
+      <artifactId>spring-webmvc</artifactId>
+      <version>6.0.11</version>
+    </dependency>
+    <dependency>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
+      <version>6.0.0</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>jakarta.annotation</groupId>
+      <artifactId>jakarta.annotation-api</artifactId>
+      <version>2.1.1</version>
+    </dependency>
   </dependencies>
+
+  <build>
+    <finalName>springmvcapp</finalName>
+  </build>
 </project>
