@@ -1,6 +1,6 @@
 package com.miapp;
 
-import static org.junit.jupiter.api.Assertions.;
+import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.Test;
 
 public class GeometriaTest {
@@ -14,7 +14,7 @@ public class GeometriaTest {
 
     @Test
     public void testAreaCirculo() {
-        assertEquals(Math.PI 3 * 3, geo.areaCirculo(3), 0.001);
+    	assertEquals(Math.PI * 3 * 3, geo.areaCirculo(3), 0.001);
     }
 
     @Test
