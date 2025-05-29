@@ -1,3 +1,5 @@
+// ---------------------------------------------------------------------------------------------------------
+
 // 1.- TODO ESTO PARA HACERLO POR MONGO SHELL
 // 2.- Crear la colección fabricantes e insertar datos
 // 3.- MONGO SHELL.
@@ -14,6 +16,7 @@ db.fabricantes.insertMany([
     { "Codigo": 9, "Nombre": "Western Digital" },
     { "Codigo": 10, "Nombre": "Apple" }
 ]);
+// ---------------------------------------------------------------------------------------------------------
 
 // 4.- Crear la colección articulos e insertar datos
 // 5.- MONGO SHELL
@@ -30,10 +33,12 @@ db.articulos.insertMany([
     { "Codigo": 9, "Nombre": "Disco duro externo 2TB", "Precio": 130, "Fabricante": 9 },
     { "Codigo": 10, "Nombre": "Smartphone", "Precio": 1000, "Fabricante": 10 }
 ]);
+// ---------------------------------------------------------------------------------------------------------
 
 // Verificar los datos.
 // Para ver los datos en Mongo Shell.
 
 db.fabricantes.find().pretty()
 db.articulos.find().pretty()
+
 // ---------------------------------------------------------------------------------------------------------

@@ -9,7 +9,7 @@ mongoose.connect('mongodb://localhost:27017/tiendainfo', {
 }).then(() => console.log("Conectado a MongoDB"))
 .catch(err => console.error(err));
 
-// ---------------------------------------------------------------------------------------------------------
+//----------------------------------------------------------------------------------------------------------
 
 // 2.- Crear la colección fabricantes e insertar datos
 const fabricanteSchema = new mongoose.Schema({

@@ -1,4 +1,3 @@
-
 INSERT INTO facultad (codigo, nombre) VALUES
 (1, 'Facultad de Ingeniería'),
 (2, 'Facultad de Ciencias'),
