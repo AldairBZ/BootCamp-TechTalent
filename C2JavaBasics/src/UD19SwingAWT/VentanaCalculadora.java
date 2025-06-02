@@ -2,9 +2,7 @@ package UD19SwingAWT;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionAdapter;
+import java.awt.event.*;
 
 public class VentanaCalculadora extends JFrame {
 
@@ -14,16 +12,19 @@ public class VentanaCalculadora extends JFrame {
     private DefaultListModel<String> modeloHistorial = new DefaultListModel<>();
     private JList<String> listaHistorial = new JList<>(modeloHistorial);
 
-
-    public enum Tema {CLARO, OSCURO, NEON}
+    public enum Tema {
+        CLARO, OSCURO, NEON
+    }
 
     public VentanaCalculadora() {
-    	 setUndecorated(true);
+        setUndecorated(true);
         setTitle("Calculadora");
-    	 setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-         setLocationRelativeTo(null);
-         setLayout(new BorderLayout());
-    
+        setSize(400, 500);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setLayout(new BorderLayout());
+
+        // Barra de menú
         JMenuBar barraMenu = new JMenuBar();
         JMenu menuOpciones = new JMenu("Opciones");
 
@@ -36,8 +37,15 @@ public class VentanaCalculadora extends JFrame {
         itemTemaClaro.addActionListener(e -> cambiarTema(Tema.CLARO));
         itemTemaOscuro.addActionListener(e -> cambiarTema(Tema.OSCURO));
         itemTemaNeon.addActionListener(e -> cambiarTema(Tema.NEON));
-        itemHistorial.addActionListener(e -> JOptionPane.showMessageDialog(this, new JScrollPane(listaHistorial),
-                "Historial de cálculos", JOptionPane.INFORMATION_MESSAGE));
+
+        // Mostrar historial desde la base de datos
+        itemHistorial.addActionListener(e -> {
+            DefaultListModel<String> modeloDesdeBD = HistorialBD.obtenerHistorial();
+            listaHistorial.setModel(modeloDesdeBD);
+            JOptionPane.showMessageDialog(this, new JScrollPane(listaHistorial),
+                    "Historial de cálculos", JOptionPane.INFORMATION_MESSAGE);
+        });
+
         itemSalir.addActionListener(e -> System.exit(0));
 
         menuOpciones.add(itemTemaClaro);
@@ -49,6 +57,32 @@ public class VentanaCalculadora extends JFrame {
         barraMenu.add(menuOpciones);
         setJMenuBar(barraMenu);
 
+        // **Añadir pronunciación de menú**
+        MouseAdapter pronunciarOpciones = new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                JMenuItem item = (JMenuItem) e.getSource();
+                EspeakTTS.hablar(item.getText());  // ✅ Pronunciar opción del menú
+            }
+        };
+        
+        // Añadir MouseListener para el menú principal
+        menuOpciones.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseEntered(MouseEvent e) {
+                EspeakTTS.hablar("Opciones");  // ✅ Pronuncia el nombre del menú
+            }
+        });
+
+
+        // Aplicar pronunciación a cada opción del menú
+        itemTemaClaro.addMouseListener(pronunciarOpciones);
+        itemTemaOscuro.addMouseListener(pronunciarOpciones);
+        itemTemaNeon.addMouseListener(pronunciarOpciones);
+        itemHistorial.addMouseListener(pronunciarOpciones);
+        itemSalir.addMouseListener(pronunciarOpciones);
+
+        // Área de resultados
         campoOperador = new JTextField();
         campoOperador.setEditable(false);
         campoOperador.setFont(new Font("Consolas", Font.BOLD, 16));
@@ -68,14 +102,19 @@ public class VentanaCalculadora extends JFrame {
 
         add(panelCampos, BorderLayout.NORTH);
 
+        // Panel de botones
         panelBotones = new PanelBotones(campoOperador, campoResultado, modeloHistorial);
         add(panelBotones, BorderLayout.CENTER);
 
+        // Cargar historial desde la base de datos al iniciar
+        modeloHistorial = HistorialBD.obtenerHistorial();
+        listaHistorial.setModel(modeloHistorial);
+
         cambiarTema(Tema.CLARO);
-        pack();   
+        pack();
         setMinimumSize(new Dimension(400, 500));
-        
-     // Movimiento de ventana sin bordes
+
+        // Movimiento de ventana sin bordes
         Point mouseClickPoint = new Point();
         addMouseListener(new MouseAdapter() {
             public void mousePressed(MouseEvent e) {
@@ -88,7 +127,6 @@ public class VentanaCalculadora extends JFrame {
                 setLocation(currentScreenLocation.x - mouseClickPoint.x, currentScreenLocation.y - mouseClickPoint.y);
             }
         });
-
     }
 
     private void cambiarTema(Tema tema) {
@@ -108,10 +146,10 @@ public class VentanaCalculadora extends JFrame {
                 bordes = Color.LIGHT_GRAY;
                 break;
             case NEON:
-                fondo = new Color(30, 30, 40);//negro azulado
-                texto = new Color(180, 0, 255);//morado neon
-                botones = new Color(30, 30, 40); //Mismo color del fondo solo que se marca con borde
-                bordes = new Color(100, 255, 255);//Borde neon fino
+                fondo = new Color(30, 30, 40); // Negro azulado
+                texto = new Color(180, 0, 255); // Morado neón
+                botones = new Color(30, 30, 40); // Mismo color del fondo, con borde marcado
+                bordes = new Color(100, 255, 255); // Borde neón fino
                 break;
             default:
                 fondo = Color.WHITE;
@@ -120,11 +158,11 @@ public class VentanaCalculadora extends JFrame {
                 bordes = Color.GRAY;
         }
 
-        getContentPane().setBackground(fondo);
         campoOperador.setBackground(fondo);
         campoOperador.setForeground(texto);
         campoResultado.setBackground(fondo);
         campoResultado.setForeground(texto);
+
         panelBotones.cambiarTema(fondo, texto, botones, bordes);
 
         SwingUtilities.updateComponentTreeUI(this);
