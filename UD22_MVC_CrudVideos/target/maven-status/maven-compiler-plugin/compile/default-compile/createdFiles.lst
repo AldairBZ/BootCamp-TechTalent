@@ -1,0 +1,9 @@
+controller\ClienteController.class
+view\ClienteTableModel.class
+MainApp.class
+model\Video.class
+model\Cliente.class
+model\VideoDAO.class
+model\Conexion.class
+model\ClienteDAO.class
+view\ClienteView.class
