@@ -1,0 +1,77 @@
+/* ===== ESTILOS GENERALES DEL CUERPO ===== */
+body {
+    /* Fuente principal para todo el documento */
+    font-family: Arial, sans-serif;
+    
+    /* Espacio entre líneas de texto */
+    line-height: 1.6;
+    
+    /* Quita los márgenes por defecto del navegador */
+    margin: 0;
+    
+    /* Añade espacio interno alrededor del contenido */
+    padding: 20px;
+}
+
+/* ===== ESTILOS DEL TÍTULO PRINCIPAL ===== */
+h1 {
+    /* Color del texto del título */
+    color: rgb(94, 202, 6);  /* Tu color personalizado */
+    
+    /* Centra el título */
+    text-align: center;
+    
+    /* Espacio debajo del título */
+    margin-bottom: 30px;
+    
+    /* Tamaño del texto del título */
+    font-size: 40px;  /* Tu tamaño personalizado */
+}
+
+/* ===== ESTILOS DE LOS PÁRRAFOS ===== */
+p {
+    /* Color del texto de los párrafos */
+    color: #000000;
+    
+    /* Espacio debajo de cada párrafo */
+    margin-bottom: 20px;
+}
+
+/* ===== ESTILOS DE LA LISTA ===== */
+ul {
+    /* Quita los puntos de la lista */
+    list-style-type: none;
+    
+    /* Quita el padding por defecto */
+    padding: 0;
+}
+
+/* ===== ESTILOS DE CADA ELEMENTO DE LA LISTA ===== */
+li {
+    /* Espacio debajo de cada elemento */
+    margin-bottom: 10px;
+    
+    /* Espacio interno de cada elemento */
+    padding: 10px;
+    
+    /* Color de fondo de cada elemento */
+    background-color: #f4f4f4;
+    
+    /* Esquinas redondeadas */
+    border-radius: 5px;
+}
+
+/* ===== ESTILOS DE TEXTO EN NEGRITA ===== */
+strong {
+    /* Color del texto en negrita */
+    color: #333;
+}
+
+/* ===== ESTILOS DE TEXTO EN CURSIVA ===== */
+em {
+    /* Color del texto en cursiva */
+    color: #666;
+    
+    /* Asegura que el texto esté en cursiva */
+    font-style: italic;
+} 
