@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <link href="../CSS/Boostrap1.css" rel="stylesheet"/>
+  <title>Explorador Bootstrap 5 Completo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { padding: 2rem; }
+    h2 { margin-top: 2rem; border-bottom: 1px solid #ccc; padding-bottom: .5rem; }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <h1 class="text-center">🌐 Bootstrap 5 – Todos los Componentes</h1>
+
+  <!-- 1. Buttons and Button groups -->
+  <h2>Botones</h2>
+  <div class="mb-3">
+    <button class="btn btn-outline-primary me-1">Outline Primary</button>
+    <button class="btn btn-primary me-1">Primary</button>
+    <div class="btn-group me-1">
+      <button class="btn btn-secondary">1</button>
+      <button class="btn btn-secondary">2</button>
+      <button class="btn btn-secondary">3</button>
+    </div>
+    <div class="btn-toolbar">
+      <div class="btn-group me-1">
+        <button class="btn btn-danger">Left</button>
+        <button class="btn btn-danger">Middle</button>
+        <button class="btn btn-danger">Right</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Alerts & Badges -->
+  <h2>Alertas y Badges</h2>
+  <div class="alert alert-warning alert-dismissible fade show">
+    <strong>¡Aviso!</strong> Esto es una alerta <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  </div>
+  <button class="btn btn-primary">
+    Mensajes <span class="badge bg-light text-dark">4</span>
+  </button>
+
+  <!-- 3. Cards -->
+  <h2>Tarjetas (Cards)</h2>
+  <div class="card mb-3" style="width: 18rem;">
+    <img src="https://via.placeholder.com/286x180" class="card-img-top" alt="">
+    <div class="card-body">
+      <h5 class="card-title">Card con badge</h5>
+      <p class="card-text">Contenido de ejemplo dentro de la tarjeta.</p>
+      <a href="#" class="stretched-link"></a>
+    </div>
+  </div>
+
+  <!-- 4. Grid system -->
+  <h2>Grid (Filas y Columnas)</h2>
+  <div class="row mb-3 text-center">
+    <div class="col-sm-4 bg-primary text-white py-2">col-sm-4</div>
+    <div class="col-sm-4 bg-success text-white py-2">col-sm-4</div>
+    <div class="col-sm-4 bg-warning text-white py-2">col-sm-4</div>
+  </div>
+
+  <!-- 5. Forms -->
+  <h2>Formularios y Input Group</h2>
+  <form class="mb-3">
+    <label class="form-label">Correo</label>
+    <div class="input-group mb-2">
+      <span class="input-group-text">@</span>
+      <input type="email" class="form-control" placeholder="email@example.com">
+    </div>
+    <div class="form-check">
+      <input class="form-check-input" type="checkbox" id="check1">
+      <label class="form-check-label" for="check1">Estoy de acuerdo</label>
+    </div>
+    <button class="btn btn-success mt-2">Enviar</button>
+  </form>
+
+  <!-- 6. Navs, Navbar, Breadcrumb, Pagination -->
+  <h2>Navegación</h2>
+  <ul class="nav nav-tabs mb-2">
+    <li class="nav-item"><a class="nav-link active" href="#">Activo</a></li>
+    <li class="nav-item"><a class="nav-link" href="#">Link</a></li>
+  </ul>
+  <nav aria-label="breadcrumb" class="mb-2">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Inicio</a></li>
+      <li class="breadcrumb-item active">Página actual</li>
+    </ol>
+  </nav>
+  <nav aria-label="page-navigation">
+    <ul class="pagination">
+      <li class="page-item disabled"><a class="page-link">Anterior</a></li>
+      <li class="page-item active"><a class="page-link">1</a></li>
+      <li class="page-item"><a class="page-link">2</a></li>
+      <li class="page-item"><a class="page-link">Siguiente</a></li>
+    </ul>
+  </nav>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <div class="navbar-nav">
+        <a class="nav-link" href="#">Link</a>
+        <a class="nav-link" href="#">Otro</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 7. Spinners & Progress -->
+  <h2>Spinners y Barras de Progreso</h2>
+  <div class="spinner-border text-primary me-2"></div>
+  <div class="spinner-grow text-danger"></div>
+  <div class="progress mt-2">
+    <div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 60%">60%</div>
+  </div>
+
+  <!-- 8. Accordion, Collapse, Modal, Offcanvas -->
+  <h2>Contenedores dinámicos</h2>
+  <div class="accordion mb-2" id="acc">
+    <div class="accordion-item">
+      <h2 class="accordion-header">
+        <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#acc1">Acordeón</button>
+      </h2>
+      <div id="acc1" class="accordion-collapse collapse show">
+        <div class="accordion-body">Contenido del acordeón...</div>
+      </div>
+    </div>
+  </div>
+  <p>
+    <button class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#col1">Mostrar/Ocultar</button>
+  </p>
+  <div id="col1" class="collapse mb-2">Contenido colapsable</div>
+  <button class="btn btn-primary me-2" data-bs-toggle="modal" data-bs-target="#modal1">Modal</button>
+  <button class="btn btn-secondary" data-bs-toggle="offcanvas" data-bs-target="#off1">Offcanvas</button>
+
+  <div class="modal fade" id="modal1" tabindex="-1"><div class="modal-dialog"><div class="modal-content">
+    <div class="modal-header"><h5 class="modal-title">Título Modal</h5><button class="btn-close" data-bs-dismiss="modal"></button></div>
+    <div class="modal-body">Contenido modal...</div>
+    <div class="modal-footer"><button class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button></div>
+  </div></div></div>
+
+  <div class="offcanvas offcanvas-start" id="off1">
+    <div class="offcanvas-header"><h5>Offcanvas</h5><button class="btn-close" data-bs-dismiss="offcanvas"></button></div>
+    <div class="offcanvas-body">Contenido lateral...</div>
+  </div>
+
+  <!-- 9. Tooltips & Popovers -->
+  <h2>Tooltips y Popovers</h2>
+  <button class="btn btn-secondary me-2" data-bs-toggle="tooltip" title="Tooltip">Tooltip</button>
+  <button class="btn btn-info" data-bs-toggle="popover" title="Popover" data-bs-content="Contenido adicional">Popover</button>
+
+  <!-- 10. Toasts -->
+  <h2>Toasts</h2>
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div class="toast show">
+      <div class="toast-header">
+        <strong class="me-auto">Notificación</strong>
+        <button class="btn-close" data-bs-dismiss="toast"></button>
+      </div>
+      <div class="toast-body">Este es un toast.</div>
+    </div>
+  </div>
+
+  <!-- 11. List Groups -->
+  <h2>List Group</h2>
+  <ul class="list-group">
+    <li class="list-group-item active">Elemento activo</li>
+    <li class="list-group-item">Otro elemento</li>
+  </ul>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(el=>new bootstrap.Tooltip(el));
+  document.querySelectorAll('[data-bs-toggle="popover"]').forEach(el=>new bootstrap.Popover(el));
+</script>
+</body>
+</html>
