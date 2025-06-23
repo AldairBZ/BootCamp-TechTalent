@@ -1,0 +1,48 @@
+body {
+  font-family: sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 0;
+}
+header, nav, .section {
+  padding: 20px;
+}
+nav a {
+  margin-right: 10px;
+}
+.btn {
+  background: #3498db;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+}
+.card {
+  padding: 20px;
+  border: 1px solid #ddd;
+  transition: transform 0.2s;
+}
+.card:hover {
+  transform: scale(1.05);
+}
+
+
+// js/script.js
+function cambiarFondo() {
+  document.body.style.backgroundColor = "#d1f0d1";
+}
+
+function mostrarNombre() {
+  let nombre = document.getElementById("nombre").value;
+  document.getElementById("saludo").innerText = `Hola, ${nombre}!`;
+}
+
+function resaltar(elemento) {
+  elemento.style.backgroundColor = "#ffeaa7";
+}
+
+// Métodos de string y array
+let articulos = ["HTML básico", "CSS moderno", "JS Interactivo"];
+let filtrados = articulos.filter(a => a.includes("JS"));
+let mayusculas = articulos.map(a => a.toUpperCase());
+console.log(mayusculas);
