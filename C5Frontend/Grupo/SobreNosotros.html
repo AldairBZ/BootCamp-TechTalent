@@ -15,13 +15,13 @@
       <div class="logo">
         <i class="fas fa-heart"></i> Insultos Cariñosos
       </div>
-      <ul class="nav-menu" id="navMenu">
+      <ul class="nav-menu" id="navMenu" aria-label="Menú principal">
         <li class="nav-item"><a href="Home.html" class="nav-link"><i class="fas fa-home"></i> Inicio</a></li>
         <li class="nav-item dropdown">
-          <a href="#" class="nav-link" id="nav-dropdown-toggle">
+          <a href="#" class="nav-link" id="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-info-circle"></i> Sobre <i class="fas fa-chevron-down"></i>
           </a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu" aria-label="Submenú Sobre">
             <li><a href="SobreNosotros.html">Sobre Nosotros</a></li>
             <li><a href="Procesos.html">Nuestros Procesos</a></li>
           </ul>
@@ -33,8 +33,9 @@
         <div class="cart-icon" id="cart-icon-btn">
           <i class="fas fa-shopping-cart"></i><span class="cart-count" id="cartCount">0</span>
         </div>
-        <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
       </div>
+      <div class="nav-blur-bg" id="navBlurBg"></div>
     </nav>
   </header>
 
@@ -77,10 +78,10 @@
         <h2 class="section-title">Nuestra misión</h2>
         <p class="section-subtitle">Queremos que el amor y el humor vayan de la mano. Por eso, cada producto está pensado para arrancar sonrisas, crear recuerdos y demostrar que el cariño puede ser tan ácido como dulce.</p>
         <ul style="margin:2rem auto;max-width:600px;list-style: none;padding:0;">
-          <li style="margin-bottom:1rem;"><i class="fas fa-heart" style="color:#e63946;margin-right:8px;"></i> Creatividad y originalidad en cada diseño</li>
-          <li style="margin-bottom:1rem;"><i class="fas fa-mug-hot" style="color:#e63946;margin-right:8px;"></i> Productos de calidad y personalizados</li>
-          <li style="margin-bottom:1rem;"><i class="fas fa-laugh" style="color:#e63946;margin-right:8px;"></i> Humor y amor en cada insulto</li>
-          <li><i class="fas fa-users" style="color:#e63946;margin-right:8px;"></i> Cercanía y atención a cada cliente</li>
+          <li style="margin-bottom:1rem;"><i class="fas fa-heart" style="color:var(--rojo);margin-right:8px;"></i> Creatividad y originalidad en cada diseño</li>
+          <li style="margin-bottom:1rem;"><i class="fas fa-mug-hot" style="color:var(--rojo);margin-right:8px;"></i> Productos de calidad y personalizados</li>
+          <li style="margin-bottom:1rem;"><i class="fas fa-laugh" style="color:var(--rojo);margin-right:8px;"></i> Humor y amor en cada insulto</li>
+          <li><i class="fas fa-users" style="color:var(--rojo);margin-right:8px;"></i> Cercanía y atención a cada cliente</li>
         </ul>
       </div>
     </section>
@@ -109,10 +110,10 @@
             Especialistas en amor tóxico desde 2025. Transformando insultos en declaraciones de amor desde el primer día.
           </p>
           <div class="footer-social">
-            <a href="#" class="footer-social-link"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="footer-social-link"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="footer-social-link"><i class="fab fa-tiktok"></i></a>
-            <a href="#" class="footer-social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="footer-social-link pop-hover"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="footer-social-link pop-hover"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="footer-social-link pop-hover"><i class="fab fa-tiktok"></i></a>
+            <a href="#" class="footer-social-link pop-hover"><i class="fab fa-twitter"></i></a>
           </div>
         </div>
 

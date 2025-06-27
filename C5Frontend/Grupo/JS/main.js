@@ -1,11 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Toggle menú móvil
+  // Toggle menú móvil mejorado con fondo blur y cierre al hacer click fuera
   const mobileMenuBtn = document.getElementById('mobileMenuBtn');
   const navMenu = document.getElementById('navMenu');
+  const navBlurBg = document.getElementById('navBlurBg');
 
-  if (mobileMenuBtn && navMenu) {
+  if (mobileMenuBtn && navMenu && navBlurBg) {
     mobileMenuBtn.addEventListener('click', () => {
       navMenu.classList.toggle('show');
+      navBlurBg.classList.toggle('active');
+    });
+    navBlurBg.addEventListener('click', () => {
+      navMenu.classList.remove('show');
+      navBlurBg.classList.remove('active');
+    });
+    // Cerrar menú al hacer click en un enlace
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('show');
+        navBlurBg.classList.remove('active');
+      });
     });
   }
   
@@ -130,8 +143,21 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Newsletter
   const newsletterForm = document.getElementById('newsletter-form');
-  if(newsletterForm) {
-    newsletterForm.addEventListener('submit', subscribeNewsletter);
+  const newsletterFeedback = document.getElementById('newsletter-feedback');
+  if(newsletterForm && newsletterFeedback) {
+    newsletterForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      newsletterFeedback.style.display = 'block';
+      newsletterFeedback.innerHTML = '<i class="fas fa-check-circle"></i> ¡Gracias por unirte! Pronto recibirás insultos y descuentos irresistibles.';
+      newsletterForm.querySelector('.newsletter-input').disabled = true;
+      newsletterForm.querySelector('.newsletter-btn').disabled = true;
+      setTimeout(() => {
+        newsletterFeedback.style.display = 'none';
+        newsletterForm.querySelector('.newsletter-input').disabled = false;
+        newsletterForm.querySelector('.newsletter-btn').disabled = false;
+        newsletterForm.reset();
+      }, 5000);
+    });
   }
 
   // MODAL de selección de producto a personalizar
@@ -264,6 +290,227 @@ document.addEventListener('DOMContentLoaded', () => {
       alert(`¡${nombre} añadido al carrito!`);
     });
   });
+
+  // =====================
+  // SLIDERS DE PRODUCTOS HOME
+  // =====================
+  const tazas = [
+    {
+      img: 'IMG/taza.png',
+      nombre: 'Taza "Eres mi problema favorito"',
+      descripcion: 'Perfecta para ese ser especial que amas odiar.',
+      precio: '€12.99'
+    },
+    {
+      img: 'IMG/taza1.png',
+      nombre: 'Taza "Te quiero aunque seas un desastre"',
+      descripcion: 'Para los que aman con sarcasmo.',
+      precio: '€13.99'
+    },
+    {
+      img: 'IMG/taza4.png',
+      nombre: 'Taza "Molesto pero necesario"',
+      descripcion: 'Para los imprescindibles de tu vida.',
+      precio: '€14.99'
+    },
+    {
+      img: 'IMG/taza5.png',
+      nombre: 'Taza "Eres mi cafeína favorita"',
+      descripcion: 'Para los adictos al amor y al café.',
+      precio: '€12.99'
+    }
+  ];
+  const polos = [
+    {
+      img: 'IMG/camisa1.png',
+      nombre: 'Polo "Idiota, pero mi idiota"',
+      descripcion: 'Para los que se quieren con humor.',
+      precio: '€19.99'
+    },
+    {
+      img: 'IMG/camisa2.png',
+      nombre: 'Polo "Te quiero aunque seas un desastre"',
+      descripcion: 'Para los desastres adorables.',
+      precio: '€21.99'
+    },
+    {
+      img: 'IMG/camisa3.png',
+      nombre: 'Polo "Molesto pero mío"',
+      descripcion: 'Para los imprescindibles de tu vida.',
+      precio: '€22.99'
+    }
+  ];
+  // Slider Tazas
+  let tazaIndex = 0;
+  const tazaSliderContent = document.getElementById('taza-slider-content');
+  const tazaPrev = document.getElementById('taza-prev');
+  const tazaNext = document.getElementById('taza-next');
+  const tazaSliderDots = document.getElementById('taza-slider-dots');
+  let tazaInterval;
+  function renderTazaSlider() {
+    const t = tazas[tazaIndex];
+    tazaSliderContent.innerHTML = `
+      <div class=\"slider-product-card\">
+        <img src=\"${t.img}\" alt=\"${t.nombre}\" loading=\"lazy\" />
+        <div class=\"slider-product-title\">${t.nombre}</div>
+        <div class=\"slider-product-description\">${t.descripcion}</div>
+        <div class=\"slider-product-price\">${t.precio}</div>
+      </div>
+    `;
+    // Dots
+    if (tazaSliderDots) {
+      tazaSliderDots.innerHTML = '';
+      tazas.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.className = 'slider-dot' + (i === tazaIndex ? ' active' : '');
+        dot.onclick = () => { tazaIndex = i; renderTazaSlider(); resetTazaInterval(); };
+        tazaSliderDots.appendChild(dot);
+      });
+    }
+  }
+  function nextTazaAuto() {
+    tazaIndex = (tazaIndex + 1) % tazas.length;
+    renderTazaSlider();
+  }
+  function resetTazaInterval() {
+    clearInterval(tazaInterval);
+    tazaInterval = setInterval(nextTazaAuto, 3000);
+  }
+  if (tazaSliderContent) {
+    renderTazaSlider();
+    resetTazaInterval();
+    if (tazaPrev) tazaPrev.onclick = () => { tazaIndex = (tazaIndex - 1 + tazas.length) % tazas.length; renderTazaSlider(); resetTazaInterval(); };
+    if (tazaNext) tazaNext.onclick = () => { tazaIndex = (tazaIndex + 1) % tazas.length; renderTazaSlider(); resetTazaInterval(); };
+  }
+  // Slider Polos
+  let poloIndex = 0;
+  const poloSliderContent = document.getElementById('polo-slider-content');
+  const poloPrev = document.getElementById('polo-prev');
+  const poloNext = document.getElementById('polo-next');
+  const poloSliderDots = document.getElementById('polo-slider-dots');
+  let poloInterval;
+  function renderPoloSlider() {
+    const p = polos[poloIndex];
+    poloSliderContent.innerHTML = `
+      <div class=\"slider-product-card\">
+        <img src=\"${p.img}\" alt=\"${p.nombre}\" loading=\"lazy\" />
+        <div class=\"slider-product-title\">${p.nombre}</div>
+        <div class=\"slider-product-description\">${p.descripcion}</div>
+        <div class=\"slider-product-price\">${p.precio}</div>
+      </div>
+    `;
+    // Dots
+    if (poloSliderDots) {
+      poloSliderDots.innerHTML = '';
+      polos.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.className = 'slider-dot' + (i === poloIndex ? ' active' : '');
+        dot.onclick = () => { poloIndex = i; renderPoloSlider(); resetPoloInterval(); };
+        poloSliderDots.appendChild(dot);
+      });
+    }
+  }
+  function nextPoloAuto() {
+    poloIndex = (poloIndex + 1) % polos.length;
+    renderPoloSlider();
+  }
+  function resetPoloInterval() {
+    clearInterval(poloInterval);
+    poloInterval = setInterval(nextPoloAuto, 3000);
+  }
+  if (poloSliderContent) {
+    renderPoloSlider();
+    resetPoloInterval();
+    if (poloPrev) poloPrev.onclick = () => { poloIndex = (poloIndex - 1 + polos.length) % polos.length; renderPoloSlider(); resetPoloInterval(); };
+    if (poloNext) poloNext.onclick = () => { poloIndex = (poloIndex + 1) % polos.length; renderPoloSlider(); resetPoloInterval(); };
+  }
+
+  // =====================
+  // TESTIMONIOS MODERNOS
+  // =====================
+  const testimonios = [
+    {
+      texto: '"Le regalé una taza y ahora mi pareja me insulta con más amor. Definitivamente volveré a comprar más productos para seguir fomentando esta hermosa toxicidad."',
+      autor: 'María G.',
+      avatar: '💕',
+      rol: 'Cliente satisfecha',
+      estrellas: 5
+    },
+    {
+      texto: '"No pensé que un insulto personalizado pudiera conmoverme tanto. Mi camiseta \"Idiota, pero mi idiota\" es ahora mi prenda favorita."',
+      autor: 'Carlos R.',
+      avatar: '😈',
+      rol: 'Idiota feliz',
+      estrellas: 5
+    },
+    {
+      texto: '"Perfectos para regalar a esa persona especial que te saca de quicio pero que amas con locura. La calidad es increíble y las sonrisas garantizadas."',
+      autor: 'Ana L.',
+      avatar: '🖤',
+      rol: 'Experta en amor tóxico',
+      estrellas: 5
+    }
+  ];
+  let testimonioIndex = 0;
+  const testimonialsSlider = document.getElementById('testimonials-slider');
+  const testimonialDots = document.getElementById('testimonial-dots');
+  const prevTestimonialBtn = document.getElementById('prev-testimonial-btn');
+  const nextTestimonialBtn = document.getElementById('next-testimonial-btn');
+  let testimonialInterval;
+  function renderTestimonios() {
+    testimonialsSlider.innerHTML = '';
+    testimonios.forEach((t, i) => {
+      const card = document.createElement('div');
+      card.className = 'testimonial-card' + (i === testimonioIndex ? ' active' : '');
+      card.innerHTML = `
+        <div class=\"testimonial-content\">
+          <div class=\"stars\">${'★'.repeat(t.estrellas)}</div>
+          <p class=\"testimonial-text\">${t.texto}</p>
+          <div class=\"testimonial-author\">
+            <div class=\"author-avatar\">${t.avatar}</div>
+            <div class=\"author-info\"><h4>${t.autor}</h4><span>${t.rol}</span></div>
+          </div>
+        </div>
+      `;
+      testimonialsSlider.appendChild(card);
+    });
+    // Dots
+    if (testimonialDots) {
+      testimonialDots.innerHTML = '';
+      testimonios.forEach((_, i) => {
+        const dot = document.createElement('span');
+        dot.className = 'testimonial-dot' + (i === testimonioIndex ? ' active' : '');
+        dot.onclick = () => { testimonioIndex = i; renderTestimonios(); resetTestimonialInterval(); };
+        testimonialDots.appendChild(dot);
+      });
+    }
+  }
+  function nextTestimonioAuto() {
+    testimonioIndex = (testimonioIndex + 1) % testimonios.length;
+    renderTestimonios();
+  }
+  function prevTestimonio() {
+    testimonioIndex = (testimonioIndex - 1 + testimonios.length) % testimonios.length;
+    renderTestimonios();
+    resetTestimonialInterval();
+  }
+  function nextTestimonio() {
+    testimonioIndex = (testimonioIndex + 1) % testimonios.length;
+    renderTestimonios();
+    resetTestimonialInterval();
+  }
+  function resetTestimonialInterval() {
+    clearInterval(testimonialInterval);
+    testimonialInterval = setInterval(nextTestimonioAuto, 4000);
+  }
+  if (testimonialsSlider) {
+    renderTestimonios();
+    resetTestimonialInterval();
+    if (prevTestimonialBtn) prevTestimonialBtn.onclick = prevTestimonio;
+    if (nextTestimonialBtn) nextTestimonialBtn.onclick = nextTestimonio;
+    testimonialsSlider.onmouseenter = () => clearInterval(testimonialInterval);
+    testimonialsSlider.onmouseleave = resetTestimonialInterval;
+  }
 });
 
 

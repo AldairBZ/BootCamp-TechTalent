@@ -13,16 +13,16 @@
   <!-- Header -->
   <header class="header" id="header">
     <nav class="nav-container">
-      <div class="logo">
+      <a href="Home.html" class="logo">
         <i class="fas fa-heart"></i> Insultos Cariñosos
-      </div>
-      <ul class="nav-menu" id="navMenu">
+      </a>
+      <ul class="nav-menu" id="navMenu" aria-label="Menú principal">
         <li class="nav-item"><a href="Home.html" class="nav-link active"><i class="fas fa-home"></i> Inicio</a></li>
         <li class="nav-item dropdown">
-          <a href="#" class="nav-link" id="nav-dropdown-toggle">
+          <a href="#" class="nav-link" id="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-info-circle"></i> Sobre <i class="fas fa-chevron-down"></i>
           </a>
-          <ul class="dropdown-menu">
+          <ul class="dropdown-menu" aria-label="Submenú Sobre">
             <li><a href="SobreNosotros.html">Sobre Nosotros</a></li>
             <li><a href="Procesos.html">Nuestros Procesos</a></li>
           </ul>
@@ -34,8 +34,9 @@
         <div class="cart-icon" id="cart-icon-btn">
           <i class="fas fa-shopping-cart"></i><span class="cart-count" id="cartCount">0</span>
         </div>
-        <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
       </div>
+      <div class="nav-blur-bg" id="navBlurBg"></div>
     </nav>
   </header>
 
@@ -79,61 +80,40 @@
   <section class="featured-products" id="products">
     <div class="container">
       <div class="section-header">
-        <h2 class="section-title">Lo más querido (y odiado)</h2>
-        <p class="section-subtitle">Nuestros bestsellers que hacen que el amor duela... de la risa</p>
+        <h2 class="section-title">Descubre nuestros productos estrella</h2>
+        <p class="section-subtitle">Desliza para ver lo mejor en tazas y polos con insultos cariñosos</p>
       </div>
-      <div class="products-grid">
-        <article class="product-card" data-aos="fade-up">
-          <div class="product-image">
-            <img src="img/taza-featured.jpg" alt="Taza personalizada" loading="lazy" />
-            <div class="product-overlay">
-              <button class="btn-overlay quick-view-btn" data-product="taza"><i class="fas fa-eye"></i> Vista rápida</button>
+      <div class="sliders-productos">
+        <!-- Slider Tazas -->
+        <div class="slider-producto" id="slider-tazas">
+          <h3 class="slider-title"><i class="fas fa-mug-hot"></i> Tazas destacadas</h3>
+          <div class="slider-wrapper">
+            <button class="slider-arrow left" id="taza-prev"><i class="fas fa-chevron-left"></i></button>
+            <div class="slider-content" id="taza-slider-content">
+              <!-- Aquí se cargan las tazas por JS -->
             </div>
+            <button class="slider-arrow right" id="taza-next"><i class="fas fa-chevron-right"></i></button>
           </div>
-          <div class="product-info">
-            <h3 class="product-title">Taza: "Eres mi problema favorito"</h3>
-            <p class="product-description">Perfecta para ese ser especial que amas odiar</p>
-            <div class="product-price">
-              <span class="price-current">€12.99</span>
-              <span class="price-old">€15.99</span>
+          <div class="slider-dots" id="taza-slider-dots"></div>
+          <div style="text-align:center;margin-top:1rem;">
+            <a href="Producto.html#catalogo-productos" class="btn-secondary">Ver más tazas</a>
+          </div>
+        </div>
+        <!-- Slider Polos -->
+        <div class="slider-producto" id="slider-polos">
+          <h3 class="slider-title"><i class="fas fa-tshirt"></i> Polos destacados</h3>
+          <div class="slider-wrapper">
+            <button class="slider-arrow left" id="polo-prev"><i class="fas fa-chevron-left"></i></button>
+            <div class="slider-content" id="polo-slider-content">
+              <!-- Aquí se cargan los polos por JS -->
             </div>
-            <button class="btn-add-cart add-to-cart-btn" data-product-id="taza-problema" data-product-type="Taza" data-product-text="Eres mi problema favorito"><i class="fas fa-plus"></i> Añadir al carrito</button>
+            <button class="slider-arrow right" id="polo-next"><i class="fas fa-chevron-right"></i></button>
           </div>
-        </article>
-        <article class="product-card" data-aos="fade-up" data-aos-delay="100">
-          <div class="product-image">
-            <img src="img/camiseta-featured.jpg" alt="Camiseta personalizada" loading="lazy" />
-            <div class="product-overlay">
-              <button class="btn-overlay quick-view-btn" data-product="camiseta"><i class="fas fa-eye"></i> Vista rápida</button>
-            </div>
+          <div class="slider-dots" id="polo-slider-dots"></div>
+          <div style="text-align:center;margin-top:1rem;">
+            <a href="Producto.html#catalogo-productos" class="btn-secondary">Ver más polos</a>
           </div>
-          <div class="product-info">
-            <h3 class="product-title">Camiseta: "Te quiero aunque seas un desastre"</h3>
-            <p class="product-description">Para llevar el amor tóxico con estilo</p>
-            <div class="product-price">
-              <span class="price-current">€19.99</span>
-              <span class="price-old">€24.99</span>
-            </div>
-            <button class="btn-add-cart add-to-cart-btn" data-product-id="camiseta-desastre" data-product-type="Camiseta" data-product-text="Te quiero aunque seas un desastre"><i class="fas fa-plus"></i> Añadir al carrito</button>
-          </div>
-        </article>
-        <article class="product-card" data-aos="fade-up" data-aos-delay="200">
-          <div class="product-image">
-            <img src="img/sudadera-featured.jpg" alt="Sudadera personalizada" loading="lazy" />
-            <div class="product-overlay">
-              <button class="btn-overlay quick-view-btn" data-product="sudadera"><i class="fas fa-eye"></i> Vista rápida</button>
-            </div>
-          </div>
-          <div class="product-info">
-            <h3 class="product-title">Sudadera: "Molesto pero mío"</h3>
-            <p class="product-description">Comodidad y sarcasmo en una sola prenda</p>
-            <div class="product-price">
-              <span class="price-current">€29.99</span>
-              <span class="price-old">€34.99</span>
-            </div>
-            <button class="btn-add-cart add-to-cart-btn" data-product-id="sudadera-molesto" data-product-type="Sudadera" data-product-text="Molesto pero mío"><i class="fas fa-plus"></i> Añadir al carrito</button>
-          </div>
-        </article>
+        </div>
       </div>
     </div>
   </section>
@@ -238,10 +218,10 @@
             Especialistas en amor tóxico desde 2025. Transformando insultos en declaraciones de amor desde el primer día.
           </p>
           <div class="footer-social">
-            <a href="#" class="footer-social-link"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="footer-social-link"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="footer-social-link"><i class="fab fa-tiktok"></i></a>
-            <a href="#" class="footer-social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="footer-social-link pop-hover"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="footer-social-link pop-hover"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="footer-social-link pop-hover"><i class="fab fa-tiktok"></i></a>
+            <a href="#" class="footer-social-link pop-hover"><i class="fab fa-twitter"></i></a>
           </div>
         </div>
 
