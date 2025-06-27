@@ -4,12 +4,45 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Inicio | Insultos Cariñosos</title>
+    <link rel="icon" type="image/x-icon" href="IMG/logoTienda.ico">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="CSS/style.css" />
+    <style>
+      /* ...estilos existentes... */
+      .emoji-float {
+        position: absolute;
+        font-size: 2.2rem;
+        opacity: 0.13;
+        pointer-events: none;
+        animation: floatEmojiHome 8s ease-in-out infinite alternate;
+      }
+      .emoji-float.heart { left: 7vw; top: 16vh; animation-delay: 0s; }
+      .emoji-float.kiss { right: 8vw; top: 22vh; animation-delay: 1.2s; }
+      .emoji-float.smile { left: 15vw; bottom: 10vh; animation-delay: 2.1s; }
+      .emoji-float.love { right: 15vw; bottom: 8vh; animation-delay: 2.8s; }
+      .emoji-float.star { left: 48vw; top: 6vh; animation-delay: 3.2s; }
+      .emoji-float.wink { right: 28vw; bottom: 14vh; animation-delay: 4.1s; }
+      @keyframes floatEmojiHome {
+        0% { transform: translateY(0) scale(1) rotate(0deg); opacity: 0.13; }
+        100% { transform: translateY(-24px) scale(1.12) rotate(10deg); opacity: 0.22; }
+      }
+      @keyframes floatCarta {
+        0% { transform: translateY(0) scale(1) rotate(-8deg); }
+        100% { transform: translateY(-18px) scale(1.08) rotate(8deg); }
+      }
+    </style>
   </head>
   
 <body>
+  <div class="emoji-bg">
+    <span class="emoji-float heart">❤️</span>
+    <span class="emoji-float kiss">💋</span>
+    <span class="emoji-float smile">😊</span>
+    <span class="emoji-float love">😍</span>
+    <span class="emoji-float star">✨</span>
+    <span class="emoji-float wink">😉</span>
+  </div>
   <!-- Header -->
   <header class="header" id="header">
     <nav class="nav-container">
@@ -27,12 +60,23 @@
             <li><a href="Procesos.html">Nuestros Procesos</a></li>
           </ul>
         </li>
-        <li class="nav-item"><a href="Producto.html" class="nav-link"><i class="fas fa-tshirt"></i> Productos</a></li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link" id="nav-dropdown-productos" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-tshirt"></i> Productos <i class="fas fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu" aria-label="Submenú Productos">
+            <li><a href="Producto.html#tazas">Tazas</a></li>
+            <li><a href="Producto.html#polos">Polos</a></li>
+          </ul>
+        </li>
         <li class="nav-item"><a href="Contacto.html" class="nav-link"><i class="fas fa-envelope"></i> Contacto</a></li>
       </ul>
       <div class="nav-actions">
         <div class="cart-icon" id="cart-icon-btn">
           <i class="fas fa-shopping-cart"></i><span class="cart-count" id="cartCount">0</span>
+        </div>
+        <div class="user-icon" id="userIconBtn" tabindex="0" aria-label="Iniciar sesión o ver perfil">
+          <a href="Login.html" id="userIconLink" style="color:inherit;text-decoration:none;"><i class="fas fa-user-circle"></i></a>
         </div>
         <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
       </div>
@@ -98,7 +142,7 @@
           <div style="text-align:center;margin-top:1rem;">
             <a href="Producto.html#catalogo-productos" class="btn-secondary">Ver más tazas</a>
           </div>
-        </div>
+            </div>
         <!-- Slider Polos -->
         <div class="slider-producto" id="slider-polos">
           <h3 class="slider-title"><i class="fas fa-tshirt"></i> Polos destacados</h3>
@@ -113,7 +157,7 @@
           <div style="text-align:center;margin-top:1rem;">
             <a href="Producto.html#catalogo-productos" class="btn-secondary">Ver más polos</a>
           </div>
-        </div>
+          </div>
       </div>
     </div>
   </section>
@@ -178,18 +222,22 @@
   <!-- Newsletter -->
   <section class="newsletter">
     <div class="container">
-      <div class="newsletter-content">
-        <h2 class="newsletter-title">Únete al club del insulto cariñoso</h2>
-        <p class="newsletter-description">
-          Recibe las mejores frases, descuentos exclusivos y nuevos productos antes que nadie. Prometemos insultarte con amor en cada email.
-        </p>
+      <div class="newsletter-content newsletter-card-rediseñada" style="background:#ffe6ea;border-radius:22px;box-shadow:0 4px 24px #e6394615;padding:2.5rem 3.5rem 2rem 3.5rem;max-width:900px;margin:0 auto;">
+        <div style="display:flex;align-items:center;justify-content:center;gap:1rem;margin-bottom:1.2rem;">
+          <span class="newsletter-emoji-carta" style="font-size:3.2rem;display:inline-block;animation:floatCarta 3.5s ease-in-out infinite alternate;">💌</span>
+        </div>
+        <h2 class="newsletter-title" style="color:#e63946;font-size:1.5rem;margin-bottom:0.7rem;">¡Suscríbete y recibe amor tóxico en tu bandeja!</h2>
+        <p class="newsletter-description" style="color:#444;margin-bottom:1.2rem;">Sé el primero en enterarte de nuevos insultos, productos y descuentos. Te prometemos solo correos con cariño y sarcasmo.</p>
         <form class="newsletter-form" id="newsletter-form">
-          <div class="form-group">
-            <input type="email" placeholder="tucorreo@insultitos.com" required class="newsletter-input" />
-            <button type="submit" class="newsletter-btn"><i class="fas fa-paper-plane"></i> Suscribirme</button>
+          <div class="form-group" style="display:flex;gap:0.7rem;align-items:center;justify-content:center;">
+            <input type="email" placeholder="tucorreo@insultitos.com" required class="newsletter-input" style="padding:0.9rem 1.1rem;border-radius:10px;border:1.5px solid #f7b6c9;background:#fff6fa;color:#232526;font-size:1.08rem;" />
+            <button type="submit" class="newsletter-btn" style="background:linear-gradient(90deg,#e63946 0%,#f7b6c9 100%);color:#fff;font-weight:700;border:none;padding:0.9rem 1.3rem;border-radius:10px;font-size:1.08rem;box-shadow:0 2px 8px 0 #e6394633;transition:background 0.2s;">
+              <i class="fas fa-paper-plane"></i> Suscribirme
+            </button>
           </div>
         </form>
-        <p class="newsletter-disclaimer">* No spam, solo amor tóxico de calidad. Puedes darte de baja cuando quieras.</p>
+        <div id="newsletter-feedback"></div>
+        <p class="newsletter-disclaimer" style="color:#e63946;font-size:0.98rem;margin-top:1.1rem;">* No spam, solo amor tóxico de calidad. Puedes darte de baja cuando quieras.</p>
       </div>
     </div>
   </section>
@@ -250,7 +298,7 @@
           <div class="footer-contact">
             <p><i class="fas fa-envelope"></i> hola@insultoscariñosos.com</p>
             <p><i class="fas fa-phone"></i> +34 666 INSULTO</p>
-            <p><i class="fas fa-map-marker-alt"></i> Madrid, España</p>
+            <p><i class="fas fa-map-marker-alt"></i> Cataluña, España</p>
           </div>  
         </div>
       </div>
@@ -268,5 +316,70 @@
 
   <!-- Scripts -->
   <script src="JS/main.js" defer></script>
+
+  <!-- Modal de Autenticación -->
+  <div id="authModal" class="auth-modal" style="display:none;">
+    <div class="auth-modal-content">
+      <span class="close-auth-modal" id="closeAuthModal">&times;</span>
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-tab="login">Iniciar sesión</button>
+        <button class="auth-tab" data-tab="register">Registrarse</button>
+        <button class="auth-tab" data-tab="forgot">¿Olvidaste tu contraseña?</button>
+      </div>
+      <div class="auth-tab-content" id="auth-login">
+        <form id="loginForm">
+          <input type="email" placeholder="Correo electrónico" required autocomplete="username" />
+          <div class="password-group">
+            <input type="password" placeholder="Contraseña" required autocomplete="current-password" id="loginPassword" />
+            <span class="toggle-password" data-target="loginPassword"><i class="fas fa-eye"></i></span>
+          </div>
+          <button type="submit" class="btn-primary">Entrar</button>
+          <div class="auth-social">
+            <button type="button" class="btn-social google"><i class="fab fa-google"></i> Google</button>
+            <button type="button" class="btn-social facebook"><i class="fab fa-facebook-f"></i> Facebook</button>
+          </div>
+          <div class="auth-feedback" id="loginFeedback"></div>
+        </form>
+      </div>
+      <div class="auth-tab-content" id="auth-register" style="display:none;">
+        <form id="registerForm">
+          <input type="text" placeholder="Nombre" required autocomplete="name" />
+          <input type="email" placeholder="Correo electrónico" required autocomplete="username" />
+          <div class="password-group">
+            <input type="password" placeholder="Contraseña" required autocomplete="new-password" id="registerPassword" />
+            <span class="toggle-password" data-target="registerPassword"><i class="fas fa-eye"></i></span>
+          </div>
+          <button type="submit" class="btn-primary">Registrarse</button>
+          <div class="auth-social">
+            <button type="button" class="btn-social google"><i class="fab fa-google"></i> Google</button>
+            <button type="button" class="btn-social facebook"><i class="fab fa-facebook-f"></i> Facebook</button>
+          </div>
+          <div class="auth-feedback" id="registerFeedback"></div>
+        </form>
+      </div>
+      <div class="auth-tab-content" id="auth-forgot" style="display:none;">
+        <form id="forgotForm">
+          <input type="email" placeholder="Correo electrónico" required autocomplete="username" />
+          <button type="submit" class="btn-primary">Enviar enlace de recuperación</button>
+          <div class="auth-feedback" id="forgotFeedback"></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+  // Mostrar usuario logueado en el icono
+  const userIconBtn = document.getElementById('userIconBtn');
+  const userIconLink = document.getElementById('userIconLink');
+  let currentUser = JSON.parse(localStorage.getItem('ic_user')) || null;
+  if(currentUser && userIconBtn && userIconLink) {
+    userIconBtn.innerHTML = `<img src="${currentUser.avatar}" alt="avatar" style="width:32px;height:32px;border-radius:50%;vertical-align:middle;"> <span style="font-weight:600;font-size:1rem;vertical-align:middle;">${currentUser.name}</span> <span class="logout-btn" title="Cerrar sesión" style="margin-left:8px;cursor:pointer;color:var(--rojo);font-size:1.1rem;"><i class="fas fa-sign-out-alt"></i></span>`;
+    userIconBtn.querySelector('.logout-btn').addEventListener('click', (e) => {
+      e.stopPropagation();
+      localStorage.removeItem('ic_user');
+      location.reload();
+    });
+  }
+  </script>
 </body>
 </html>

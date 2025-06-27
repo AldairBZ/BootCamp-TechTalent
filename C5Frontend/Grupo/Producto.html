@@ -13,9 +13,9 @@
     <!-- Header -->
     <header class="header" id="header">
       <nav class="nav-container">
-        <div class="logo">
+        <a href="Home.html" class="logo">
           <i class="fas fa-heart"></i> Insultos Cariñosos
-        </div>
+        </a>
         <ul class="nav-menu" id="navMenu" aria-label="Menú principal">
           <li class="nav-item"><a href="Home.html" class="nav-link"><i class="fas fa-home"></i> Inicio</a></li>
           <li class="nav-item dropdown">
@@ -27,7 +27,15 @@
               <li><a href="Procesos.html">Nuestros Procesos</a></li>
             </ul>
           </li>
-          <li class="nav-item"><a href="Producto.html" class="nav-link active"><i class="fas fa-tshirt"></i> Productos</a></li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link" id="nav-dropdown-productos" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-tshirt"></i> Productos <i class="fas fa-chevron-down"></i>
+            </a>
+            <ul class="dropdown-menu" aria-label="Submenú Productos">
+              <li><a href="#tazas">Tazas</a></li>
+              <li><a href="#polos">Polos</a></li>
+            </ul>
+          </li>
           <li class="nav-item"><a href="Contacto.html" class="nav-link"><i class="fas fa-envelope"></i> Contacto</a></li>
         </ul>
         <div class="nav-actions">
@@ -43,148 +51,33 @@
     <!-- Main -->
     <main class="main-content">
       <!-- Catálogo de Productos -->
+      <section class="product-filter-bar" style="margin:2rem 0 2.5rem 0;text-align:center;">
+        <label for="product-filter" style="font-weight:600;font-size:1.1rem;margin-right:0.7rem;">Filtrar por:</label>
+        <select id="product-filter" style="padding:0.5rem 1.2rem;border-radius:8px;border:1.5px solid var(--rojo);font-size:1rem;">
+          <option value="all">Todos</option>
+          <option value="tazas">Tazas</option>
+          <option value="polos">Polos</option>
+        </select>
+      </section>
       <section class="featured-products" id="catalogo-productos">
         <div class="container">
           <div class="section-header">
             <h2 class="section-title">Catálogo de Productos</h2>
             <p class="section-subtitle">Descubre nuestras tazas y polos más vendidos</p>
           </div>
-          <div class="products-grid">
-            <!-- Tazas -->
-            <article class="product-card">
-              <div class="product-image">
-                <img src="IMG/taza.png" alt="Taza personalizada 1" />
+          <div class="products-sections">
+            <div id="tazas" class="products-category">
+              <h3 class="section-title" style="color:var(--rojo);margin-bottom:1.2rem;"><i class="fas fa-mug-hot"></i> Tazas</h3>
+              <div class="products-grid" id="tazas-grid">
+                <!-- Aquí van solo las tazas -->
               </div>
-              <div class="product-info">
-                <h3 class="product-title">Taza "Eres mi problema favorito"</h3>
-                <p class="product-description">Perfecta para ese ser especial que amas odiar.</p>
-                <div class="product-price">
-                  <span class="price-current">€12.99</span>
                 </div>
-                <button class="btn-add-cart add-to-cart-btn" 
-                  data-product-nombre="Taza 'Eres mi problema favorito'" 
-                  data-product-tipo="Taza" 
-                  data-product-precio="12.99" 
-                  data-product-img="IMG/taza.png">
-                  <i class="fas fa-plus"></i> Añadir al carrito
-                </button>
+            <div id="polos" class="products-category">
+              <h3 class="section-title" style="color:var(--rojo);margin-bottom:1.2rem;"><i class="fas fa-tshirt"></i> Polos</h3>
+              <div class="products-grid" id="polos-grid">
+                <!-- Aquí van solo los polos -->
               </div>
-            </article>
-            <article class="product-card">
-              <div class="product-image">
-                <img src="IMG/taza1.png" alt="Taza personalizada 2" />
               </div>
-              <div class="product-info">
-                <h3 class="product-title">Taza "Te quiero aunque seas un desastre"</h3>
-                <p class="product-description">Para los que aman con sarcasmo.</p>
-                <div class="product-price">
-                  <span class="price-current">€13.99</span>
-                </div>
-                <button class="btn-add-cart add-to-cart-btn" 
-                  data-product-nombre="Taza 'Te quiero aunque seas un desastre'" 
-                  data-product-tipo="Taza" 
-                  data-product-precio="13.99" 
-                  data-product-img="IMG/taza1.png">
-                  <i class="fas fa-plus"></i> Añadir al carrito
-                </button>
-              </div>
-            </article>
-            <article class="product-card">
-              <div class="product-image">
-                <img src="IMG/taza4.png" alt="Taza personalizada 3" />
-              </div>
-              <div class="product-info">
-                <h3 class="product-title">Taza "Molesto pero necesario"</h3>
-                <p class="product-description">Para los imprescindibles de tu vida.</p>
-                <div class="product-price">
-                  <span class="price-current">€14.99</span>
-                </div>
-                <button class="btn-add-cart add-to-cart-btn" 
-                  data-product-nombre="Taza 'Molesto pero necesario'" 
-                  data-product-tipo="Taza" 
-                  data-product-precio="14.99" 
-                  data-product-img="IMG/taza4.png">
-                  <i class="fas fa-plus"></i> Añadir al carrito
-                </button>
-              </div>
-            </article>
-            <article class="product-card">
-              <div class="product-image">
-                <img src="IMG/taza5.png" alt="Taza personalizada 4" />
-              </div>
-              <div class="product-info">
-                <h3 class="product-title">Taza "Eres mi cafeína favorita"</h3>
-                <p class="product-description">Para los adictos al amor y al café.</p>
-                <div class="product-price">
-                  <span class="price-current">€12.99</span>
-                </div>
-                <button class="btn-add-cart add-to-cart-btn" 
-                  data-product-nombre="Taza 'Eres mi cafeína favorita'" 
-                  data-product-tipo="Taza" 
-                  data-product-precio="12.99" 
-                  data-product-img="IMG/taza5.png">
-                  <i class="fas fa-plus"></i> Añadir al carrito
-                </button>
-              </div>
-            </article>
-            <!-- Polos -->
-            <article class="product-card">
-              <div class="product-image">
-                <img src="IMG/camisa1.png" alt="Polo personalizado 1" />
-              </div>
-              <div class="product-info">
-                <h3 class="product-title">Polo "Idiota, pero mi idiota"</h3>
-                <p class="product-description">Para los que se quieren con humor.</p>
-                <div class="product-price">
-                  <span class="price-current">€19.99</span>
-                </div>
-                <button class="btn-add-cart add-to-cart-btn" 
-                  data-product-nombre="Polo 'Idiota, pero mi idiota'" 
-                  data-product-tipo="Polo" 
-                  data-product-precio="19.99" 
-                  data-product-img="IMG/camisa1.png">
-                  <i class="fas fa-plus"></i> Añadir al carrito
-                </button>
-              </div>
-            </article>
-            <article class="product-card">
-              <div class="product-image">
-                <img src="IMG/camisa2.png" alt="Polo personalizado 2" />
-              </div>
-              <div class="product-info">
-                <h3 class="product-title">Polo "Te quiero aunque seas un desastre"</h3>
-                <p class="product-description">Para los desastres adorables.</p>
-                <div class="product-price">
-                  <span class="price-current">€21.99</span>
-                </div>
-                <button class="btn-add-cart add-to-cart-btn" 
-                  data-product-nombre="Polo 'Te quiero aunque seas un desastre'" 
-                  data-product-tipo="Polo" 
-                  data-product-precio="21.99" 
-                  data-product-img="IMG/camisa2.png">
-                  <i class="fas fa-plus"></i> Añadir al carrito
-                </button>
-              </div>
-            </article>
-            <article class="product-card">
-              <div class="product-image">
-                <img src="IMG/camisa3.png" alt="Polo personalizado 3" />
-              </div>
-              <div class="product-info">
-                <h3 class="product-title">Polo "Molesto pero mío"</h3>
-                <p class="product-description">Para los imprescindibles de tu vida.</p>
-                <div class="product-price">
-                  <span class="price-current">€22.99</span>
-                </div>
-                <button class="btn-add-cart add-to-cart-btn" 
-                  data-product-nombre="Polo 'Molesto pero mío'" 
-                  data-product-tipo="Polo" 
-                  data-product-precio="22.99" 
-                  data-product-img="IMG/camisa3.png">
-                  <i class="fas fa-plus"></i> Añadir al carrito
-                </button>
-              </div>
-            </article>
           </div>
           <div style="text-align:center; margin-top:2rem;">
             <button class="btn-primary" id="btn-personaliza-modal">Personaliza tu producto</button>

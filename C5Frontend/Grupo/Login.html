@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar sesión | Insultos Cariñosos</title>
+  <link rel="icon" type="image/x-icon" href="IMG/logoTienda.ico">
+  <link rel="stylesheet" href="CSS/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Inter', sans-serif;
+      overflow-x: hidden;
+      background: linear-gradient(135deg, #fcd9dd 0%, #fff 100%);
+    }
+    .emoji-bg {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+    .emoji-float {
+      position: absolute;
+      font-size: 3.2rem;
+      opacity: 0.18;
+      will-change: transform, opacity;
+      animation: floatEmoji 6s ease-in-out infinite alternate;
+    }
+    .emoji-float.heart { left: 7vw; top: 14vh; animation-delay: 0s; animation-duration: 7s; }
+    .emoji-float.kiss { right: 8vw; top: 24vh; animation-delay: 1.2s; animation-duration: 8s; }
+    .emoji-float.smile { left: 13vw; bottom: 10vh; animation-delay: 2.1s; animation-duration: 6.5s; }
+    .emoji-float.love { right: 13vw; bottom: 8vh; animation-delay: 2.8s; animation-duration: 7.5s; }
+    .emoji-float.star { left: 48vw; top: 6vh; animation-delay: 3.2s; animation-duration: 7.2s; }
+    .emoji-float.wink { right: 28vw; bottom: 14vh; animation-delay: 4.1s; animation-duration: 6.8s; }
+    @keyframes floatEmoji {
+      0% { transform: translateY(0) scale(1) rotate(0deg); opacity: 0.18; }
+      30% { transform: translateY(-18px) scale(1.08) rotate(-8deg); opacity: 0.22; }
+      60% { transform: translateY(-32px) scale(1.13) rotate(10deg); opacity: 0.28; }
+      100% { transform: translateY(-48px) scale(1.18) rotate(-12deg); opacity: 0.22; }
+    }
+    #three-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .auth-cool-container {
+      position: relative;
+      z-index: 2;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .product-carousel {
+      width: 100vw;
+      max-width: 100vw;
+      overflow-x: auto;
+      white-space: nowrap;
+      margin-bottom: 2.5rem;
+      padding: 1.5rem 0 1rem 0;
+      background: rgba(255,255,255,0.07);
+      box-shadow: 0 8px 40px rgba(230,57,70,0.13);
+      border-bottom: 2px solid var(--rojo);
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      animation: carouselGlow 2s infinite alternate;
+    }
+    .product-carousel::-webkit-scrollbar { display: none; }
+    @keyframes carouselGlow {
+      0% { box-shadow: 0 8px 40px rgba(230,57,70,0.13); }
+      100% { box-shadow: 0 0 80px 10px var(--rosa-oscuro); }
+    }
+    .carousel-track {
+      display: inline-flex;
+      gap: 2.5rem;
+      align-items: flex-end;
+      animation: moveCarousel 18s linear infinite;
+    }
+    @keyframes moveCarousel {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .carousel-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgba(255,255,255,0.13);
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(230,57,70,0.13);
+      padding: 1.2rem 1.5rem 1.5rem 1.5rem;
+      min-width: 180px;
+      max-width: 220px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .carousel-item:hover {
+      transform: scale(1.08) rotate(-3deg);
+      box-shadow: 0 8px 40px 0 var(--rojo);
+      z-index: 2;
+    }
+    .carousel-item img {
+      width: 90px; height: 90px; object-fit: contain;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      box-shadow: 0 2px 12px #e6394633;
+      background: #fff;
+      animation: floatImg 3s ease-in-out infinite alternate;
+    }
+    @keyframes floatImg {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-12px); }
+    }
+    .carousel-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--rojo);
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      text-shadow: 0 2px 8px #fff8;
+    }
+    .carousel-desc {
+      font-size: 0.98rem;
+      color: #fff;
+      text-align: center;
+      font-style: italic;
+      opacity: 0.85;
+    }
+    .auth-container {
+      background: rgba(255,255,255,0.97);
+      border-radius: 28px;
+      box-shadow: 0 8px 40px 0 rgba(230,57,70,0.10);
+      padding: 2.2rem 2.2rem 1.7rem 2.2rem;
+      max-width: 410px;
+      width: 100%;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+      margin: 0 auto;
+      border: 1.5px solid #f7b6c9;
+      transition: box-shadow 0.3s;
+    }
+    .auth-container:hover {
+      box-shadow: 0 12px 48px 0 rgba(230,57,70,0.18);
+    }
+    .auth-logo-img {
+      width: 270px;
+      max-width: 90vw;
+      height: auto;
+      object-fit: contain;
+      margin-bottom: 1.2rem;
+      margin-top: -0.5rem;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .auth-logo { display: none; }
+    .auth-tabs {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+      margin-top: 0.2rem;
+    }
+    .auth-tab {
+      background: none;
+      border: none;
+      font-weight: 600;
+      font-size: 1.13rem;
+      color: #e63946;
+      cursor: pointer;
+      padding: 0.8rem 0.5rem 0.8rem 0.5rem;
+      border-bottom: 2.5px solid transparent;
+      transition: border 0.2s, color 0.2s;
+      flex: 1 1 0;
+      text-align: center;
+      letter-spacing: 0.01em;
+    }
+    .auth-tab.active {
+      border-bottom: 2.5px solid #e63946;
+      color: #e63946;
+    }
+    .auth-tab-content { display: none; }
+    .auth-tab-content.active { display: block; }
+    .auth-form input {
+      width: 100%;
+      padding: 1.1rem 1.1rem;
+      margin-bottom: 1.1rem;
+      border-radius: 12px;
+      border: 1.5px solid #f7b6c9;
+      font-size: 1.13rem;
+      background: #fff6fa;
+      color: #232526;
+      transition: border 0.2s, box-shadow 0.2s;
+      box-shadow: 0 1px 4px 0 rgba(230,57,70,0.04);
+    }
+    .auth-form input:focus {
+      border: 1.5px solid #e63946;
+      outline: none;
+      box-shadow: 0 2px 8px 0 #e6394633;
+    }
+    .password-group {
+      position: relative;
+    }
+    .toggle-password {
+      position: absolute;
+      right: 1.2rem;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+      color: #e63946;
+      font-size: 1.18rem;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+    }
+    .toggle-password:hover { opacity: 1; }
+    .btn-primary {
+      width: 100%;
+      background: linear-gradient(90deg, #e63946 0%, #f7b6c9 100%);
+      color: #fff;
+      font-weight: 700;
+      border: none;
+      padding: 1.05rem 0;
+      border-radius: 12px;
+      font-size: 1.13rem;
+      margin-bottom: 1.1rem;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 2px 8px 0 #e6394633;
+      letter-spacing: 0.01em;
+    }
+    .btn-primary:hover {
+      background: linear-gradient(90deg, #f7b6c9 0%, #e63946 100%);
+      box-shadow: 0 4px 16px 0 #e6394655;
+    }
+    .auth-social {
+      display: flex;
+      gap: 1.2rem;
+      justify-content: center;
+      margin-bottom: 1.1rem;
+    }
+    .btn-social {
+      flex: 1;
+      background: #fff6fa;
+      color: #e63946;
+      border: 1.5px solid #f7b6c9;
+      border-radius: 12px;
+      padding: 1.05rem 0;
+      font-weight: 600;
+      font-size: 1.09rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      transition: background 0.2s, color 0.2s, border 0.2s;
+      letter-spacing: 0.01em;
+    }
+    .btn-social.google:hover { background: #fff; color: #e63946; border: 1.5px solid #e63946; }
+    .btn-social.facebook:hover { background: #fff; color: #4267B2; border: 1.5px solid #e63946; }
+    .auth-feedback {
+      min-height: 1.2rem;
+      color: #e63946;
+      font-size: 1.09rem;
+      margin-bottom: 0.7rem;
+    }
+    .auth-footer {
+      margin-top: 1.2rem;
+      font-size: 1.09rem;
+      color: #888;
+    }
+    .auth-footer a {
+      color: #e63946;
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .auth-footer a:hover {
+      color: #232526;
+      text-decoration: underline;
+    }
+    @media (max-width: 700px) {
+      .auth-container { padding: 1.2rem 0.5rem; max-width: 98vw; }
+      .auth-logo-img { width: 120px; }
+      .auth-tabs { font-size: 0.98rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="emoji-bg">
+    <span class="emoji-float heart">❤️</span>
+    <span class="emoji-float kiss">💋</span>
+    <span class="emoji-float smile">😊</span>
+    <span class="emoji-float love">😍</span>
+    <span class="emoji-float star">✨</span>
+    <span class="emoji-float wink">😉</span>
+  </div>
+  <div class="auth-cool-container">
+    <div class="auth-container">
+      <img src="IMG/LOGOTIENDA.png" alt="Logo Insultos Cariñosos" class="auth-logo-img" />
+      <div class="auth-logo"></div>
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-tab="login">Iniciar sesión</button>
+        <button class="auth-tab" data-tab="register">Registrarse</button>
+        <button class="auth-tab" data-tab="forgot">¿Olvidaste tu contraseña?</button>
+      </div>
+      <div class="auth-tab-content active" id="auth-login">
+        <form class="auth-form" id="loginForm">
+          <input type="email" placeholder="Correo electrónico" required autocomplete="username" />
+          <div class="password-group">
+            <input type="password" placeholder="Contraseña" required autocomplete="current-password" id="loginPassword" />
+            <span class="toggle-password" data-target="loginPassword"><i class="fas fa-eye"></i></span>
+          </div>
+          <button type="submit" class="btn-primary">Entrar</button>
+          <div class="auth-social">
+            <button type="button" class="btn-social google"><i class="fab fa-google"></i> Google</button>
+            <button type="button" class="btn-social facebook"><i class="fab fa-facebook-f"></i> Facebook</button>
+          </div>
+          <div class="auth-feedback" id="loginFeedback"></div>
+        </form>
+      </div>
+      <div class="auth-tab-content" id="auth-register">
+        <form class="auth-form" id="registerForm">
+          <input type="text" placeholder="Nombre" required autocomplete="name" />
+          <input type="email" placeholder="Correo electrónico" required autocomplete="username" />
+          <div class="password-group">
+            <input type="password" placeholder="Contraseña" required autocomplete="new-password" id="registerPassword" />
+            <span class="toggle-password" data-target="registerPassword"><i class="fas fa-eye"></i></span>
+          </div>
+          <button type="submit" class="btn-primary">Registrarse</button>
+          <div class="auth-social">
+            <button type="button" class="btn-social google"><i class="fab fa-google"></i> Google</button>
+            <button type="button" class="btn-social facebook"><i class="fab fa-facebook-f"></i> Facebook</button>
+          </div>
+          <div class="auth-feedback" id="registerFeedback"></div>
+        </form>
+      </div>
+      <div class="auth-tab-content" id="auth-forgot">
+        <form class="auth-form" id="forgotForm">
+          <input type="email" placeholder="Correo electrónico" required autocomplete="username" />
+          <button type="submit" class="btn-primary">Enviar enlace de recuperación</button>
+          <div class="auth-feedback" id="forgotFeedback"></div>
+        </form>
+      </div>
+      <div class="auth-footer" style="margin-top:2.2rem;font-size:0.95rem;color:#888;">
+        <a href="Home.html" style="color:#3a7bd5;text-decoration:none;font-weight:600;"><i class="fas fa-arrow-left"></i> Volver al inicio</a>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="JS/login.js"></script>
+</body>
+</html> 

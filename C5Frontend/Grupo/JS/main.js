@@ -147,8 +147,15 @@ document.addEventListener('DOMContentLoaded', () => {
   if(newsletterForm && newsletterFeedback) {
     newsletterForm.addEventListener('submit', function(e) {
       e.preventDefault();
+      const email = newsletterForm.querySelector('.newsletter-input').value;
+      // Aquí iría la integración real con EmailJS
+      // emailjs.send('service_xxx','template_xxx',{to_email:email})
+      //   .then(()=>{
+      //     newsletterFeedback.style.display = 'block';
+      //     newsletterFeedback.innerHTML = '<i class="fas fa-check-circle"></i> ¡Te suscribiste a las actualizaciones más recientes de la página! Pronto recibirás insultos cariñosos y descuentos irresistibles.';
+      //   });
       newsletterFeedback.style.display = 'block';
-      newsletterFeedback.innerHTML = '<i class="fas fa-check-circle"></i> ¡Gracias por unirte! Pronto recibirás insultos y descuentos irresistibles.';
+      newsletterFeedback.innerHTML = '<i class="fas fa-check-circle"></i> ¡Te suscribiste a las actualizaciones más recientes de la página! Pronto recibirás insultos cariñosos y descuentos irresistibles.';
       newsletterForm.querySelector('.newsletter-input').disabled = true;
       newsletterForm.querySelector('.newsletter-btn').disabled = true;
       setTimeout(() => {
@@ -510,6 +517,206 @@ document.addEventListener('DOMContentLoaded', () => {
     if (nextTestimonialBtn) nextTestimonialBtn.onclick = nextTestimonio;
     testimonialsSlider.onmouseenter = () => clearInterval(testimonialInterval);
     testimonialsSlider.onmouseleave = resetTestimonialInterval;
+  }
+
+  // Dropdown de productos en menú principal
+  const navDropdownProductos = document.getElementById('nav-dropdown-productos');
+  if(navDropdownProductos) {
+    navDropdownProductos.addEventListener('click', (event) => {
+      event.preventDefault();
+      const dropdown = event.currentTarget.nextElementSibling;
+      if (dropdown) {
+        dropdown.classList.toggle('open');
+      }
+    });
+  }
+  // Filtro de productos en Producto.html
+  const productFilter = document.getElementById('product-filter');
+  const tazasSection = document.getElementById('tazas');
+  const polosSection = document.getElementById('polos');
+  if(productFilter && tazasSection && polosSection) {
+    productFilter.addEventListener('change', function() {
+      if(this.value === 'tazas') {
+        tazasSection.style.display = 'block';
+        polosSection.style.display = 'none';
+      } else if(this.value === 'polos') {
+        tazasSection.style.display = 'none';
+        polosSection.style.display = 'block';
+      } else {
+        tazasSection.style.display = 'block';
+        polosSection.style.display = 'block';
+      }
+    });
+  }
+  // Renderizado de productos en Producto.html
+  if(document.getElementById('tazas-grid') && document.getElementById('polos-grid')) {
+    const tazas = [
+      {img: 'IMG/taza.png', nombre: 'Taza "Eres mi problema favorito"', descripcion: 'Perfecta para ese ser especial que amas odiar.', precio: '€12.99'},
+      {img: 'IMG/taza1.png', nombre: 'Taza "Te quiero aunque seas un desastre"', descripcion: 'Para los que aman con sarcasmo.', precio: '€13.99'},
+      {img: 'IMG/taza4.png', nombre: 'Taza "Molesto pero necesario"', descripcion: 'Para los imprescindibles de tu vida.', precio: '€14.99'},
+      {img: 'IMG/taza5.png', nombre: 'Taza "Eres mi cafeína favorita"', descripcion: 'Para los adictos al amor y al café.', precio: '€12.99'}
+    ];
+    const polos = [
+      {img: 'IMG/camisa1.png', nombre: 'Polo "Idiota, pero mi idiota"', descripcion: 'Para los que se quieren con humor.', precio: '€19.99'},
+      {img: 'IMG/camisa2.png', nombre: 'Polo "Te quiero aunque seas un desastre"', descripcion: 'Para los desastres adorables.', precio: '€21.99'},
+      {img: 'IMG/camisa3.png', nombre: 'Polo "Molesto pero mío"', descripcion: 'Para los imprescindibles de tu vida.', precio: '€22.99'}
+    ];
+    const tazasGrid = document.getElementById('tazas-grid');
+    const polosGrid = document.getElementById('polos-grid');
+    tazasGrid.innerHTML = tazas.map(t => `
+      <article class='product-card'>
+        <div class='product-image'><img src='${t.img}' alt='${t.nombre}' /></div>
+        <div class='product-info'>
+          <h3 class='product-title'>${t.nombre}</h3>
+          <p class='product-description'>${t.descripcion}</p>
+          <div class='product-price'><span class='price-current'>${t.precio}</span></div>
+          <button class='btn-add-cart add-to-cart-btn' data-product-nombre='${t.nombre}' data-product-tipo='Taza' data-product-precio='${t.precio.replace("€","")}' data-product-img='${t.img}'><i class='fas fa-plus'></i> Añadir al carrito</button>
+        </div>
+      </article>
+    `).join('');
+    polosGrid.innerHTML = polos.map(p => `
+      <article class='product-card'>
+        <div class='product-image'><img src='${p.img}' alt='${p.nombre}' /></div>
+        <div class='product-info'>
+          <h3 class='product-title'>${p.nombre}</h3>
+          <p class='product-description'>${p.descripcion}</p>
+          <div class='product-price'><span class='price-current'>${p.precio}</span></div>
+          <button class='btn-add-cart add-to-cart-btn' data-product-nombre='${p.nombre}' data-product-tipo='Polo' data-product-precio='${p.precio.replace("€","")}' data-product-img='${p.img}'><i class='fas fa-plus'></i> Añadir al carrito</button>
+        </div>
+      </article>
+    `).join('');
+  }
+
+  // ========== AUTENTICACIÓN FRONTEND ==========
+  const userIconBtn = document.getElementById('userIconBtn');
+  const authModal = document.getElementById('authModal');
+  const closeAuthModal = document.getElementById('closeAuthModal');
+  const authTabs = document.querySelectorAll('.auth-tab');
+  const authTabContents = document.querySelectorAll('.auth-tab-content');
+  let currentUser = JSON.parse(localStorage.getItem('ic_user')) || null;
+
+  function showAuthModal(tab = 'login') {
+    authModal.style.display = 'flex';
+    authTabs.forEach(btn => btn.classList.remove('active'));
+    authTabContents.forEach(content => content.style.display = 'none');
+    document.querySelector(`.auth-tab[data-tab="${tab}"]`).classList.add('active');
+    document.getElementById(`auth-${tab}`).style.display = 'block';
+  }
+  if(userIconBtn && authModal && closeAuthModal) {
+    userIconBtn.addEventListener('click', () => showAuthModal('login'));
+    closeAuthModal.addEventListener('click', () => authModal.style.display = 'none');
+    window.addEventListener('click', (e) => { if(e.target === authModal) authModal.style.display = 'none'; });
+  }
+  authTabs.forEach(tabBtn => {
+    tabBtn.addEventListener('click', () => showAuthModal(tabBtn.dataset.tab));
+  });
+  // Mostrar/ocultar contraseña
+  Array.from(document.querySelectorAll('.toggle-password')).forEach(btn => {
+    btn.addEventListener('click', () => {
+      const input = document.getElementById(btn.dataset.target);
+      if(input.type === 'password') { input.type = 'text'; btn.innerHTML = '<i class="fas fa-eye-slash"></i>'; }
+      else { input.type = 'password'; btn.innerHTML = '<i class="fas fa-eye"></i>'; }
+    });
+  });
+  // Hash simple (SHA-256) para contraseñas
+  async function hashPassword(password) {
+    const encoder = new TextEncoder();
+    const data = encoder.encode(password);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+    return Array.from(new Uint8Array(hashBuffer)).map(b => b.toString(16).padStart(2, '0')).join('');
+  }
+  // Login
+  const loginForm = document.getElementById('loginForm');
+  const loginFeedback = document.getElementById('loginFeedback');
+  if(loginForm) {
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = loginForm.querySelector('input[type="email"]').value.trim();
+      const password = loginForm.querySelector('input[type="password"]').value;
+      const users = JSON.parse(localStorage.getItem('ic_users')) || [];
+      const hash = await hashPassword(password);
+      const user = users.find(u => u.email === email && u.password === hash);
+      if(user) {
+        currentUser = { name: user.name, email: user.email, avatar: user.avatar };
+        localStorage.setItem('ic_user', JSON.stringify(currentUser));
+        loginFeedback.textContent = '¡Bienvenido de nuevo, ' + user.name + '!';
+        setTimeout(()=>{authModal.style.display='none';location.reload();}, 1200);
+      } else {
+        loginFeedback.textContent = 'Correo o contraseña incorrectos.';
+      }
+    });
+  }
+  // Registro
+  const registerForm = document.getElementById('registerForm');
+  const registerFeedback = document.getElementById('registerFeedback');
+  if(registerForm) {
+    registerForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const name = registerForm.querySelector('input[type="text"]').value.trim();
+      const email = registerForm.querySelector('input[type="email"]').value.trim();
+      const password = registerForm.querySelector('input[type="password"]').value;
+      const users = JSON.parse(localStorage.getItem('ic_users')) || [];
+      if(users.find(u => u.email === email)) {
+        registerFeedback.textContent = 'Este correo ya está registrado.';
+        return;
+      }
+      const hash = await hashPassword(password);
+      const avatar = 'https://ui-avatars.com/api/?name=' + encodeURIComponent(name) + '&background=E63946&color=fff&rounded=true&size=64';
+      users.push({ name, email, password: hash, avatar });
+      localStorage.setItem('ic_users', JSON.stringify(users));
+      registerFeedback.textContent = '¡Registro exitoso! Ahora puedes iniciar sesión.';
+      setTimeout(()=>{showAuthModal('login');registerFeedback.textContent='';}, 1200);
+    });
+  }
+  // Social login simulado
+  Array.from(document.querySelectorAll('.btn-social.google')).forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentUser = { name: 'Google User', email: 'google@demo.com', avatar: 'IMG/taza.png' };
+      localStorage.setItem('ic_user', JSON.stringify(currentUser));
+      authModal.style.display = 'none';
+      location.reload();
+    });
+  });
+  Array.from(document.querySelectorAll('.btn-social.facebook')).forEach(btn => {
+    btn.addEventListener('click', () => {
+      currentUser = { name: 'Facebook User', email: 'facebook@demo.com', avatar: 'IMG/camisa1.png' };
+      localStorage.setItem('ic_user', JSON.stringify(currentUser));
+      authModal.style.display = 'none';
+      location.reload();
+    });
+  });
+  // Recuperar contraseña (simulado)
+  const forgotForm = document.getElementById('forgotForm');
+  const forgotFeedback = document.getElementById('forgotFeedback');
+  if(forgotForm) {
+    forgotForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = forgotForm.querySelector('input[type="email"]').value.trim();
+      const users = JSON.parse(localStorage.getItem('ic_users')) || [];
+      if(users.find(u => u.email === email)) {
+        forgotFeedback.textContent = 'Te hemos enviado un enlace de recuperación (simulado).';
+      } else {
+        forgotFeedback.textContent = 'No existe ninguna cuenta con ese correo.';
+      }
+    });
+  }
+  // Mostrar usuario logueado en el icono
+  if(currentUser && userIconBtn) {
+    userIconBtn.innerHTML = `<img src="${currentUser.avatar}" alt="avatar" style="width:32px;height:32px;border-radius:50%;vertical-align:middle;"> <span style="font-weight:600;font-size:1rem;vertical-align:middle;">${currentUser.name}</span> <span class="logout-btn" title="Cerrar sesión" style="margin-left:8px;cursor:pointer;color:var(--rojo);font-size:1.1rem;"><i class="fas fa-sign-out-alt"></i></span>`;
+    userIconBtn.querySelector('.logout-btn').addEventListener('click', (e) => {
+      e.stopPropagation();
+      localStorage.removeItem('ic_user');
+      location.reload();
+    });
+  }
+  // Proteger el carrito y pago
+  if(cartIconBtn) {
+    cartIconBtn.addEventListener('click', (e) => {
+      if(!currentUser) {
+        e.preventDefault();
+        showAuthModal('login');
+      }
+    });
   }
 });
 

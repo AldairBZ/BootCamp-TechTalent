@@ -7,158 +7,341 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="CSS/style.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #fcd9dd 0%, #fff 100%);
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #232526;
+    }
+    .main-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 3.5rem 2.5rem 3.5rem 2.5rem;
+      background: none;
+      border-radius: 0;
+      box-shadow: none;
+    }
+    h1, h2, h3 {
+      color: #e63946;
+      margin-top: 0;
+      margin-bottom: 1.2rem;
+      font-family: 'Playfair Display', serif;
+    }
+    p, li {
+      font-size: 1.18rem;
+      line-height: 1.8;
+      margin-bottom: 1.2rem;
+    }
+    .team-section {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2.5rem 3.5rem;
+      margin-top: 2.5rem;
+      margin-bottom: 2.5rem;
+      justify-content: flex-start;
+    }
+    .team-card {
+      background: #fff6fa;
+      border-radius: 18px;
+      box-shadow: 0 2px 12px #e6394633;
+      padding: 2.2rem 2rem 1.5rem 2rem;
+      min-width: 270px;
+      max-width: 320px;
+      flex: 1 1 270px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 0;
+    }
+    .team-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1.1rem;
+      background: #ffe6ea;
+      box-shadow: 0 2px 8px #e6394633;
+      display: block;
+    }
+    .team-name {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #e63946;
+      margin-bottom: 0.3rem;
+    }
+    .team-role {
+      font-size: 1.08rem;
+      color: #e63946bb;
+      margin-bottom: 0.7rem;
+      font-weight: 600;
+    }
+    .team-desc {
+      font-size: 1.08rem;
+      color: #232526;
+      margin-bottom: 0.2rem;
+    }
+    @media (max-width: 900px) {
+      .main-container { padding: 1.2rem 0.5rem; }
+      .team-section { gap: 1.2rem 1.2rem; }
+      .team-card { min-width: 180px; max-width: 100%; padding: 1.2rem 1rem; }
+    }
+    .header {
+      width: 100%;
+      background: #fff;
+      box-shadow: 0 2px 8px #e6394612;
+      position: relative;
+      z-index: 10;
+    }
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7rem 2.5rem;
+      gap: 1.5rem;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7rem;
+      color: #e63946;
+      font-weight: 700;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .nav-menu {
+      display: flex;
+      align-items: center;
+      gap: 1.7rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      flex: 1 1 auto;
+      justify-content: flex-start;
+    }
+    .nav-link {
+      color: #232526;
+      font-size: 1.13rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .nav-link.active, .nav-link:hover {
+      color: #e63946;
+    }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+      margin-left: 1.2rem;
+    }
+    .cart-icon {
+      position: relative;
+      font-size: 1.35rem;
+      cursor: pointer;
+    }
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -12px;
+      background: #e63946;
+      color: #fff;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 50%;
+      padding: 2px 6px;
+      min-width: 18px;
+      text-align: center;
+      box-shadow: 0 2px 8px #e6394633;
+    }
+    .user-icon {
+      font-size: 1.35rem;
+      cursor: pointer;
+      color: #232526;
+      transition: color 0.2s;
+    }
+    .user-icon:hover { color: #e63946; }
+    .mobile-menu-btn { display: none; }
+    .nav-blur-bg { display: none; }
+    @media (max-width: 900px) {
+      .nav-container { padding: 0.7rem 1rem; }
+      .logo { font-size: 1.1rem; }
+      .nav-menu { gap: 0.7rem; }
+      .nav-actions { gap: 0.5rem; margin-left: 0.5rem; }
+    }
+  </style>
 </head>
 <body>
-  <!-- Header -->
-  <header class="header" id="header">
-    <nav class="nav-container">
-      <div class="logo">
-        <i class="fas fa-heart"></i> Insultos Cariñosos
-      </div>
-      <ul class="nav-menu" id="navMenu" aria-label="Menú principal">
-        <li class="nav-item"><a href="Home.html" class="nav-link"><i class="fas fa-home"></i> Inicio</a></li>
-        <li class="nav-item dropdown">
-          <a href="#" class="nav-link" id="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
-            <i class="fas fa-info-circle"></i> Sobre <i class="fas fa-chevron-down"></i>
-          </a>
-          <ul class="dropdown-menu" aria-label="Submenú Sobre">
-            <li><a href="SobreNosotros.html">Sobre Nosotros</a></li>
-            <li><a href="Procesos.html">Nuestros Procesos</a></li>
-          </ul>
-        </li>
-        <li class="nav-item"><a href="Producto.html" class="nav-link"><i class="fas fa-tshirt"></i> Productos</a></li>
-        <li class="nav-item"><a href="Contacto.html" class="nav-link"><i class="fas fa-envelope"></i> Contacto</a></li>
-      </ul>
-      <div class="nav-actions">
-        <div class="cart-icon" id="cart-icon-btn">
-          <i class="fas fa-shopping-cart"></i><span class="cart-count" id="cartCount">0</span>
-        </div>
-        <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
-      </div>
-      <div class="nav-blur-bg" id="navBlurBg"></div>
-    </nav>
-  </header>
-
-  <!-- Main -->
-  <main class="main-content sobre-nosotros">
-    <section class="intro">
-      <div class="container">
-        <h1 class="section-title">Nuestro equipo y nuestra historia</h1>
-        <p class="section-subtitle">Transformando insultos en amor desde 2025. Conoce a las mentes (y corazones) detrás de la marca más sarcástica y cariñosa.</p>
-      </div>
-    </section>
-
-    <section class="equipo">
-      <div class="container team-grid">
-        <div class="miembro">
-          <img src="ani.png" alt="Ani" style="border-radius:50%;width:120px;height:120px;object-fit:cover;">
-          <h3>Ani</h3>
-          <p class="rol">Frontend Rockstar</p>
-          <p>Convierte cada página en una experiencia visual adorablemente insultante.</p>
-        </div>
-
-        <div class="miembro">
-          <img src="schneider.jpg" alt="Schneider" style="border-radius:50%;width:120px;height:120px;object-fit:cover;">
-          <h3>Schneider</h3>
-          <p class="rol">Backend Sensei</p>
-          <p>El motor cómico y lógico que hace que todo funcione (incluso cuando nadie lo ve).</p>
-        </div>
-
-        <div class="miembro">
-          <img src="adri.jpg" alt="Adri" style="border-radius:50%;width:120px;height:120px;object-fit:cover;">
-          <h3>Adri</h3>
-          <p class="rol">Diseño UX/UI</p>
-          <p>Diseña con corazones y cuchillas para que el usuario siempre quiera volver (aunque lo insultemos).</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="mision-valores">
-      <div class="container">
-        <h2 class="section-title">Nuestra misión</h2>
-        <p class="section-subtitle">Queremos que el amor y el humor vayan de la mano. Por eso, cada producto está pensado para arrancar sonrisas, crear recuerdos y demostrar que el cariño puede ser tan ácido como dulce.</p>
-        <ul style="margin:2rem auto;max-width:600px;list-style: none;padding:0;">
-          <li style="margin-bottom:1rem;"><i class="fas fa-heart" style="color:var(--rojo);margin-right:8px;"></i> Creatividad y originalidad en cada diseño</li>
-          <li style="margin-bottom:1rem;"><i class="fas fa-mug-hot" style="color:var(--rojo);margin-right:8px;"></i> Productos de calidad y personalizados</li>
-          <li style="margin-bottom:1rem;"><i class="fas fa-laugh" style="color:var(--rojo);margin-right:8px;"></i> Humor y amor en cada insulto</li>
-          <li><i class="fas fa-users" style="color:var(--rojo);margin-right:8px;"></i> Cercanía y atención a cada cliente</li>
+  <div class="main-container">
+    <!-- Header -->
+    <header class="header" id="header">
+      <nav class="nav-container">
+        <a href="Home.html" class="logo">
+          <i class="fas fa-heart"></i> Insultos Cariñosos
+        </a>
+        <ul class="nav-menu" id="navMenu" aria-label="Menú principal">
+          <li class="nav-item"><a href="Home.html" class="nav-link"><i class="fas fa-home"></i> Inicio</a></li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link" id="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-info-circle"></i> Sobre <i class="fas fa-chevron-down"></i>
+            </a>
+            <ul class="dropdown-menu" aria-label="Submenú Sobre">
+              <li><a href="SobreNosotros.html">Sobre Nosotros</a></li>
+              <li><a href="Procesos.html">Nuestros Procesos</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link" id="nav-dropdown-productos" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-tshirt"></i> Productos <i class="fas fa-chevron-down"></i>
+            </a>
+            <ul class="dropdown-menu" aria-label="Submenú Productos">
+              <li><a href="Producto.html#tazas">Tazas</a></li>
+              <li><a href="Producto.html#polos">Polos</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="Contacto.html" class="nav-link"><i class="fas fa-envelope"></i> Contacto</a></li>
         </ul>
-      </div>
-    </section>
+        <div class="nav-actions">
+          <div class="cart-icon" id="cart-icon-btn">
+            <i class="fas fa-shopping-cart"></i><span class="cart-count" id="cartCount">0</span>
+          </div>
+          <div class="user-icon" id="userIconBtn" tabindex="0" aria-label="Iniciar sesión o ver perfil">
+            <a href="Login.html" id="userIconLink" style="color:inherit;text-decoration:none;"><i class="fas fa-user-circle"></i></a>
+          </div>
+          <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
+        </div>
+        <div class="nav-blur-bg" id="navBlurBg"></div>
+      </nav>
+    </header>
 
-    <section class="social-media">
+    <!-- Main -->
+    <main class="main-content sobre-nosotros">
+      <section class="intro">
+        <div class="container">
+          <h1 class="section-title">Nuestro equipo y nuestra historia</h1>
+          <p class="section-subtitle">Transformando insultos en amor desde 2025. Conoce a las mentes (y corazones) detrás de la marca más sarcástica y cariñosa.</p>
+        </div>
+      </section>
+
+      <section class="equipo">
+        <div class="container team-grid">
+          <div class="team-card">
+            <img src="IMG/ani.jpg" alt="Ani" class="team-avatar" onerror="this.style.display='none'" />
+            <div class="team-name">Ani</div>
+            <div class="team-role">Frontend Rockstar</div>
+            <div class="team-desc">Convierte cada página en una experiencia visual adorablemente insultante.</div>
+          </div>
+
+          <div class="team-card">
+            <img src="IMG/schneider.jpg" alt="Schneider" class="team-avatar" onerror="this.style.display='none'" />
+            <div class="team-name">Schneider</div>
+            <div class="team-role">Backend Sensei</div>
+            <div class="team-desc">El motor cómico y lógico que hace que todo funcione (incluso cuando nadie lo ve).</div>
+          </div>
+
+          <div class="team-card">
+            <img src="IMG/adri.jpg" alt="Adri" class="team-avatar" onerror="this.style.display='none'" />
+            <div class="team-name">Adri</div>
+            <div class="team-role">Diseño UX/UI</div>
+            <div class="team-desc">Hace que insultar nunca haya sido tan bonito y fácil de usar.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mision-valores">
+        <div class="container">
+          <h2 class="section-title">Nuestra misión</h2>
+          <p class="section-subtitle">Queremos que el amor y el humor vayan de la mano. Por eso, cada producto está pensado para arrancar sonrisas, crear recuerdos y demostrar que el cariño puede ser tan ácido como dulce.</p>
+          <ul style="margin:2rem auto;max-width:600px;list-style: none;padding:0;">
+            <li style="margin-bottom:1rem;"><i class="fas fa-heart" style="color:var(--rojo);margin-right:8px;"></i> Creatividad y originalidad en cada diseño</li>
+            <li style="margin-bottom:1rem;"><i class="fas fa-mug-hot" style="color:var(--rojo);margin-right:8px;"></i> Productos de calidad y personalizados</li>
+            <li style="margin-bottom:1rem;"><i class="fas fa-laugh" style="color:var(--rojo);margin-right:8px;"></i> Humor y amor en cada insulto</li>
+            <li><i class="fas fa-users" style="color:var(--rojo);margin-right:8px;"></i> Cercanía y atención a cada cliente</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="social-media">
+        <div class="container">
+          <h3 class="social-title">Síguenos en redes sociales</h3>
+          <p class="social-subtitle">Comparte tus productos favoritos y etiqueta a ese ser insoportable que adoras</p>
+          <div class="social-icons">
+            <a href="#" target="_blank" class="social-link instagram"><i class="fab fa-instagram"></i><span>Instagram</span></a>
+            <a href="#" target="_blank" class="social-link facebook"><i class="fab fa-facebook-f"></i><span>Facebook</span></a>
+            <a href="#" target="_blank" class="social-link tiktok"><i class="fab fa-tiktok"></i><span>TikTok</span></a>
+            <a href="#" target="_blank" class="social-link twitter"><i class="fab fa-twitter"></i><span>Twitter</span></a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
       <div class="container">
-        <h3 class="social-title">Síguenos en redes sociales</h3>
-        <p class="social-subtitle">Comparte tus productos favoritos y etiqueta a ese ser insoportable que adoras</p>
-        <div class="social-icons">
-          <a href="#" target="_blank" class="social-link instagram"><i class="fab fa-instagram"></i><span>Instagram</span></a>
-          <a href="#" target="_blank" class="social-link facebook"><i class="fab fa-facebook-f"></i><span>Facebook</span></a>
-          <a href="#" target="_blank" class="social-link tiktok"><i class="fab fa-tiktok"></i><span>TikTok</span></a>
-          <a href="#" target="_blank" class="social-link twitter"><i class="fab fa-twitter"></i><span>Twitter</span></a>
-        </div>
-      </div>
-    </section>
-  </main>
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3 class="footer-title">Insultos Cariñosos</h3>
+            <p class="footer-description">
+              Especialistas en amor tóxico desde 2025. Transformando insultos en declaraciones de amor desde el primer día.
+            </p>
+            <div class="footer-social">
+              <a href="#" class="footer-social-link pop-hover"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="footer-social-link pop-hover"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="footer-social-link pop-hover"><i class="fab fa-tiktok"></i></a>
+              <a href="#" class="footer-social-link pop-hover"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-section">
-          <h3 class="footer-title">Insultos Cariñosos</h3>
-          <p class="footer-description">
-            Especialistas en amor tóxico desde 2025. Transformando insultos en declaraciones de amor desde el primer día.
-          </p>
-          <div class="footer-social">
-            <a href="#" class="footer-social-link pop-hover"><i class="fab fa-instagram"></i></a>
-            <a href="#" class="footer-social-link pop-hover"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="footer-social-link pop-hover"><i class="fab fa-tiktok"></i></a>
-            <a href="#" class="footer-social-link pop-hover"><i class="fab fa-twitter"></i></a>
+          <div class="footer-section">
+            <h4 class="footer-section-title">Enlaces rápidos</h4>
+            <ul class="footer-links">
+              <li><a href="Home.html">Inicio</a></li>
+              <li><a href="Producto.html">Productos</a></li>
+              <li><a href="SobreNosotros.html">Sobre nosotros</a></li>
+              <li><a href="Contacto.html">Contacto</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h4 class="footer-section-title">Ayuda</h4>
+            <ul class="footer-links">
+              <li><a href="#">Preguntas frecuentes</a></li>
+              <li><a href="#">Envíos y devoluciones</a></li>
+              <li><a href="#">Guía de tallas</a></li>
+              <li><a href="#">Términos y condiciones</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h4 class="footer-section-title">Contacto</h4>
+            <div class="footer-contact">
+              <p><i class="fas fa-envelope"></i> hola@insultoscariñosos.com</p>
+              <p><i class="fas fa-phone"></i> +34 666 INSULTO</p>
+              <p><i class="fas fa-map-marker-alt"></i> Madrid, España</p>
+            </div>
           </div>
         </div>
 
-        <div class="footer-section">
-          <h4 class="footer-section-title">Enlaces rápidos</h4>
-          <ul class="footer-links">
-            <li><a href="Home.html">Inicio</a></li>
-            <li><a href="Producto.html">Productos</a></li>
-            <li><a href="SobreNosotros.html">Sobre nosotros</a></li>
-            <li><a href="Contacto.html">Contacto</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-section">
-          <h4 class="footer-section-title">Ayuda</h4>
-          <ul class="footer-links">
-            <li><a href="#">Preguntas frecuentes</a></li>
-            <li><a href="#">Envíos y devoluciones</a></li>
-            <li><a href="#">Guía de tallas</a></li>
-            <li><a href="#">Términos y condiciones</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-section">
-          <h4 class="footer-section-title">Contacto</h4>
-          <div class="footer-contact">
-            <p><i class="fas fa-envelope"></i> hola@insultoscariñosos.com</p>
-            <p><i class="fas fa-phone"></i> +34 666 INSULTO</p>
-            <p><i class="fas fa-map-marker-alt"></i> Madrid, España</p>
-          </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Insultos Cariñosos. Todos los derechos reservados. Amor con carácter desde el primer insulto.</p>
         </div>
       </div>
+    </footer>
 
-      <div class="footer-bottom">
-        <p>&copy; 2025 Insultos Cariñosos. Todos los derechos reservados. Amor con carácter desde el primer insulto.</p>
-      </div>
-    </div>
-  </footer>
+    <!-- Scroll to top -->
+    <button class="scroll-to-top" id="scrollToTop">
+      <i class="fas fa-arrow-up"></i>
+    </button>
 
-  <!-- Scroll to top -->
-  <button class="scroll-to-top" id="scrollToTop">
-    <i class="fas fa-arrow-up"></i>
-  </button>
-
-  <!-- Scripts -->
-  <script src="JS/main.js" defer></script>
+    <!-- Scripts -->
+    <script src="JS/main.js" defer></script>
+  </div>
 </body>
 </html>
