@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carrito</title>
+  <link rel="stylesheet" href="CSS/style.css"/>
+</head>
+<body>
+    <header>
+    <nav>
+      <ul class="menu">
+        <li><a href="Home.html">Inicio</a></li>
+        <li class="menu-item" onmouseover="showSubmenu(this)" onmouseout="hideSubmenu(this)">
+          <a href="#">Sobre</a>
+          <ul class="submenu">
+            <li><a href="SobreNosotros.html">Sobre Nosotros</a></li>
+            <li><a href="Procesos.html">Procesos</a></li>
+          </ul>
+        </li>
+        <li><a href="Contacto.html">Contacto</a></li>
+        <li><a href="Producto.html">Productos</a></li>
+        
+      </ul>
+    </nav>
+  </header>
+   <main>
+    <section id="carrito">
+      <h2>Resumen de tu taza personalizada</h2>
+      <div id="contenidoCarrito"></div>
+      <button onclick="enviarPedido()">Confirmar pedido</button>
+    </section>
+    
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Derechos reservados</p>
+  </footer>
+
+  <script>
+    const carritoDiv = document.getElementById('contenidoCarrito');
+    const datos = JSON.parse(localStorage.getItem('carritoTaza'));
+
+    if (datos) {
+      carritoDiv.innerHTML = `
+        <p><strong>Producto:</strong> ${datos.producto}</p>
+        <p><strong>Texto:</strong> ${datos.texto}</p>
+        <p><strong>Color:</strong> ${datos.color}</p>
+        <p><strong>Fuente:</strong> ${datos.fuente}</p>
+        <p><strong>Estilo:</strong> ${datos.estilo}</p>
+      `;
+    } else {
+      carritoDiv.innerHTML = '<p>Tu carrito está vacío.</p>';
+    }
+
+    function enviarPedido() {
+      fetch('http://localhost:3000/pedido', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(datos)
+      })
+      .then(res => res.json())
+      .then(data => {
+        alert('Pedido confirmado. ¡Gracias!');
+        localStorage.removeItem('carritoTaza');
+        location.href = 'Home.html';
+      })
+      .catch(err => {
+        alert('Error al enviar pedido.');
+        console.error(err);
+      });
+    }
+  </script>
+</body>
+</html>

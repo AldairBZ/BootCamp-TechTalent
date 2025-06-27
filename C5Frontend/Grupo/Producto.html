@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Productos | Insultos Cariñosos</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&family=Amatic+SC&family=Chewy&family=Dancing+Script&family=Indie+Flower&family=Lobster&family=Pacifico&family=Rock+Salt&display=swap" rel="stylesheet" />
+  </head>
+
+  <body>
+    <!-- Header -->
+    <header class="header" id="header">
+      <nav class="nav-container">
+        <div class="logo">
+          <i class="fas fa-heart"></i> Insultos Cariñosos
+        </div>
+        <ul class="nav-menu" id="navMenu">
+          <li class="nav-item"><a href="Home.html" class="nav-link"><i class="fas fa-home"></i> Inicio</a></li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link" id="nav-dropdown-toggle">
+              <i class="fas fa-info-circle"></i> Sobre <i class="fas fa-chevron-down"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="SobreNosotros.html">Sobre Nosotros</a></li>
+              <li><a href="Procesos.html">Nuestros Procesos</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="Producto.html" class="nav-link active"><i class="fas fa-tshirt"></i> Productos</a></li>
+          <li class="nav-item"><a href="Contacto.html" class="nav-link"><i class="fas fa-envelope"></i> Contacto</a></li>
+        </ul>
+        <div class="nav-actions">
+          <div class="cart-icon" id="cart-icon-btn">
+            <i class="fas fa-shopping-cart"></i><span class="cart-count" id="cartCount">0</span>
+          </div>
+          <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main -->
+    <main class="main-content">
+      <!-- Catálogo de Productos -->
+      <section class="featured-products" id="catalogo-productos">
+        <div class="container">
+          <div class="section-header">
+            <h2 class="section-title">Catálogo de Productos</h2>
+            <p class="section-subtitle">Descubre nuestras tazas y polos más vendidos</p>
+          </div>
+          <div class="products-grid">
+            <!-- Tazas -->
+            <article class="product-card">
+              <div class="product-image">
+                <img src="IMG/taza.png" alt="Taza personalizada 1" />
+              </div>
+              <div class="product-info">
+                <h3 class="product-title">Taza "Eres mi problema favorito"</h3>
+                <p class="product-description">Perfecta para ese ser especial que amas odiar.</p>
+                <div class="product-price">
+                  <span class="price-current">€12.99</span>
+                </div>
+                <button class="btn-add-cart add-to-cart-btn" 
+                  data-product-nombre="Taza 'Eres mi problema favorito'" 
+                  data-product-tipo="Taza" 
+                  data-product-precio="12.99" 
+                  data-product-img="IMG/taza.png">
+                  <i class="fas fa-plus"></i> Añadir al carrito
+                </button>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-image">
+                <img src="IMG/taza1.png" alt="Taza personalizada 2" />
+              </div>
+              <div class="product-info">
+                <h3 class="product-title">Taza "Te quiero aunque seas un desastre"</h3>
+                <p class="product-description">Para los que aman con sarcasmo.</p>
+                <div class="product-price">
+                  <span class="price-current">€13.99</span>
+                </div>
+                <button class="btn-add-cart add-to-cart-btn" 
+                  data-product-nombre="Taza 'Te quiero aunque seas un desastre'" 
+                  data-product-tipo="Taza" 
+                  data-product-precio="13.99" 
+                  data-product-img="IMG/taza1.png">
+                  <i class="fas fa-plus"></i> Añadir al carrito
+                </button>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-image">
+                <img src="IMG/taza4.png" alt="Taza personalizada 3" />
+              </div>
+              <div class="product-info">
+                <h3 class="product-title">Taza "Molesto pero necesario"</h3>
+                <p class="product-description">Para los imprescindibles de tu vida.</p>
+                <div class="product-price">
+                  <span class="price-current">€14.99</span>
+                </div>
+                <button class="btn-add-cart add-to-cart-btn" 
+                  data-product-nombre="Taza 'Molesto pero necesario'" 
+                  data-product-tipo="Taza" 
+                  data-product-precio="14.99" 
+                  data-product-img="IMG/taza4.png">
+                  <i class="fas fa-plus"></i> Añadir al carrito
+                </button>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-image">
+                <img src="IMG/taza5.png" alt="Taza personalizada 4" />
+              </div>
+              <div class="product-info">
+                <h3 class="product-title">Taza "Eres mi cafeína favorita"</h3>
+                <p class="product-description">Para los adictos al amor y al café.</p>
+                <div class="product-price">
+                  <span class="price-current">€12.99</span>
+                </div>
+                <button class="btn-add-cart add-to-cart-btn" 
+                  data-product-nombre="Taza 'Eres mi cafeína favorita'" 
+                  data-product-tipo="Taza" 
+                  data-product-precio="12.99" 
+                  data-product-img="IMG/taza5.png">
+                  <i class="fas fa-plus"></i> Añadir al carrito
+                </button>
+              </div>
+            </article>
+            <!-- Polos -->
+            <article class="product-card">
+              <div class="product-image">
+                <img src="IMG/camisa1.png" alt="Polo personalizado 1" />
+              </div>
+              <div class="product-info">
+                <h3 class="product-title">Polo "Idiota, pero mi idiota"</h3>
+                <p class="product-description">Para los que se quieren con humor.</p>
+                <div class="product-price">
+                  <span class="price-current">€19.99</span>
+                </div>
+                <button class="btn-add-cart add-to-cart-btn" 
+                  data-product-nombre="Polo 'Idiota, pero mi idiota'" 
+                  data-product-tipo="Polo" 
+                  data-product-precio="19.99" 
+                  data-product-img="IMG/camisa1.png">
+                  <i class="fas fa-plus"></i> Añadir al carrito
+                </button>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-image">
+                <img src="IMG/camisa2.png" alt="Polo personalizado 2" />
+              </div>
+              <div class="product-info">
+                <h3 class="product-title">Polo "Te quiero aunque seas un desastre"</h3>
+                <p class="product-description">Para los desastres adorables.</p>
+                <div class="product-price">
+                  <span class="price-current">€21.99</span>
+                </div>
+                <button class="btn-add-cart add-to-cart-btn" 
+                  data-product-nombre="Polo 'Te quiero aunque seas un desastre'" 
+                  data-product-tipo="Polo" 
+                  data-product-precio="21.99" 
+                  data-product-img="IMG/camisa2.png">
+                  <i class="fas fa-plus"></i> Añadir al carrito
+                </button>
+              </div>
+            </article>
+            <article class="product-card">
+              <div class="product-image">
+                <img src="IMG/camisa3.png" alt="Polo personalizado 3" />
+              </div>
+              <div class="product-info">
+                <h3 class="product-title">Polo "Molesto pero mío"</h3>
+                <p class="product-description">Para los imprescindibles de tu vida.</p>
+                <div class="product-price">
+                  <span class="price-current">€22.99</span>
+                </div>
+                <button class="btn-add-cart add-to-cart-btn" 
+                  data-product-nombre="Polo 'Molesto pero mío'" 
+                  data-product-tipo="Polo" 
+                  data-product-precio="22.99" 
+                  data-product-img="IMG/camisa3.png">
+                  <i class="fas fa-plus"></i> Añadir al carrito
+                </button>
+              </div>
+            </article>
+          </div>
+          <div style="text-align:center; margin-top:2rem;">
+            <button class="btn-primary" id="btn-personaliza-modal">Personaliza tu producto</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Modal de selección de producto a personalizar -->
+      <div id="modal-personaliza" class="modal-personaliza" style="display:none;">
+        <div class="modal-content">
+          <span class="close-modal" id="close-modal-personaliza">&times;</span>
+          <h2>¿Qué quieres personalizar?</h2>
+          <div class="modal-options">
+            <button class="btn-secondary" id="select-taza">Personalizar Taza</button>
+            <button class="btn-secondary" id="select-polo">Personalizar Polo</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Personalizador de taza -->
+      <section class="personalizador" id="personalizador-taza" style="display:none;">
+        <h2>Personaliza tu Taza</h2>
+        <div class="producto-preview">
+          <img src="IMG/taza-editable.png" alt="Taza base" class="producto-img" />
+          <div id="textoPersonalizado" class="texto-sobre-img">Tu texto aquí</div>
+        </div>
+        <label for="inputTexto">Texto personalizado:</label>
+        <input type="text" id="inputTexto" placeholder="Escribe tu frase" />
+        <label for="tamanioFuente">Tamaño de fuente:</label>
+        <input type="range" id="tamanioFuente" min="10" max="80" value="20" />
+        <span id="previewTamanio">20px</span>
+        <label for="inputColor">Color del texto:</label>
+        <input type="color" id="inputColor" value="#0d86f0" />
+        <label for="fuente">Fuente creativa:</label>
+        <select id="fuente">
+          <option value="'Lobster', cursive">Lobster</option>
+          <option value="'Pacifico', cursive">Pacifico</option>
+          <option value="'Dancing Script', cursive">Dancing Script</option>
+          <option value="'Amatic SC', cursive">Amatic SC</option>
+          <option value="'Indie Flower', cursive">Indie Flower</option>
+          <option value="'Chewy', cursive">Chewy</option>
+          <option value="'Rock Salt', cursive">Rock Salt</option>
+        </select>
+        <label for="estilo">Estilo del texto:</label>
+        <select id="estilo">
+          <option value="normal">Normal</option>
+          <option value="italic">Cursiva</option>
+          <option value="bold">Negrita</option>
+          <option value="bold italic">Negrita + Cursiva</option>
+        </select>
+        <button id="btnAplicar">Aplicar</button>
+        <button id="btnCarritoTaza">Añadir al carrito</button>
+        <button class="btn-secondary" id="volver-catalogo-taza">Volver al catálogo</button>
+        <div class="galeria-de-stickers">
+          <button data-sticker="IMG/blabla.png">🗣️</button>
+          <button data-sticker="IMG/auch.png">💥</button>
+          <button data-sticker="IMG/.l..png">🖕</button>
+          <button data-sticker="IMG/boca.png">💋</button>
+          <button data-sticker="IMG/ojo.png">👀</button>
+        </div>
+      </section>
+
+      <!-- Personalizador de polo -->
+      <section class="personalizador" id="personalizador-polo" style="display:none;">
+        <h2>Personaliza tu Polo</h2>
+        <div class="preview-producto">
+          <img src="IMG/camisa-editable.png" alt="Camisa base" class="producto-imagen" />
+          <div id="textoDiseñado" class="texto-editable">Tu texto aquí</div>
+        </div>
+        <label for="inputTextoCustom">Texto personalizado:</label>
+        <input type="text" id="inputTextoCustom" placeholder="Escribe tu frase" />
+        <label for="tamanioFuenteCustom">Tamaño de fuente:</label>
+        <input type="range" id="tamanioFuenteCustom" min="10" max="80" value="20" />
+        <span id="previewTamanioCustom">20px</span>
+        <label for="inputColorCustom">Color del texto:</label>
+        <input type="color" id="inputColorCustom" value="#0d86f0" />
+        <label for="fuenteCustom">Fuente creativa:</label>
+        <select id="fuenteCustom">
+          <option value="'Lobster', cursive">Lobster</option>
+          <option value="'Pacifico', cursive">Pacifico</option>
+          <option value="'Dancing Script', cursive">Dancing Script</option>
+          <option value="'Amatic SC', cursive">Amatic SC</option>
+          <option value="'Indie Flower', cursive">Indie Flower</option>
+          <option value="'Chewy', cursive">Chewy</option>
+          <option value="'Rock Salt', cursive">Rock Salt</option>
+        </select>
+        <label for="estiloCustom">Estilo del texto:</label>
+        <select id="estiloCustom">
+          <option value="normal">Normal</option>
+          <option value="italic">Cursiva</option>
+          <option value="bold">Negrita</option>
+          <option value="bold italic">Negrita + Cursiva</option>
+        </select>
+        <button id="btnAplicarCamisa">Aplicar</button>
+        <button id="btnCarritoCamisa">Añadir al carrito</button>
+        <button class="btn-secondary" id="volver-catalogo-polo">Volver al catálogo</button>
+        <div class="sticker-galeria">
+          <button data-sticker="IMG/blabla.png">🗣️</button>
+          <button data-sticker="IMG/auch.png">💥</button>
+          <button data-sticker="IMG/.l..png">🖕</button>
+          <button data-sticker="IMG/boca.png">💋</button>
+          <button data-sticker="IMG/ojo.png">👀</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3 class="footer-title">Insultos Cariñosos</h3>
+            <p class="footer-description">
+              Especialistas en amor tóxico desde 2025. Transformando insultos en declaraciones de amor desde el primer día.
+            </p>
+            <div class="footer-social">
+              <a href="#" class="footer-social-link"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="footer-social-link"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="footer-social-link"><i class="fab fa-tiktok"></i></a>
+              <a href="#" class="footer-social-link"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+
+          <div class="footer-section">
+            <h4 class="footer-section-title">Enlaces rápidos</h4>
+            <ul class="footer-links">
+              <li><a href="Home.html">Inicio</a></li>
+              <li><a href="Producto.html">Productos</a></li>
+              <li><a href="SobreNosotros.html">Sobre nosotros</a></li>
+              <li><a href="Contacto.html">Contacto</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h4 class="footer-section-title">Ayuda</h4>
+            <ul class="footer-links">
+              <li><a href="#">Preguntas frecuentes</a></li>
+              <li><a href="#">Envíos y devoluciones</a></li>
+              <li><a href="#">Guía de tallas</a></li>
+              <li><a href="#">Términos y condiciones</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h4 class="footer-section-title">Contacto</h4>
+            <div class="footer-contact">
+              <p><i class="fas fa-envelope"></i> hola@insultoscariñosos.com</p>
+              <p><i class="fas fa-phone"></i> +34 666 INSULTO</p>
+              <p><i class="fas fa-map-marker-alt"></i> Madrid, España</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2025 Insultos Cariñosos. Todos los derechos reservados. Amor con carácter desde el primer insulto.</p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <button class="scroll-to-top" id="scrollToTop">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="JS/main.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contacto</title>
+  <link rel="stylesheet" href="CSS/style.css" />
+</head>
+<body>
+
+  <header>
+    <nav>
+      <ul class="menu">
+        <li><a href="Home.html">Inicio</a></li>
+        <li class="menu-item" onmouseover="showSubmenu(this)" onmouseout="hideSubmenu(this)">
+          <a href="#">Sobre</a>
+          <ul class="submenu">
+            <li><a href="about.html">Sobre Nosotros</a></li>
+            <li><a href="Procesos.html">Procesos</a></li>
+          </ul>
+        </li>
+        <li><a href="Contacto.html">Contacto</a></li>
+        <li><a href="Producto.html">Productos</a></li>
+        <li><a href="Carrito.html">Carrito</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+
+  <main>
+    <section class="contacto">
+      <h1>Contáctanos</h1>
+      <h2>¿Tienes algo que decirnos?</h2>
+      <p>Si quieres enviarnos un piropo tóxico, una queja creativa o simplemente saludarnos, este es tu momento.</p>
+
+      <form action="#" method="post" class="formulario-contacto">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre más bonito (o no tanto)" />
+
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" required placeholder="tucorreo@insultitos.com" />
+
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Cuéntanos todo, sin pelos en la lengua..."></textarea>
+
+        <button type="submit">Enviar amor (con insulto)</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Tienda de Insultos Cariñosos - Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    function showSubmenu(element) {
+      const submenu = element.querySelector('.submenu');
+      if (submenu) {
+        submenu.style.display = 'block';
+      }
+    }
+
+    function hideSubmenu(element) {
+      const submenu = element.querySelector('.submenu');
+      if (submenu) {
+        submenu.style.display = 'none';
+      }
+    }
+  </script>
+
+</body>
+</html>

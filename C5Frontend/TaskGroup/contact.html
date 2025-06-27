@@ -6,13 +6,16 @@
   <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-  <header><h1>Contáctanos</h1></header>
+  <header><h1>Contáctanos con groserías</h1></header>
   <main class="section">
     <form>
-      <label>Nombre: <input type="text" id="nombre" oninput="mostrarNombre()"></label>
-      <p id="saludo"></p>
+      <label>Tu insulto personalizado:<br>
+        <input type="text" id="insulto-input" oninput="vistaPreviaInsulto()">
+      </label>
+      <p id="preview">Aquí aparecerá tu insulto.</p>
     </form>
   </main>
   <script src="js/script.js"></script>
 </body>
 </html>
+

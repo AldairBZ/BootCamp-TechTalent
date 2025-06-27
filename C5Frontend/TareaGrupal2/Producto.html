@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" , initial-scale="1.0" />
+    <title>Producto</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Chewy&family=Dancing+Script&family=Indie+Flower&family=Lobster&family=Pacifico&family=Rock+Salt&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul class="menu">
+          <li
+            class="menu-item"
+            onmouseover="showSubmenu(this)"
+            onmouseout="hideSubmenu(this)"
+          >
+            <a href="Home.html">Inicio</a>
+            <ul class="submenu">
+              <li><a href="about.html" target="_self">Sobre Nosotros</a></li>
+              <li><a href="Procesos.html" target="_self">Procesos</a></li>
+            </ul>
+          </li>
+          <li><a href="#">Sobre</a></li>
+          <li><a href="Contacto.html">Contacto</a></li>
+          <li><a href="Producto.html">Productos</a></li>
+          <li><a href="Carrito.html">Carrito</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <h2>Tazas Personalizadas</h2>
+      <br />
+      <p>Distintos diseños y colores para regalar algo diferente</p>
+
+      <section
+        class="img-alineada"
+        class="img-alineada img"
+        class="img-alineada img:hover"
+      >
+        <img src="IMG/taza.png" alt="taza personalizada" />
+        <img src="IMG/taza1.png" alt="taza personalizada" />
+        <img src="IMG/taza4.png" alt="taza personalizada" />
+        <img src="IMG/taza5.png" alt="taza personalizada" />
+      </section>
+      <section class="personalizador">
+        <h2>Personaliza tu producto</h2>
+        <div class="producto-preview">
+          <img
+            src="IMG/taza-editable.png"
+            alt="Taza base"
+            class="producto-img"
+          />
+          <div id="textoPersonalizado" class="texto-sobre-img">
+            Tu texto aqui
+          </div>
+        </div>
+
+        <label for="inputTexto">Texto personalizado:</label>
+        <input type="text" id="inputTexto" placeholder="Escribe tu frase" />
+        <label for="tamanioFuente">Tamaño de fuente:</label>
+        <input type="range" id="tamanioFuente" min="10" max="80" value="20" />
+        <span id="previewTamanio">20px</span>
+
+        <label for="inputColor"><br />Color del texto</label>
+        <input type="color" id="inputColor" value="#0d86f0" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Pacifico&family=Indie+Flower&display=swap"
+          rel="stylesheet"
+        />
+
+        <label for="fuente">Fuente creativa:</label>
+        <select id="fuente">
+          <option value="'Lobster', cursive">Lobster</option>
+          <option value="'Pacifico', cursive">Pacifico</option>
+          <option value="'Dancing Script', cursive">Dancing Script</option>
+          <option value="'Amatic SC', cursive">Amatic SC</option>
+          <option value="'Indie Flower', cursive">Indie Flower</option>
+          <option value="'Chewy', cursive">Chewy</option>
+          <option value="'Rock Salt', cursive">Rock Salt</option>
+        </select>
+
+        <label for="estilo"><br />Estilo del texto:</label>
+        <select id="estilo">
+          <option value="normal">Normal</option>
+          <option value="italic">Cursiva</option>
+          <option value="bold">Negrita</option>
+          <option value="bold italic">Negrita + Cursiva</option>
+        </select>
+
+        <button onclick="aplicarPersonalizacion()">Aplicar</button>
+        <button onclick="añadirAlCarrito()">Añadir al carrito</button>
+        <div class="galeria-de-stickers">
+          <button onclick="agregarSticker('IMG/blabla.png')">🗣️</button>
+          <button onclick="agregarSticker('IMG/auch.png')">💥</button>
+          <button onclick="agregarSticker('IMG/.l..png')">🖕</button>
+          <button onclick="agregarSticker('IMG/boca.png')">💋</button>
+          <button onclick="agregarSticker('IMG/ojo.png')">👀</button>
+        </div>
+      </section>
+      <section>
+        <h2>Camisas Personalizadas</h2>
+        <br />
+        <div
+          class="img-alineada"
+          class="img-alineada img"
+          class="img-alineada img:hover"
+        >
+          <img src="IMG/camisa1.png" alt="camisa personalizada" />
+          <img src="IMG/camisa2.png" alt="camisa personalizada" />
+          <img src="IMG/camisa3.png" alt="camisa personalizada" />
+        </div>
+        <h2>Personaliza tu producto</h2>
+        <div class="preview-producto">
+          <img
+            src="IMG/camisa-editable.png"
+            alt="Camisa base"
+            class="producto-imagen"
+          />
+          <div id="textoDiseñado" class="texto-editable">Tu texto aquí</div>
+        </div>
+
+        <label for="inputTextoCustom">Texto personalizado:</label>
+        <input
+          type="text"
+          id="inputTextoCustom"
+          placeholder="Escribe tu frase"
+        />
+
+        <label for="tamanioFuenteCustom">Tamaño de fuente:</label>
+        <input
+          type="range"
+          id="tamanioFuenteCustom"
+          min="10"
+          max="80"
+          value="20"
+        />
+        <span id="previewTamanioCustom">20px</span>
+
+        <label for="inputColorCustom"><br />Color del texto</label>
+        <input type="color" id="inputColorCustom" value="#0d86f0" />
+
+        <link
+          href="https://fonts.googleapis.com/css2?family=Amatic+SC&family=Pacifico&family=Indie+Flower&display=swap"
+          rel="stylesheet"
+        />
+
+        <label for="fuenteCustom">Fuente creativa:</label>
+        <select id="fuenteCustom">
+          <option value="'Lobster', cursive">Lobster</option>
+          <option value="'Pacifico', cursive">Pacifico</option>
+          <option value="'Dancing Script', cursive">Dancing Script</option>
+          <option value="'Amatic SC', cursive">Amatic SC</option>
+          <option value="'Indie Flower', cursive">Indie Flower</option>
+          <option value="'Chewy', cursive">Chewy</option>
+          <option value="'Rock Salt', cursive">Rock Salt</option>
+        </select>
+
+        <label for="estiloCustom"><br />Estilo del texto:</label>
+        <select id="estiloCustom">
+          <option value="normal">Normal</option>
+          <option value="italic">Cursiva</option>
+          <option value="bold">Negrita</option>
+          <option value="bold italic">Negrita + Cursiva</option>
+        </select>
+
+        <button onclick="inicializarPersonalizacion()">Aplicar</button>
+        <button onclick="guardarEnCarrito()">Añadir al carrito</button>
+
+        <div class="sticker-galeria">
+          <button onclick="insertarStickerCustom('IMG/blabla.png')">🗣️</button>
+          <button onclick="insertarStickerCustom('IMG/auch.png')">💥</button>
+          <button onclick="insertarStickerCustom('IMG/.l..png')">🖕</button>
+          <button onclick="insertarStickerCustom('IMG/boca.png')">💋</button>
+          <button onclick="insertarStickerCustom('IMG/ojo.png')">👀</button>
+        </div>
+      </section>
+    </main>
+  </body>
+  <footer>
+    <p>&copy; 2025 Derechos reservados</p>
+  </footer>
+  <script>
+    function showSubmenu(element) {
+      const submenu = element.querySelector(".submenu");
+      if (submenu) {
+        submenu.style.display = "block";
+      }
+    }
+    function hideSubmenu(element) {
+      const submenu = element.querySelector(".submenu");
+      if (submenu) {
+        submenu.style.display = "none";
+      }
+    }
+  </script>
+  <script>
+    function aplicarPersonalizacion() {
+      const texto = document.getElementById("inputTexto").value;
+      const color = document.getElementById("inputColor").value;
+      const fuente = document.getElementById("fuente").value;
+      const estilo = document.getElementById("estilo").value;
+      const tamanio = document.getElementById("tamanioFuente").value;
+
+      const capaTexto = document.getElementById("textoPersonalizado");
+      capaTexto.innerText = texto || "Tu texto aquí";
+      capaTexto.style.color = color;
+      capaTexto.style.fontFamily = fuente;
+      capaTexto.style.fontSize = `${tamanio}px`;
+
+      document.getElementById("previewTamanio").innerText = `${tamanio}px`;
+
+      capaTexto.style.fontStyle = estilo.includes("italic")
+        ? "italic"
+        : "normal";
+      capaTexto.style.fontWeight = estilo.includes("bold") ? "bold" : "normal";
+    }
+
+    let contadorTextos = 1;
+
+    function agregarTexto() {
+      const zona = document.querySelector(".producto-preview");
+
+      const nuevoTexto = document.createElement("div");
+      nuevoTexto.className = "texto-sobre-img";
+      nuevoTexto.innerText = `Nuevo texto ${contadorTextos++}`;
+      nuevoTexto.contentEditable = true;
+      nuevoTexto.style.left = "50%";
+      nuevoTexto.style.top = "50%";
+      nuevoTexto.style.position = "absolute";
+      nuevoTexto.style.cursor = "grab";
+
+      zona.appendChild(nuevoTexto);
+
+      hacerArrastrable(nuevoTexto);
+    }
+
+    function añadirAlCarrito() {
+      const texto =
+        document.getElementById("inputTexto").value || "Tu texto aquí";
+      const color = document.getElementById("inputColor").value;
+      const fuente = document.getElementById("fuente").value;
+      const estilo = document.getElementById("estilo").value;
+
+      // Creamos un objeto con los datos
+      const diseñoPersonalizado = {
+        producto: "Taza personalizada",
+        texto,
+        color,
+        fuente,
+        estilo,
+      };
+
+      localStorage.setItem("carritoTaza", JSON.stringify(diseñoPersonalizado));
+
+      alert("¡Taza añadida al carrito!");
+    }
+    const texto = document.getElementById("textoPersonalizado");
+
+    let isDragging = false;
+    let offsetX, offsetY;
+
+    texto.addEventListener("mousedown", function (e) {
+      isDragging = true;
+      const rect = texto.getBoundingClientRect();
+      offsetX = e.clientX - rect.left;
+      offsetY = e.clientY - rect.top;
+      texto.style.cursor = "grabbing";
+    });
+
+    document.addEventListener("mousemove", function (e) {
+      if (isDragging) {
+        const contenedor = document.querySelector(".producto-preview");
+        const contRect = contenedor.getBoundingClientRect();
+
+        let left = e.clientX - contRect.left - offsetX;
+        let top = e.clientY - contRect.top - offsetY;
+
+        texto.style.left = `${left}px`;
+        texto.style.top = `${top}px`;
+      }
+    });
+
+    document.addEventListener("mouseup", function () {
+      isDragging = false;
+      texto.style.cursor = "grab";
+    });
+    function hacerArrastrable(elemento) {
+      let isDragging = false;
+      let offsetX, offsetY;
+
+      elemento.addEventListener("mousedown", function (e) {
+        isDragging = true;
+        const rect = elemento.getBoundingClientRect();
+        offsetX = e.clientX - rect.left;
+        offsetY = e.clientY - rect.top;
+        elemento.style.cursor = "grabbing";
+      });
+
+      document.addEventListener("mousemove", function (e) {
+        if (isDragging) {
+          const contenedor = document.querySelector(".producto-preview");
+          const contRect = contenedor.getBoundingClientRect();
+
+          let left = e.clientX - contRect.left - offsetX;
+          let top = e.clientY - contRect.top - offsetY;
+
+          elemento.style.left = `${left}px`;
+          elemento.style.top = `${top}px`;
+        }
+      });
+
+      document.addEventListener("mouseup", function () {
+        isDragging = false;
+        elemento.style.cursor = "grab";
+      });
+    }
+    function agregarSticker(url) {
+      const zona = document.querySelector(".producto-preview");
+
+      const contenedor = document.createElement("div");
+      contenedor.className = "redimensionable";
+
+      const imagen = document.createElement("img");
+      imagen.src = url;
+      imagen.draggable = false; // para que el arrastre lo controle el contenedor
+
+      contenedor.appendChild(imagen);
+      zona.appendChild(contenedor);
+
+      hacerArrastrable(contenedor);
+      contenedor.addEventListener("dblclick", () => {
+        contenedor.remove();
+      });
+    }
+
+    function hacerArrastrable(elemento) {
+      let isDragging = false;
+      let offsetX, offsetY;
+
+      elemento.addEventListener("mousedown", function (e) {
+        if (e.target.tagName === "IMG") return; // evita mover si arrastra desde la imagen directamente
+        isDragging = true;
+        const rect = elemento.getBoundingClientRect();
+        offsetX = e.clientX - rect.left;
+        offsetY = e.clientY - rect.top;
+        elemento.style.cursor = "grabbing";
+      });
+
+      document.addEventListener("mousemove", function (e) {
+        if (isDragging) {
+          const contenedor = document.querySelector(".producto-preview");
+          const contRect = contenedor.getBoundingClientRect();
+
+          let left = e.clientX - contRect.left - offsetX;
+          let top = e.clientY - contRect.top - offsetY;
+
+          elemento.style.left = `${left}px`;
+          elemento.style.top = `${top}px`;
+        }
+      });
+
+      document.addEventListener("mouseup", function () {
+        isDragging = false;
+        elemento.style.cursor = "grab";
+      });
+    }
+    document
+      .getElementById("tamanioFuente")
+      .addEventListener("input", aplicarPersonalizacion);
+  </script>
+  <script>
+    function mostrarSubmenuCustom(el) {
+      const submenu = el.querySelector(".submenu-custom");
+      if (submenu) submenu.style.display = "block";
+    }
+
+    function ocultarSubmenuCustom(el) {
+      const submenu = el.querySelector(".submenu-custom");
+      if (submenu) submenu.style.display = "none";
+    }
+
+    function inicializarPersonalizacion() {
+      const inputTexto = document.getElementById("inputTextoCustom").value;
+      const color = document.getElementById("inputColorCustom").value;
+      const fuente = document.getElementById("fuenteCustom").value;
+      const estilo = document.getElementById("estiloCustom").value;
+      const tamanio = document.getElementById("tamanioFuenteCustom").value;
+
+      const textoTarget = document.getElementById("textoDiseñado");
+      textoTarget.innerText = inputTexto || "Tu texto aquí";
+      textoTarget.style.color = color;
+      textoTarget.style.fontFamily = fuente;
+      textoTarget.style.fontSize = `${tamanio}px`;
+
+      document.getElementById(
+        "previewTamanioCustom"
+      ).innerText = `${tamanio}px`;
+
+      textoTarget.style.fontStyle = estilo.includes("italic")
+        ? "italic"
+        : "normal";
+      textoTarget.style.fontWeight = estilo.includes("bold")
+        ? "bold"
+        : "normal";
+    }
+
+    let contadorBloques = 1;
+
+    function insertarTextoEditable() {
+      const zona = document.querySelector(".preview-producto");
+
+      const nuevo = document.createElement("div");
+      nuevo.className = "texto-editable";
+      nuevo.innerText = `Texto ${contadorBloques++}`;
+      nuevo.contentEditable = true;
+      nuevo.style.position = "absolute";
+      nuevo.style.left = "50%";
+      nuevo.style.top = "50%";
+      nuevo.style.cursor = "grab";
+
+      zona.appendChild(nuevo);
+      hacerElementoArrastrable(nuevo);
+    }
+
+    function guardarEnCarrito() {
+      const texto =
+        document.getElementById("inputTextoCustom").value || "Tu texto aquí";
+      const color = document.getElementById("inputColorCustom").value;
+      const fuente = document.getElementById("fuenteCustom").value;
+      const estilo = document.getElementById("estiloCustom").value;
+
+      const item = {
+        producto: "Taza personalizada",
+        texto,
+        color,
+        fuente,
+        estilo,
+      };
+
+      localStorage.setItem("carritoPersonalizado", JSON.stringify(item));
+      alert("¡Producto añadido al carrito!");
+    }
+
+    const textoPersonalizado = document.getElementById("textoDiseñado");
+    let arrastrando = false;
+
+    textoPersonalizado?.addEventListener("mousedown", (e) => {
+      arrastrando = true;
+      const rect = textoPersonalizado.getBoundingClientRect();
+      offsetX = e.clientX - rect.left;
+      offsetY = e.clientY - rect.top;
+      textoPersonalizado.style.cursor = "grabbing";
+    });
+
+    document.addEventListener("mousemove", (e) => {
+      if (arrastrando) {
+        const cont = document.querySelector(".preview-producto");
+        const contRect = cont.getBoundingClientRect();
+        textoPersonalizado.style.left = `${
+          e.clientX - contRect.left - offsetX
+        }px`;
+        textoPersonalizado.style.top = `${
+          e.clientY - contRect.top - offsetY
+        }px`;
+      }
+    });
+
+    document.addEventListener("mouseup", () => {
+      arrastrando = false;
+      textoPersonalizado.style.cursor = "grab";
+    });
+
+    function hacerElementoArrastrable(el) {
+      let activo = false,
+        offsetX = 0,
+        offsetY = 0;
+
+      el.addEventListener("mousedown", (e) => {
+        activo = true;
+        const rect = el.getBoundingClientRect();
+        offsetX = e.clientX - rect.left;
+        offsetY = e.clientY - rect.top;
+        el.style.cursor = "grabbing";
+      });
+
+      document.addEventListener("mousemove", (e) => {
+        if (activo) {
+          const area = document.querySelector(".preview-producto");
+          const rect = area.getBoundingClientRect();
+          el.style.left = `${e.clientX - rect.left - offsetX}px`;
+          el.style.top = `${e.clientY - rect.top - offsetY}px`;
+        }
+      });
+
+      document.addEventListener("mouseup", () => {
+        activo = false;
+        el.style.cursor = "grab";
+      });
+    }
+
+    function insertarStickerCustom(url) {
+      const zona = document.querySelector(".preview-producto");
+
+      const contenedor = document.createElement("div");
+      contenedor.className = "sticker-redimensionable";
+
+      const imagen = document.createElement("img");
+      imagen.src = url;
+      imagen.draggable = false;
+
+      contenedor.appendChild(imagen);
+      zona.appendChild(contenedor);
+
+      hacerElementoArrastrable(contenedor);
+
+      contenedor.addEventListener("dblclick", () => contenedor.remove());
+    }
+  </script>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contacto | Insultos Cariñosos</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header class="header" id="header">
+      <nav class="nav-container">
+        <div class="logo">
+          <i class="fas fa-heart"></i> Insultos Cariñosos
+        </div>
+        <ul class="nav-menu" id="navMenu">
+          <li class="nav-item"><a href="Home.html" class="nav-link"><i class="fas fa-home"></i> Inicio</a></li>
+          <li class="nav-item dropdown">
+            <a href="#" class="nav-link" id="nav-dropdown-toggle">
+              <i class="fas fa-info-circle"></i> Sobre <i class="fas fa-chevron-down"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a href="SobreNosotros.html">Sobre Nosotros</a></li>
+              <li><a href="Procesos.html">Nuestros Procesos</a></li>
+            </ul>
+          </li>
+          <li class="nav-item"><a href="Producto.html" class="nav-link"><i class="fas fa-tshirt"></i> Productos</a></li>
+          <li class="nav-item"><a href="Contacto.html" class="nav-link active"><i class="fas fa-envelope"></i> Contacto</a></li>
+        </ul>
+        <div class="nav-actions">
+          <div class="cart-icon" id="cart-icon-btn">
+            <i class="fas fa-shopping-cart"></i><span class="cart-count" id="cartCount">0</span>
+          </div>
+          <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+        </div>
+      </nav>
+    </header>
+    <!-- Main -->
+    <main class="main-content">
+      <section class="contacto">
+        <div class="container">
+          <h1 class="section-title">Contáctanos</h1>
+          <h2 class="section-subtitle">¿Tienes algo que decirnos?</h2>
+          <p>Si quieres enviarnos un piropo tóxico, una queja creativa o simplemente saludarnos, este es tu momento.</p>
+          <form id="contacto-form" class="formulario-contacto">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre más bonito (o no tanto)" />
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" name="email" required placeholder="tucorreo@insultitos.com" />
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Cuéntanos todo, sin pelos en la lengua..."></textarea>
+            <button type="submit" class="btn-primary">Enviar amor (con insulto)</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-section">
+            <h3 class="footer-title">Insultos Cariñosos</h3>
+            <p class="footer-description">
+              Especialistas en amor tóxico desde 2025. Transformando insultos en declaraciones de amor desde el primer día.
+            </p>
+            <div class="footer-social">
+              <a href="#" class="footer-social-link"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="footer-social-link"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="footer-social-link"><i class="fab fa-tiktok"></i></a>
+              <a href="#" class="footer-social-link"><i class="fab fa-twitter"></i></a>
+            </div>
+          </div>
+          <div class="footer-section">
+            <h4 class="footer-section-title">Enlaces rápidos</h4>
+            <ul class="footer-links">
+              <li><a href="Home.html">Inicio</a></li>
+              <li><a href="Producto.html">Productos</a></li>
+              <li><a href="SobreNosotros.html">Sobre nosotros</a></li>
+              <li><a href="Contacto.html">Contacto</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4 class="footer-section-title">Ayuda</h4>
+            <ul class="footer-links">
+              <li><a href="#">Preguntas frecuentes</a></li>
+              <li><a href="#">Envíos y devoluciones</a></li>
+              <li><a href="#">Guía de tallas</a></li>
+              <li><a href="#">Términos y condiciones</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4 class="footer-section-title">Contacto</h4>
+            <div class="footer-contact">
+              <p><i class="fas fa-envelope"></i> hola@insultoscariñosos.com</p>
+              <p><i class="fas fa-phone"></i> +34 666 INSULTO</p>
+              <p><i class="fas fa-map-marker-alt"></i> Madrid, España</p>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 Insultos Cariñosos. Todos los derechos reservados. Amor con carácter desde el primer insulto.</p>
+        </div>
+      </div>
+    </footer>
+    <!-- Scroll to top button -->
+    <button class="scroll-to-top" id="scrollToTop">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+    <!-- Scripts -->
+    <script src="JS/main.js" defer></script>
+  </body>
+</html>

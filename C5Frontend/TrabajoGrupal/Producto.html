@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" , initial-scale="1.0" />
+    <title>Proceso</title>
+    <link rel="stylesheet" href="CSS/style.css" />
+  </head>
+  <body>
+    <header>
+        <h1>Procesos</h1>
+        <nav>
+            <ul class="menu">
+            <li class="menu-item" onmouseover="showSubmenu(this)"
+            onmouseout="hideSubmenu(this)">
+            <a href="About.html">Sobre</a>
+            <ul class="submenu">
+                <li><a href="SobreNosotros.html" target="_self">Sobre Nosotros</a></li>
+                <li><a href="Procesos.html" target="_self">Procesos</a></li>
+            </ul>
+            </li>
+        </ul>
+        <a href="Home.html">Home</a>
+        
+        <a href="Contacto.html">Contact</a>
+        <a href="Producto.html">Products</a>
+        <a href="Merch.html">Merch</a>
+        </nav>
+    </header>
+  </body>
+  <footer>
+    <p>&copy; 2025 Derechos reservados</p>
+  </footer>
+  <script>
+    function showSubmenu(element) {
+        const submenu = element.querySelector('.submenu');
+        if(submenu) {
+            submenu.style.display = 'block';
+        }
+    }
+    function hideSubmenu(element) {
+        const submenu = element.querySelector('.submenu');
+        if (submenu) {
+            submenu.style.display = 'none';
+        }
+    }
+  </script>
+</html>

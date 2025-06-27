@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Inicio | Insultos Cariñosos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="CSS/style.css" />
+  </head>
+  
+<body>
+  <!-- Header -->
+  <header class="header" id="header">
+    <nav class="nav-container">
+      <div class="logo">
+        <i class="fas fa-heart"></i> Insultos Cariñosos
+      </div>
+      <ul class="nav-menu" id="navMenu">
+        <li class="nav-item"><a href="Home.html" class="nav-link active"><i class="fas fa-home"></i> Inicio</a></li>
+        <li class="nav-item dropdown">
+          <a href="#" class="nav-link" id="nav-dropdown-toggle">
+            <i class="fas fa-info-circle"></i> Sobre <i class="fas fa-chevron-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a href="SobreNosotros.html">Sobre Nosotros</a></li>
+            <li><a href="Procesos.html">Nuestros Procesos</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="Producto.html" class="nav-link"><i class="fas fa-tshirt"></i> Productos</a></li>
+        <li class="nav-item"><a href="Contacto.html" class="nav-link"><i class="fas fa-envelope"></i> Contacto</a></li>
+      </ul>
+      <div class="nav-actions">
+        <div class="cart-icon" id="cart-icon-btn">
+          <i class="fas fa-shopping-cart"></i><span class="cart-count" id="cartCount">0</span>
+        </div>
+        <button class="mobile-menu-btn" id="mobileMenuBtn"><i class="fas fa-bars"></i></button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-background">
+      <div class="floating-emoji">💕</div>
+      <div class="floating-emoji">😈</div>
+      <div class="floating-emoji">🖤</div>
+      <div class="floating-emoji">💋</div>
+    </div>
+    <div class="hero-container">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          Donde los <span class="highlight">insultos</span> suenan con <span class="highlight-pink">amor</span>
+        </h1>
+        <p class="hero-description">
+          Descubre nuestra colección única de productos personalizados que combinan 
+          el sarcasmo más dulce con el diseño más moderno. Porque "te quiero" a veces suena mejor como "eres un desastre adorable".
+        </p>
+        <div class="hero-buttons">
+          <button class="btn-primary" id="explore-products-btn">
+            <i class="fas fa-shopping-bag"></i> Explorar Productos
+          </button>
+          <button class="btn-secondary" id="view-testimonials-btn">
+            <i class="fas fa-heart"></i> Ver Testimonios
+          </button>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="product-showcase">
+          <div class="showcase-item" data-product="mug">☕<span class="showcase-text">"Eres mi cafeína favorita"</span></div>
+          <div class="showcase-item" data-product="tshirt">👕<span class="showcase-text">"Idiota, pero mi idiota"</span></div>
+          <div class="showcase-item" data-product="hoodie">🧥<span class="showcase-text">"Molesto pero necesario"</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="featured-products" id="products">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Lo más querido (y odiado)</h2>
+        <p class="section-subtitle">Nuestros bestsellers que hacen que el amor duela... de la risa</p>
+      </div>
+      <div class="products-grid">
+        <article class="product-card" data-aos="fade-up">
+          <div class="product-image">
+            <img src="img/taza-featured.jpg" alt="Taza personalizada" loading="lazy" />
+            <div class="product-overlay">
+              <button class="btn-overlay quick-view-btn" data-product="taza"><i class="fas fa-eye"></i> Vista rápida</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Taza: "Eres mi problema favorito"</h3>
+            <p class="product-description">Perfecta para ese ser especial que amas odiar</p>
+            <div class="product-price">
+              <span class="price-current">€12.99</span>
+              <span class="price-old">€15.99</span>
+            </div>
+            <button class="btn-add-cart add-to-cart-btn" data-product-id="taza-problema" data-product-type="Taza" data-product-text="Eres mi problema favorito"><i class="fas fa-plus"></i> Añadir al carrito</button>
+          </div>
+        </article>
+        <article class="product-card" data-aos="fade-up" data-aos-delay="100">
+          <div class="product-image">
+            <img src="img/camiseta-featured.jpg" alt="Camiseta personalizada" loading="lazy" />
+            <div class="product-overlay">
+              <button class="btn-overlay quick-view-btn" data-product="camiseta"><i class="fas fa-eye"></i> Vista rápida</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Camiseta: "Te quiero aunque seas un desastre"</h3>
+            <p class="product-description">Para llevar el amor tóxico con estilo</p>
+            <div class="product-price">
+              <span class="price-current">€19.99</span>
+              <span class="price-old">€24.99</span>
+            </div>
+            <button class="btn-add-cart add-to-cart-btn" data-product-id="camiseta-desastre" data-product-type="Camiseta" data-product-text="Te quiero aunque seas un desastre"><i class="fas fa-plus"></i> Añadir al carrito</button>
+          </div>
+        </article>
+        <article class="product-card" data-aos="fade-up" data-aos-delay="200">
+          <div class="product-image">
+            <img src="img/sudadera-featured.jpg" alt="Sudadera personalizada" loading="lazy" />
+            <div class="product-overlay">
+              <button class="btn-overlay quick-view-btn" data-product="sudadera"><i class="fas fa-eye"></i> Vista rápida</button>
+            </div>
+          </div>
+          <div class="product-info">
+            <h3 class="product-title">Sudadera: "Molesto pero mío"</h3>
+            <p class="product-description">Comodidad y sarcasmo en una sola prenda</p>
+            <div class="product-price">
+              <span class="price-current">€29.99</span>
+              <span class="price-old">€34.99</span>
+            </div>
+            <button class="btn-add-cart add-to-cart-btn" data-product-id="sudadera-molesto" data-product-type="Sudadera" data-product-text="Molesto pero mío"><i class="fas fa-plus"></i> Añadir al carrito</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Lo que dicen nuestros clientes</h2>
+        <p class="section-subtitle">(Bajo amenaza, pero con amor)</p>
+      </div>
+      <div class="testimonials-slider">
+        <div class="testimonial-card active">
+          <div class="testimonial-content">
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">"Le regalé una taza y ahora mi pareja me insulta con más amor. Definitivamente volveré a comprar más productos para seguir fomentando esta hermosa toxicidad."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">💕</div>
+              <div class="author-info"><h4>María G.</h4><span>Cliente satisfecha</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">"No pensé que un insulto personalizado pudiera conmoverme tanto. Mi camiseta 'Idiota, pero mi idiota' es ahora mi prenda favorita."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">😈</div>
+              <div class="author-info"><h4>Carlos R.</h4><span>Idiota feliz</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <div class="stars">
+              <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+            </div>
+            <p class="testimonial-text">"Perfectos para regalar a esa persona especial que te saca de quicio pero que amas con locura. La calidad es increíble y las sonrisas garantizadas."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">🖤</div>
+              <div class="author-info"><h4>Ana L.</h4><span>Experta en amor tóxico</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-controls">
+        <button class="testimonial-btn prev" id="prev-testimonial-btn"><i class="fas fa-chevron-left"></i></button>
+        <div class="testimonial-dots">
+          <span class="dot active" data-slide-to="0"></span>
+          <span class="dot" data-slide-to="1"></span>
+          <span class="dot" data-slide-to="2"></span>
+        </div>
+        <button class="testimonial-btn next" id="next-testimonial-btn"><i class="fas fa-chevron-right"></i></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <div class="container">
+      <div class="newsletter-content">
+        <h2 class="newsletter-title">Únete al club del insulto cariñoso</h2>
+        <p class="newsletter-description">
+          Recibe las mejores frases, descuentos exclusivos y nuevos productos antes que nadie. Prometemos insultarte con amor en cada email.
+        </p>
+        <form class="newsletter-form" id="newsletter-form">
+          <div class="form-group">
+            <input type="email" placeholder="tucorreo@insultitos.com" required class="newsletter-input" />
+            <button type="submit" class="newsletter-btn"><i class="fas fa-paper-plane"></i> Suscribirme</button>
+          </div>
+        </form>
+        <p class="newsletter-disclaimer">* No spam, solo amor tóxico de calidad. Puedes darte de baja cuando quieras.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Social Media -->
+  <section class="social-media">
+    <div class="container">
+      <h3 class="social-title">Síguenos en redes sociales</h3>
+      <p class="social-subtitle">Comparte tus productos favoritos y etiqueta a ese ser insoportable que adoras</p>
+      <div class="social-icons">
+        <a href="https://www.instagram.com/insultoscariñosos" target="_blank" class="social-link instagram"><i class="fab fa-instagram"></i><span>Instagram</span></a>
+        <a href="https://www.facebook.com/insultoscariñosos" target="_blank" class="social-link facebook"><i class="fab fa-facebook-f"></i><span>Facebook</span></a>
+        <a href="https://www.tiktok.com/@insultoscariñosos" target="_blank" class="social-link tiktok"><i class="fab fa-tiktok"></i><span>TikTok</span></a>
+        <a href="https://www.twitter.com/insultoscariño" target="_blank" class="social-link twitter"><i class="fab fa-twitter"></i><span>Twitter</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3 class="footer-title">Insultos Cariñosos</h3>
+          <p class="footer-description">
+            Especialistas en amor tóxico desde 2025. Transformando insultos en declaraciones de amor desde el primer día.
+          </p>
+          <div class="footer-social">
+            <a href="#" class="footer-social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="footer-social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="footer-social-link"><i class="fab fa-tiktok"></i></a>
+            <a href="#" class="footer-social-link"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-section-title">Enlaces rápidos</h4>
+          <ul class="footer-links">
+            <li><a href="Home.html">Inicio</a></li>
+            <li><a href="Producto.html">Productos</a></li>
+            <li><a href="SobreNosotros.html">Sobre nosotros</a></li>
+            <li><a href="Contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-section-title">Ayuda</h4>
+          <ul class="footer-links">
+            <li><a href="#">Preguntas frecuentes</a></li>
+            <li><a href="#">Envíos y devoluciones</a></li>
+            <li><a href="#">Guía de tallas</a></li>
+            <li><a href="#">Términos y condiciones</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-section-title">Contacto</h4>
+          <div class="footer-contact">
+            <p><i class="fas fa-envelope"></i> hola@insultoscariñosos.com</p>
+            <p><i class="fas fa-phone"></i> +34 666 INSULTO</p>
+            <p><i class="fas fa-map-marker-alt"></i> Madrid, España</p>
+          </div>  
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 Insultos Cariñosos. Todos los derechos reservados. Amor con carácter desde el primer insulto.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll to top button -->
+  <button class="scroll-to-top" id="scrollToTop">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="JS/main.js" defer></script>
+</body>
+</html>
