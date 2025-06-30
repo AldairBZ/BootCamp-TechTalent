@@ -126,7 +126,7 @@ body {
 }
 .nav-actions {
   display: flex;
-  align-items: center;image.png
+  align-items: center;
   gap: 1rem;
   padding-right: 1.2rem;
 }
@@ -145,6 +145,11 @@ body {
   font-size: 0.7rem;
   padding: 2px 6px;
   border-radius: 50%;
+}
+.user-icon {
+  font-size: 1.2rem;
+  color: var(--negro);
+  cursor: pointer;
 }
 .mobile-menu-btn {
   display: none;

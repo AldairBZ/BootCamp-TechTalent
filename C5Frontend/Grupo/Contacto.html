@@ -2,11 +2,12 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Contacto | Insultos Cariñosos</title>
-    <link rel="stylesheet" href="CSS/style.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="icon" type="image/x-icon" href="IMG/logoTienda.ico">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="CSS/style.css" />
     <style>
       body {
         background: linear-gradient(135deg, #fcd9dd 0%, #fff 100%);
@@ -174,6 +175,10 @@
         .nav-menu { gap: 0.7rem; }
         .nav-actions { gap: 0.5rem; margin-left: 0.5rem; }
       }
+      .contact-page {
+        background: linear-gradient(135deg, #fdf2f4, #fbe7e9);
+        padding: 4rem 0;
+      }
     </style>
   </head>
   <body>
@@ -204,7 +209,7 @@
                 <li><a href="Producto.html#polos">Polos</a></li>
               </ul>
             </li>
-            <li class="nav-item"><a href="Contacto.html" class="nav-link"><i class="fas fa-envelope"></i> Contacto</a></li>
+            <li class="nav-item"><a href="Contacto.html" class="nav-link active"><i class="fas fa-envelope"></i> Contacto</a></li>
           </ul>
           <div class="nav-actions">
             <div class="cart-icon" id="cart-icon-btn">
@@ -220,95 +225,72 @@
       </header>
       <!-- Main -->
       <main class="main-content">
-        <section class="contacto">
+        <section class="contact-page">
           <div class="container">
-            <div class="contacto-header" style="text-align:center;margin-bottom:2.5rem;">
-              <span style="font-size:2.5rem;">💌</span>
-              <h1 class="section-title" style="margin-bottom:0.5rem;">¡Hablemos con amor (y un poco de veneno)!</h1>
-              <h2 class="section-subtitle" style="margin-bottom:1.2rem;">¿Tienes algo que decirnos?</h2>
-              <p style="color:#666;max-width:500px;margin:0 auto 1.5rem auto;">Si quieres enviarnos un piropo tóxico, una queja creativa o simplemente saludarnos, este es tu momento. ¡Prometemos responder con cariño y sarcasmo!</p>
+            <div class="section-header">
+              <h1 class="section-title">¡Hablemos!</h1>
+              <p class="section-subtitle">¿Tienes algo que decirnos? Si quieres enviarnos un piropo tóxico, una queja creativa o simplemente saludarnos, este es tu momento.</p>
             </div>
             <form id="contacto-form" class="formulario-contacto moderno">
               <div class="input-group">
                 <label for="nombre"><i class="fas fa-user"></i></label>
-              <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre más bonito (o no tanto)" />
+                <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre más bonito (o no tanto)" />
               </div>
               <div class="input-group">
                 <label for="email"><i class="fas fa-envelope"></i></label>
-              <input type="email" id="email" name="email" required placeholder="tucorreo@insultitos.com" />
+                <input type="email" id="email" name="email" required placeholder="tucorreo@insultitos.com" />
               </div>
               <div class="input-group">
                 <label for="mensaje"><i class="fas fa-comment-dots"></i></label>
-              <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Cuéntanos todo, sin pelos en la lengua..."></textarea>
+                <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Cuéntanos todo, sin pelos en la lengua..."></textarea>
               </div>
-              <button type="submit" class="btn-primary" style="width:100%;margin-top:1rem;font-size:1.1rem;display:flex;align-items:center;justify-content:center;gap:0.7rem;">
-                <i class="fas fa-paper-plane"></i> Enviar amor (con insulto)
+              <button type="submit" class="btn-primary" style="width:100%;">
+                <i class="fas fa-paper-plane"></i> Enviar Mensaje
               </button>
-              <div id="form-mensaje" style="margin-top:1.2rem;display:none;"></div>
+              <div id="form-mensaje"></div>
             </form>
-            <div class="contacto-extra" style="margin-top:2.5rem;text-align:center;">
-              <h3 class="footer-social-title" style="color:var(--rojo);font-family:'Playfair Display',serif;font-size:1.3rem;margin-bottom:0.7rem;">¿Prefieres otros medios?</h3>
-              <div class="contacto-info" style="display:flex;flex-wrap:wrap;justify-content:center;gap:2.5rem;align-items:center;">
-                <div style="display:flex;align-items:center;gap:0.7rem;font-size:1.1rem;"><i class="fas fa-envelope" style="color:var(--rojo);"></i> hola@insultoscariñosos.com</div>
-                <div style="display:flex;align-items:center;gap:0.7rem;font-size:1.1rem;"><i class="fas fa-phone" style="color:var(--rojo);"></i> +34 666 INSULTO</div>
-                <div style="display:flex;align-items:center;gap:0.7rem;font-size:1.1rem;"><i class="fas fa-map-marker-alt" style="color:var(--rojo);"></i> Madrid, España</div>
-                <div style="display:flex;gap:1rem;font-size:1.5rem;">
-                  <a href="#" class="footer-social-link" style="color:var(--rojo);"><i class="fab fa-instagram"></i></a>
-                  <a href="#" class="footer-social-link" style="color:var(--rojo);"><i class="fab fa-facebook-f"></i></a>
-                  <a href="#" class="footer-social-link" style="color:var(--rojo);"><i class="fab fa-tiktok"></i></a>
-                  <a href="#" class="footer-social-link" style="color:var(--rojo);"><i class="fab fa-twitter"></i></a>
-                </div>
-              </div>
-            </div>
           </div>
         </section>
       </main>
       <!-- Footer -->
       <footer class="footer">
-        <div class="container">
-          <div class="footer-content">
-            <div class="footer-section">
-              <h3 class="footer-title">Insultos Cariñosos</h3>
-              <p class="footer-description">
-                Especialistas en amor tóxico desde 2025. Transformando insultos en declaraciones de amor desde el primer día.
-              </p>
-              <div class="footer-social">
-                <a href="#" class="footer-social-link pop-hover"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="footer-social-link pop-hover"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="footer-social-link pop-hover"><i class="fab fa-tiktok"></i></a>
-                <a href="#" class="footer-social-link pop-hover"><i class="fab fa-twitter"></i></a>
-              </div>
-            </div>
-            <div class="footer-section">
-              <h4 class="footer-section-title">Enlaces rápidos</h4>
-              <ul class="footer-links">
-                <li><a href="Home.html">Inicio</a></li>
-                <li><a href="Producto.html">Productos</a></li>
-                <li><a href="SobreNosotros.html">Sobre nosotros</a></li>
-                <li><a href="Contacto.html">Contacto</a></li>
-              </ul>
-            </div>
-            <div class="footer-section">
-              <h4 class="footer-section-title">Ayuda</h4>
-              <ul class="footer-links">
-                <li><a href="#">Preguntas frecuentes</a></li>
-                <li><a href="#">Envíos y devoluciones</a></li>
-                <li><a href="#">Guía de tallas</a></li>
-                <li><a href="#">Términos y condiciones</a></li>
-              </ul>
-            </div>
-            <div class="footer-section">
-              <h4 class="footer-section-title">Contacto</h4>
-              <div class="footer-contact">
-                <p><i class="fas fa-envelope"></i> hola@insultoscariñosos.com</p>
-                <p><i class="fas fa-phone"></i> +34 666 INSULTO</p>
-                <p><i class="fas fa-map-marker-alt"></i> Madrid, España</p>
-              </div>
+        <div class="container footer-content">
+          <div class="footer-section">
+            <h3 class="footer-title"><i class="fas fa-heart"></i> Insultos Cariñosos</h3>
+            <p class="footer-description">El único lugar donde los insultos y el amor se dan la mano. Ocasionalmente, una bofetada.</p>
+            <div class="footer-social">
+              <a href="#" class="footer-social-link pop-hover"><i class="fab fa-facebook"></i></a>
+              <a href="#" class="footer-social-link pop-hover"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="footer-social-link pop-hover"><i class="fab fa-tiktok"></i></a>
             </div>
           </div>
-          <div class="footer-bottom">
-            <p>&copy; 2025 Insultos Cariñosos. Todos los derechos reservados. Amor con carácter desde el primer insulto.</p>
+          <div class="footer-section">
+            <h4 class="footer-section-title">Enlaces Rápidos</h4>
+            <ul class="footer-links">
+              <li><a href="Home.html">Inicio</a></li>
+              <li><a href="Producto.html">Productos</a></li>
+              <li><a href="SobreNosotros.html">Sobre Nosotros</a></li>
+              <li><a href="Contacto.html">Contacto</a></li>
+            </ul>
           </div>
+          <div class="footer-section">
+            <h4 class="footer-section-title">Ayuda</h4>
+            <ul class="footer-links">
+              <li><a href="#">Preguntas Frecuentes</a></li>
+              <li><a href="#">Envíos y Devoluciones</a></li>
+              <li><a href="#">Política de Privacidad</a></li>
+            </ul>
+          </div>
+          <div class="footer-section">
+            <h4 class="footer-section-title">Contacto</h4>
+            <div class="footer-contact">
+              <p><i class="fas fa-envelope"></i> hola@insultoscarinosos.com</p>
+              <p><i class="fas fa-phone-alt"></i> +34 666 INSULTO</p>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Insultos Cariñosos. Todos los derechos reservados... supongo.</p>
         </div>
       </footer>
       <!-- Scroll to top button -->
@@ -319,19 +301,15 @@
     <!-- Scripts -->
     <script src="JS/main.js" defer></script>
     <script>
-      // Feedback visual tras enviar el formulario
-      document.getElementById('contacto-form').addEventListener('submit', function(e) {
-        e.preventDefault();
-        const mensaje = document.getElementById('form-mensaje');
-        mensaje.style.display = 'block';
-        mensaje.style.background = getComputedStyle(document.documentElement).getPropertyValue('--rojo');
-        mensaje.style.color = getComputedStyle(document.documentElement).getPropertyValue('--blanco');
-        mensaje.style.padding = '1rem';
-        mensaje.style.borderRadius = '8px';
-        mensaje.style.fontWeight = '600';
-        mensaje.innerHTML = '<i class="fas fa-check-circle"></i> ¡Gracias por tu mensaje tóxico! Te responderemos con amor y sarcasmo pronto.';
-        this.reset();
-        setTimeout(()=>{mensaje.style.display='none';}, 5000);
+      // Script para el formulario de contacto (opcional, pero recomendado)
+      document.getElementById('contacto-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const form = event.target;
+        const feedback = document.getElementById('form-mensaje');
+        feedback.textContent = 'Gracias por tu mensaje, adorable criatura. Te responderemos pronto (si nos apetece).';
+        feedback.style.display = 'block';
+        feedback.style.color = 'var(--rojo)';
+        form.reset();
       });
     </script>
   </body>

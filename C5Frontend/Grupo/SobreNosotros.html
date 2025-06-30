@@ -4,10 +4,55 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sobre Nosotros | Insultos Cariñosos</title>
+  <link rel="icon" type="image/x-icon" href="IMG/logoTienda.ico">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="CSS/style.css">
   <style>
+    .sobre-nosotros-page {
+      background: linear-gradient(135deg, #fdf2f4, #fbe7e9);
+      padding: 4rem 0;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+    .team-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(230, 57, 70, 0.1);
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .team-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 30px rgba(230, 57, 70, 0.15);
+    }
+    .team-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto 1.5rem auto;
+      border: 4px solid #f7cac9;
+    }
+    .team-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--rojo);
+      margin-bottom: 0.5rem;
+    }
+    .team-role {
+      font-weight: 600;
+      color: #d6336c;
+      margin-bottom: 1rem;
+    }
+    .team-desc {
+      font-size: 1rem;
+      color: #555;
+    }
     body {
       background: linear-gradient(135deg, #fcd9dd 0%, #fff 100%);
       font-family: 'Inter', sans-serif;
@@ -189,7 +234,7 @@
         <ul class="nav-menu" id="navMenu" aria-label="Menú principal">
           <li class="nav-item"><a href="Home.html" class="nav-link"><i class="fas fa-home"></i> Inicio</a></li>
           <li class="nav-item dropdown">
-            <a href="#" class="nav-link" id="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+            <a href="#" class="nav-link active" id="nav-dropdown-toggle" aria-haspopup="true" aria-expanded="false">
               <i class="fas fa-info-circle"></i> Sobre <i class="fas fa-chevron-down"></i>
             </a>
             <ul class="dropdown-menu" aria-label="Submenú Sobre">
@@ -223,34 +268,32 @@
 
     <!-- Main -->
     <main class="main-content sobre-nosotros">
-      <section class="intro">
+      <section class="sobre-nosotros-page">
         <div class="container">
-          <h1 class="section-title">Nuestro equipo y nuestra historia</h1>
-          <p class="section-subtitle">Transformando insultos en amor desde 2025. Conoce a las mentes (y corazones) detrás de la marca más sarcástica y cariñosa.</p>
-        </div>
-      </section>
-
-      <section class="equipo">
-        <div class="container team-grid">
-          <div class="team-card">
-            <img src="IMG/ani.jpg" alt="Ani" class="team-avatar" onerror="this.style.display='none'" />
-            <div class="team-name">Ani</div>
-            <div class="team-role">Frontend Rockstar</div>
-            <div class="team-desc">Convierte cada página en una experiencia visual adorablemente insultante.</div>
+          <div class="section-header">
+            <h1 class="section-title">Nuestra Historia</h1>
+            <p class="section-subtitle">Transformando insultos en amor desde 2025. Conoce a las mentes (y corazones) detrás de la marca más sarcástica y cariñosa.</p>
           </div>
-
-          <div class="team-card">
-            <img src="IMG/schneider.jpg" alt="Schneider" class="team-avatar" onerror="this.style.display='none'" />
-            <div class="team-name">Schneider</div>
-            <div class="team-role">Backend Sensei</div>
-            <div class="team-desc">El motor cómico y lógico que hace que todo funcione (incluso cuando nadie lo ve).</div>
-          </div>
-
-          <div class="team-card">
-            <img src="IMG/adri.jpg" alt="Adri" class="team-avatar" onerror="this.style.display='none'" />
-            <div class="team-name">Adri</div>
-            <div class="team-role">Diseño UX/UI</div>
-            <div class="team-desc">Hace que insultar nunca haya sido tan bonito y fácil de usar.</div>
+          
+          <div class="team-grid">
+            <div class="team-card">
+              <img src="IMG/ani.jpg" alt="Foto de Ani" class="team-avatar">
+              <h3 class="team-name">Ani</h3>
+              <p class="team-role">Frontend Rockstar</p>
+              <p class="team-desc">Convierte cada página en una experiencia visual adorablemente insultante.</p>
+            </div>
+            <div class="team-card">
+              <img src="IMG/schneider.jpg" alt="Foto de Schneider" class="team-avatar">
+              <h3 class="team-name">Schneider</h3>
+              <p class="team-role">Backend Sensei</p>
+              <p class="team-desc">El motor cómico y lógico que hace que todo funcione (incluso cuando nadie lo ve).</p>
+            </div>
+            <div class="team-card">
+              <img src="IMG/adri.jpg" alt="Foto de Adri" class="team-avatar">
+              <h3 class="team-name">Adri</h3>
+              <p class="team-role">Diseñador de Insultos</p>
+              <p class="team-desc">El artista que se asegura de que cada "te odio" suene como un "te quiero".</p>
+            </div>
           </div>
         </div>
       </section>
@@ -284,54 +327,43 @@
 
     <!-- Footer -->
     <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-section">
-            <h3 class="footer-title">Insultos Cariñosos</h3>
-            <p class="footer-description">
-              Especialistas en amor tóxico desde 2025. Transformando insultos en declaraciones de amor desde el primer día.
-            </p>
-            <div class="footer-social">
-              <a href="#" class="footer-social-link pop-hover"><i class="fab fa-instagram"></i></a>
-              <a href="#" class="footer-social-link pop-hover"><i class="fab fa-facebook-f"></i></a>
-              <a href="#" class="footer-social-link pop-hover"><i class="fab fa-tiktok"></i></a>
-              <a href="#" class="footer-social-link pop-hover"><i class="fab fa-twitter"></i></a>
-            </div>
-          </div>
-
-          <div class="footer-section">
-            <h4 class="footer-section-title">Enlaces rápidos</h4>
-            <ul class="footer-links">
-              <li><a href="Home.html">Inicio</a></li>
-              <li><a href="Producto.html">Productos</a></li>
-              <li><a href="SobreNosotros.html">Sobre nosotros</a></li>
-              <li><a href="Contacto.html">Contacto</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-section">
-            <h4 class="footer-section-title">Ayuda</h4>
-            <ul class="footer-links">
-              <li><a href="#">Preguntas frecuentes</a></li>
-              <li><a href="#">Envíos y devoluciones</a></li>
-              <li><a href="#">Guía de tallas</a></li>
-              <li><a href="#">Términos y condiciones</a></li>
-            </ul>
-          </div>
-
-          <div class="footer-section">
-            <h4 class="footer-section-title">Contacto</h4>
-            <div class="footer-contact">
-              <p><i class="fas fa-envelope"></i> hola@insultoscariñosos.com</p>
-              <p><i class="fas fa-phone"></i> +34 666 INSULTO</p>
-              <p><i class="fas fa-map-marker-alt"></i> Madrid, España</p>
-            </div>
+      <div class="container footer-content">
+        <div class="footer-section">
+          <h3 class="footer-title"><i class="fas fa-heart"></i> Insultos Cariñosos</h3>
+          <p class="footer-description">El único lugar donde los insultos y el amor se dan la mano. Ocasionalmente, una bofetada.</p>
+          <div class="footer-social">
+            <a href="#" class="footer-social-link pop-hover"><i class="fab fa-facebook"></i></a>
+            <a href="#" class="footer-social-link pop-hover"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="footer-social-link pop-hover"><i class="fab fa-tiktok"></i></a>
           </div>
         </div>
-
-        <div class="footer-bottom">
-          <p>&copy; 2025 Insultos Cariñosos. Todos los derechos reservados. Amor con carácter desde el primer insulto.</p>
+        <div class="footer-section">
+          <h4 class="footer-section-title">Enlaces Rápidos</h4>
+          <ul class="footer-links">
+            <li><a href="Home.html">Inicio</a></li>
+            <li><a href="Producto.html">Productos</a></li>
+            <li><a href="SobreNosotros.html">Sobre Nosotros</a></li>
+            <li><a href="Contacto.html">Contacto</a></li>
+          </ul>
         </div>
+        <div class="footer-section">
+          <h4 class="footer-section-title">Ayuda</h4>
+          <ul class="footer-links">
+            <li><a href="#">Preguntas Frecuentes</a></li>
+            <li><a href="#">Envíos y Devoluciones</a></li>
+            <li><a href="#">Política de Privacidad</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4 class="footer-section-title">Contacto</h4>
+          <div class="footer-contact">
+            <p><i class="fas fa-envelope"></i> hola@insultoscarinosos.com</p>
+            <p><i class="fas fa-phone-alt"></i> +34 666 INSULTO</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Insultos Cariñosos. Todos los derechos reservados... supongo.</p>
       </div>
     </footer>
 
