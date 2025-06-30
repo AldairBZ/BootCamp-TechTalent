@@ -62,12 +62,29 @@
           </div>
           <div class="cart-container">
             <div id="cart-items">
-              <!-- Los productos del carrito se insertarán aquí con JS -->
-              <p>Tu carrito está más vacío que mi corazón un lunes. <a href="Producto.html">¡Añade algo!</a></p>
+                <!-- Contenido dinámico del carrito -->
+                <div class="empty-cart">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h3>Tu carrito está vacío</h3>
+                    <p>Parece que todavía no has añadido ningún insulto cariñoso. ¡Vamos a solucionarlo!</p>
+                    <a href="Producto.html" class="btn-primary">Ver Productos</a>
+                </div>
             </div>
-            <div class="cart-total">
-              <h3>Total: <span id="cart-total-price">0.00</span>€</h3>
-              <button class="btn-primary" id="checkout-btn">Finalizar Compra</button>
+            <div class="cart-summary" style="display: none;">
+                <h3>Resumen del Pedido</h3>
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="cart-subtotal">0.00€</span>
+                </div>
+                <div class="summary-row">
+                    <span>Envío</span>
+                    <span>Gratis</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total</span>
+                    <span id="cart-total">0.00€</span>
+                </div>
+                <button class="btn-primary full-width" id="checkout-btn">Finalizar Compra</button>
             </div>
           </div>
         </div>

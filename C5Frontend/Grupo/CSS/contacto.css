@@ -3,9 +3,17 @@
   padding: 4rem 0;
 }
 
+.contact-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  align-items: start;
+  margin-top: 3rem;
+}
+
 .formulario-contacto.moderno {
   max-width: 700px;
-  margin: 2rem auto 0 auto;
+  margin: 0;
   background: #fff;
   padding: 3rem;
   border-radius: 12px;
@@ -63,4 +71,57 @@
   text-align: center;
   font-weight: 600;
   display: none;
+}
+
+.contact-info {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 40px rgba(230, 57, 70, 0.1);
+}
+
+.contact-info h3 {
+  font-family: 'Playfair Display', serif;
+  color: var(--rojo);
+  margin-bottom: 1rem;
+}
+
+.contact-details {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+}
+
+.contact-details li {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.contact-details i {
+  color: var(--rojo);
+  font-size: 1.2rem;
+}
+
+.contact-social {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.contact-social .social-link {
+  font-size: 1.5rem;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.contact-social .social-link:hover {
+  color: var(--rojo);
+}
+
+@media (max-width: 900px) {
+  .contact-layout {
+    grid-template-columns: 1fr;
+  }
 } 

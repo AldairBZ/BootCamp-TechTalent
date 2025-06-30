@@ -60,24 +60,42 @@
               <h1 class="section-title">¡Hablemos!</h1>
               <p class="section-subtitle">¿Tienes algo que decirnos? Si quieres enviarnos un piropo tóxico, una queja creativa o simplemente saludarnos, este es tu momento.</p>
             </div>
-            <form id="contacto-form" class="formulario-contacto moderno">
-              <div class="input-group">
-                <label for="nombre"><i class="fas fa-user"></i></label>
-                <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre más bonito (o no tanto)" />
+            <div class="contact-layout">
+              <form id="contacto-form" class="formulario-contacto moderno">
+                <h3>Envíanos un Mensaje</h3>
+                <div class="input-group">
+                  <label for="nombre"><i class="fas fa-user"></i></label>
+                  <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre más bonito (o no tanto)" />
+                </div>
+                <div class="input-group">
+                  <label for="email"><i class="fas fa-envelope"></i></label>
+                  <input type="email" id="email" name="email" required placeholder="tucorreo@insultitos.com" />
+                </div>
+                <div class="input-group">
+                  <label for="mensaje"><i class="fas fa-comment-dots"></i></label>
+                  <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Cuéntanos todo, sin pelos en la lengua..."></textarea>
+                </div>
+                <button type="submit" class="btn-primary">
+                  <i class="fas fa-paper-plane"></i> Enviar Mensaje
+                </button>
+                <div id="form-mensaje"></div>
+              </form>
+
+              <div class="contact-info">
+                <h3>Información de Contacto</h3>
+                <p>También puedes encontrarnos aquí. Prometemos responder... eventualmente.</p>
+                <ul class="contact-details">
+                  <li><i class="fas fa-map-marker-alt"></i><span>Calle Falsa 123, Springfield</span></li>
+                  <li><i class="fas fa-phone-alt"></i><span>+34 666 INSULTO</span></li>
+                  <li><i class="fas fa-envelope"></i><span>hola@insultoscarinosos.com</span></li>
+                </ul>
+                <div class="contact-social">
+                  <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                  <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                </div>
               </div>
-              <div class="input-group">
-                <label for="email"><i class="fas fa-envelope"></i></label>
-                <input type="email" id="email" name="email" required placeholder="tucorreo@insultitos.com" />
-              </div>
-              <div class="input-group">
-                <label for="mensaje"><i class="fas fa-comment-dots"></i></label>
-                <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Cuéntanos todo, sin pelos en la lengua..."></textarea>
-              </div>
-              <button type="submit" class="btn-primary">
-                <i class="fas fa-paper-plane"></i> Enviar Mensaje
-              </button>
-              <div id="form-mensaje"></div>
-            </form>
+            </div>
           </div>
         </section>
       </main>
