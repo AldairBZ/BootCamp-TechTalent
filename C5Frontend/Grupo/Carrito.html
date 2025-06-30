@@ -54,41 +54,33 @@
     </header>
 
     <main>
-      <section class="cart-page">
-        <div class="container">
-          <div class="section-header">
-            <h1 class="section-title">Tu Carrito de Compras</h1>
-            <p class="section-subtitle">Revisa tus insultos cariñosos antes de que sea demasiado tarde.</p>
-          </div>
-          <div class="cart-container">
-            <div id="cart-items">
-                <!-- Contenido dinámico del carrito -->
-                <div class="empty-cart">
-                    <i class="fas fa-shopping-cart"></i>
-                    <h3>Tu carrito está vacío</h3>
-                    <p>Parece que todavía no has añadido ningún insulto cariñoso. ¡Vamos a solucionarlo!</p>
-                    <a href="Producto.html" class="btn-primary">Ver Productos</a>
-                </div>
-            </div>
-            <div class="cart-summary" style="display: none;">
-                <h3>Resumen del Pedido</h3>
-                <div class="summary-row">
-                    <span>Subtotal</span>
-                    <span id="cart-subtotal">0.00€</span>
-                </div>
-                <div class="summary-row">
-                    <span>Envío</span>
-                    <span>Gratis</span>
-                </div>
-                <div class="summary-row total">
-                    <span>Total</span>
-                    <span id="cart-total">0.00€</span>
-                </div>
-                <button class="btn-primary full-width" id="checkout-btn">Finalizar Compra</button>
-            </div>
-          </div>
+      <div class="emojis">
+        <div class="emoji">❤️</div>
+        <div class="emoji">💋</div>
+        <div class="emoji">😈</div>
+        <div class="emoji">🔥</div>
+        <div class="emoji">🌶️</div>
+        <div class="emoji">💦</div>
+        <div class="emoji">🍑</div>
+        <div class="emoji">😇</div>
+      </div>
+      <div class="cart-container">
+        <h2>Tu Carrito</h2>
+        <div class="cart-items" id="cart-items">
+          <!-- Los items del carrito se insertarán aquí dinámicamente -->
         </div>
-      </section>
+        <div class="cart-summary">
+          <div class="subtotal">
+            <span>Subtotal:</span>
+            <span id="subtotal">0.00€</span>
+          </div>
+          <div class="total">
+            <span>Total:</span>
+            <span id="total">0.00€</span>
+          </div>
+          <button class="checkout-btn">Finalizar Compra</button>
+        </div>
+      </div>
     </main>
 
     <!-- Footer -->
