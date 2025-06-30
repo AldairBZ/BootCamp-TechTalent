@@ -8,178 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="CSS/style.css" />
-    <style>
-      body {
-        background: linear-gradient(135deg, #fcd9dd 0%, #fff 100%);
-        font-family: 'Inter', sans-serif;
-        margin: 0;
-        padding: 0;
-        color: #232526;
-      }
-      .main-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 3.5rem 2.5rem 3.5rem 2.5rem;
-        background: none;
-        border-radius: 0;
-        box-shadow: none;
-      }
-      h1, h2, h3 {
-        color: #e63946;
-        margin-top: 0;
-        margin-bottom: 1.2rem;
-        font-family: 'Playfair Display', serif;
-      }
-      p, li, label {
-        font-size: 1.18rem;
-        line-height: 1.8;
-        margin-bottom: 1.2rem;
-      }
-      .section {
-        margin-bottom: 2.5rem;
-      }
-      .contact-block {
-        background: #fff6fa;
-        border-radius: 18px;
-        box-shadow: 0 2px 12px #e6394633;
-        padding: 2.2rem 2rem 1.5rem 2rem;
-        margin-bottom: 2.5rem;
-        max-width: 700px;
-        margin-left: 0;
-        margin-right: auto;
-      }
-      input, textarea, select, button {
-        font-size: 1.13rem;
-        border-radius: 10px;
-        border: 1.5px solid #f7b6c9;
-        padding: 0.9rem 1.2rem;
-        margin-bottom: 1.2rem;
-        background: #fff6fa;
-        color: #232526;
-        box-shadow: 0 1px 4px 0 rgba(230,57,70,0.04);
-        transition: border 0.2s, box-shadow 0.2s;
-      }
-      input:focus, textarea:focus, select:focus {
-        border: 1.5px solid #e63946;
-        outline: none;
-        box-shadow: 0 2px 8px 0 #e6394633;
-      }
-      button {
-        background: linear-gradient(90deg, #e63946 0%, #f7b6c9 100%);
-        color: #fff;
-        font-weight: 700;
-        border: none;
-        border-radius: 10px;
-        padding: 0.9rem 1.5rem;
-        cursor: pointer;
-        box-shadow: 0 2px 8px 0 #e6394633;
-        transition: background 0.2s, box-shadow 0.2s;
-      }
-      button:hover {
-        background: linear-gradient(90deg, #f7b6c9 0%, #e63946 100%);
-        box-shadow: 0 4px 16px 0 #e6394655;
-      }
-      @media (max-width: 900px) {
-        .main-container { padding: 1.2rem 0.5rem; }
-        h1 { font-size: 1.5rem; }
-        h2 { font-size: 1.2rem; }
-        p, li, label { font-size: 1rem; }
-        .contact-block { max-width: 100%; }
-      }
-      .header {
-        width: 100%;
-        background: #fff;
-        box-shadow: 0 2px 8px #e6394612;
-        position: relative;
-        z-index: 10;
-      }
-      .nav-container {
-        max-width: 1200px;
-        margin: 0 auto;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0.7rem 2.5rem;
-        gap: 1.5rem;
-      }
-      .logo {
-        font-family: 'Playfair Display', serif;
-        font-size: 1.7rem;
-        color: #e63946;
-        font-weight: 700;
-        text-decoration: none;
-        display: flex;
-        align-items: center;
-        gap: 0.6rem;
-      }
-      .nav-menu {
-        display: flex;
-        align-items: center;
-        gap: 1.7rem;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        flex: 1 1 auto;
-        justify-content: flex-start;
-      }
-      .nav-link {
-        color: #232526;
-        font-size: 1.13rem;
-        font-weight: 500;
-        text-decoration: none;
-        transition: color 0.2s;
-        display: flex;
-        align-items: center;
-        gap: 0.4rem;
-      }
-      .nav-link.active, .nav-link:hover {
-        color: #e63946;
-      }
-      .nav-actions {
-        display: flex;
-        align-items: center;
-        gap: 1.1rem;
-        margin-left: 1.2rem;
-      }
-      .cart-icon {
-        position: relative;
-        font-size: 1.35rem;
-        cursor: pointer;
-      }
-      .cart-count {
-        position: absolute;
-        top: -8px;
-        right: -12px;
-        background: #e63946;
-        color: #fff;
-        font-size: 0.85rem;
-        font-weight: 700;
-        border-radius: 50%;
-        padding: 2px 6px;
-        min-width: 18px;
-        text-align: center;
-        box-shadow: 0 2px 8px #e6394633;
-      }
-      .user-icon {
-        font-size: 1.35rem;
-        cursor: pointer;
-        color: #232526;
-        transition: color 0.2s;
-      }
-      .user-icon:hover { color: #e63946; }
-      .mobile-menu-btn { display: none; }
-      .nav-blur-bg { display: none; }
-      @media (max-width: 900px) {
-        .nav-container { padding: 0.7rem 1rem; }
-        .logo { font-size: 1.1rem; }
-        .nav-menu { gap: 0.7rem; }
-        .nav-actions { gap: 0.5rem; margin-left: 0.5rem; }
-      }
-      .contact-page {
-        background: linear-gradient(135deg, #fdf2f4, #fbe7e9);
-        padding: 4rem 0;
-      }
-    </style>
+    <link rel="stylesheet" href="CSS/contacto.css" />
   </head>
   <body>
     <div class="main-container">
@@ -216,7 +45,7 @@
               <i class="fas fa-shopping-cart"></i><span class="cart-count" id="cartCount">0</span>
             </div>
             <div class="user-icon" id="userIconBtn" tabindex="0" aria-label="Iniciar sesión o ver perfil">
-              <a href="Login.html" id="userIconLink" style="color:inherit;text-decoration:none;"><i class="fas fa-user-circle"></i></a>
+              <a href="Login.html" id="userIconLink"><i class="fas fa-user-circle"></i></a>
             </div>
             <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
           </div>
@@ -244,7 +73,7 @@
                 <label for="mensaje"><i class="fas fa-comment-dots"></i></label>
                 <textarea id="mensaje" name="mensaje" rows="5" required placeholder="Cuéntanos todo, sin pelos en la lengua..."></textarea>
               </div>
-              <button type="submit" class="btn-primary" style="width:100%;">
+              <button type="submit" class="btn-primary">
                 <i class="fas fa-paper-plane"></i> Enviar Mensaje
               </button>
               <div id="form-mensaje"></div>
@@ -300,17 +129,6 @@
     </div>
     <!-- Scripts -->
     <script src="JS/main.js" defer></script>
-    <script>
-      // Script para el formulario de contacto (opcional, pero recomendado)
-      document.getElementById('contacto-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-        const form = event.target;
-        const feedback = document.getElementById('form-mensaje');
-        feedback.textContent = 'Gracias por tu mensaje, adorable criatura. Te responderemos pronto (si nos apetece).';
-        feedback.style.display = 'block';
-        feedback.style.color = 'var(--rojo)';
-        form.reset();
-      });
-    </script>
+    <script src="JS/contacto.js" defer></script>
   </body>
 </html>

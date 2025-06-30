@@ -8,220 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="CSS/style.css">
-  <style>
-    .sobre-nosotros-page {
-      background: linear-gradient(135deg, #fdf2f4, #fbe7e9);
-      padding: 4rem 0;
-    }
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
-    }
-    .team-card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 20px rgba(230, 57, 70, 0.1);
-      padding: 2rem;
-      text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .team-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 8px 30px rgba(230, 57, 70, 0.15);
-    }
-    .team-avatar {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin: 0 auto 1.5rem auto;
-      border: 4px solid #f7cac9;
-    }
-    .team-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      color: var(--rojo);
-      margin-bottom: 0.5rem;
-    }
-    .team-role {
-      font-weight: 600;
-      color: #d6336c;
-      margin-bottom: 1rem;
-    }
-    .team-desc {
-      font-size: 1rem;
-      color: #555;
-    }
-    body {
-      background: linear-gradient(135deg, #fcd9dd 0%, #fff 100%);
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      color: #232526;
-    }
-    .main-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 3.5rem 2.5rem 3.5rem 2.5rem;
-      background: none;
-      border-radius: 0;
-      box-shadow: none;
-    }
-    h1, h2, h3 {
-      color: #e63946;
-      margin-top: 0;
-      margin-bottom: 1.2rem;
-      font-family: 'Playfair Display', serif;
-    }
-    p, li {
-      font-size: 1.18rem;
-      line-height: 1.8;
-      margin-bottom: 1.2rem;
-    }
-    .team-section {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2.5rem 3.5rem;
-      margin-top: 2.5rem;
-      margin-bottom: 2.5rem;
-      justify-content: flex-start;
-    }
-    .team-card {
-      background: #fff6fa;
-      border-radius: 18px;
-      box-shadow: 0 2px 12px #e6394633;
-      padding: 2.2rem 2rem 1.5rem 2rem;
-      min-width: 270px;
-      max-width: 320px;
-      flex: 1 1 270px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      margin-bottom: 0;
-    }
-    .team-avatar {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 1.1rem;
-      background: #ffe6ea;
-      box-shadow: 0 2px 8px #e6394633;
-      display: block;
-    }
-    .team-name {
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: #e63946;
-      margin-bottom: 0.3rem;
-    }
-    .team-role {
-      font-size: 1.08rem;
-      color: #e63946bb;
-      margin-bottom: 0.7rem;
-      font-weight: 600;
-    }
-    .team-desc {
-      font-size: 1.08rem;
-      color: #232526;
-      margin-bottom: 0.2rem;
-    }
-    @media (max-width: 900px) {
-      .main-container { padding: 1.2rem 0.5rem; }
-      .team-section { gap: 1.2rem 1.2rem; }
-      .team-card { min-width: 180px; max-width: 100%; padding: 1.2rem 1rem; }
-    }
-    .header {
-      width: 100%;
-      background: #fff;
-      box-shadow: 0 2px 8px #e6394612;
-      position: relative;
-      z-index: 10;
-    }
-    .nav-container {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 0.7rem 2.5rem;
-      gap: 1.5rem;
-    }
-    .logo {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.7rem;
-      color: #e63946;
-      font-weight: 700;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-    }
-    .nav-menu {
-      display: flex;
-      align-items: center;
-      gap: 1.7rem;
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      flex: 1 1 auto;
-      justify-content: flex-start;
-    }
-    .nav-link {
-      color: #232526;
-      font-size: 1.13rem;
-      font-weight: 500;
-      text-decoration: none;
-      transition: color 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-    }
-    .nav-link.active, .nav-link:hover {
-      color: #e63946;
-    }
-    .nav-actions {
-      display: flex;
-      align-items: center;
-      gap: 1.1rem;
-      margin-left: 1.2rem;
-    }
-    .cart-icon {
-      position: relative;
-      font-size: 1.35rem;
-      cursor: pointer;
-    }
-    .cart-count {
-      position: absolute;
-      top: -8px;
-      right: -12px;
-      background: #e63946;
-      color: #fff;
-      font-size: 0.85rem;
-      font-weight: 700;
-      border-radius: 50%;
-      padding: 2px 6px;
-      min-width: 18px;
-      text-align: center;
-      box-shadow: 0 2px 8px #e6394633;
-    }
-    .user-icon {
-      font-size: 1.35rem;
-      cursor: pointer;
-      color: #232526;
-      transition: color 0.2s;
-    }
-    .user-icon:hover { color: #e63946; }
-    .mobile-menu-btn { display: none; }
-    .nav-blur-bg { display: none; }
-    @media (max-width: 900px) {
-      .nav-container { padding: 0.7rem 1rem; }
-      .logo { font-size: 1.1rem; }
-      .nav-menu { gap: 0.7rem; }
-      .nav-actions { gap: 0.5rem; margin-left: 0.5rem; }
-    }
-  </style>
+  <link rel="stylesheet" href="CSS/sobre-nosotros.css">
 </head>
 <body>
   <div class="main-container">
@@ -258,7 +45,7 @@
             <i class="fas fa-shopping-cart"></i><span class="cart-count" id="cartCount">0</span>
           </div>
           <div class="user-icon" id="userIconBtn" tabindex="0" aria-label="Iniciar sesión o ver perfil">
-            <a href="Login.html" id="userIconLink" style="color:inherit;text-decoration:none;"><i class="fas fa-user-circle"></i></a>
+            <a href="Login.html" id="userIconLink"><i class="fas fa-user-circle"></i></a>
           </div>
           <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
         </div>
@@ -302,11 +89,11 @@
         <div class="container">
           <h2 class="section-title">Nuestra misión</h2>
           <p class="section-subtitle">Queremos que el amor y el humor vayan de la mano. Por eso, cada producto está pensado para arrancar sonrisas, crear recuerdos y demostrar que el cariño puede ser tan ácido como dulce.</p>
-          <ul style="margin:2rem auto;max-width:600px;list-style: none;padding:0;">
-            <li style="margin-bottom:1rem;"><i class="fas fa-heart" style="color:var(--rojo);margin-right:8px;"></i> Creatividad y originalidad en cada diseño</li>
-            <li style="margin-bottom:1rem;"><i class="fas fa-mug-hot" style="color:var(--rojo);margin-right:8px;"></i> Productos de calidad y personalizados</li>
-            <li style="margin-bottom:1rem;"><i class="fas fa-laugh" style="color:var(--rojo);margin-right:8px;"></i> Humor y amor en cada insulto</li>
-            <li><i class="fas fa-users" style="color:var(--rojo);margin-right:8px;"></i> Cercanía y atención a cada cliente</li>
+          <ul class="valores-list">
+            <li><i class="fas fa-heart"></i> Creatividad y originalidad en cada diseño</li>
+            <li><i class="fas fa-mug-hot"></i> Productos de calidad y personalizados</li>
+            <li><i class="fas fa-laugh"></i> Humor y amor en cada insulto</li>
+            <li><i class="fas fa-users"></i> Cercanía y atención a cada cliente</li>
           </ul>
         </div>
       </section>

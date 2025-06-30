@@ -1,0 +1,66 @@
+.contact-page {
+  background: linear-gradient(135deg, #fdf2f4, #fbe7e9);
+  padding: 4rem 0;
+}
+
+.formulario-contacto.moderno {
+  max-width: 700px;
+  margin: 2rem auto 0 auto;
+  background: #fff;
+  padding: 3rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 40px rgba(230, 57, 70, 0.15);
+}
+
+.formulario-contacto.moderno .input-group {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.formulario-contacto.moderno .input-group label {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  color: #d6336c;
+  font-size: 1.2rem;
+}
+
+.formulario-contacto.moderno input,
+.formulario-contacto.moderno textarea {
+  width: 100%;
+  padding: 1.2rem 1.2rem 1.2rem 60px; /* Padding for icon */
+  border-radius: 8px;
+  border: 1px solid #f7cac9;
+  font-size: 1rem;
+  background: #fdf2f4;
+  color: #333;
+  transition: all 0.3s ease;
+}
+
+.formulario-contacto.moderno input:focus,
+.formulario-contacto.moderno textarea:focus {
+  outline: none;
+  border-color: var(--rojo);
+  box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.2);
+}
+
+.formulario-contacto.moderno textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.formulario-contacto.moderno .btn-primary {
+  width: 100%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+}
+
+#form-mensaje {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-weight: 600;
+  display: none;
+} 

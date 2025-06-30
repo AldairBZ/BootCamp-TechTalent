@@ -1,0 +1,53 @@
+.login-page {
+    background: linear-gradient(135deg, #fdf2f4, #fbe7e9);
+    padding: 4rem 0;
+    min-height: calc(100vh - 120px); /* Ajustar altura */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.auth-container {
+    max-width: 450px;
+    width: 100%;
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 40px rgba(230, 57, 70, 0.15);
+}
+.auth-tabs {
+    display: flex;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #f7cac9;
+}
+.auth-tab {
+    flex: 1;
+    padding: 1rem;
+    text-align: center;
+    font-weight: 600;
+    color: #d6336c;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+.auth-tab.active {
+    color: var(--rojo);
+    border-bottom-color: var(--rojo);
+}
+.auth-form {
+    display: none;
+}
+.auth-form.active {
+    display: block;
+}
+.input-group {
+    margin-bottom: 1.5rem;
+}
+.input-group input {
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #f7cac9;
+    border-radius: 8px;
+}
+.btn-primary.full-width {
+    width: 100%;
+} 

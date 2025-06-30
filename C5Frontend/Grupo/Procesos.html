@@ -8,47 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="CSS/style.css" />
-    <style>
-      .procesos-page {
-        background: #fff;
-        padding: 4rem 0;
-      }
-      .process-steps {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-        margin-top: 3rem;
-      }
-      .step-card {
-        background: linear-gradient(135deg, #fdf2f4, #fbe7e9);
-        border-radius: 12px;
-        padding: 2.5rem 2rem;
-        text-align: center;
-        border: 2px solid #fff;
-        box-shadow: 0 4px 20px rgba(230, 57, 70, 0.08);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-      }
-      .step-card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 8px 30px rgba(230, 57, 70, 0.15);
-      }
-      .step-icon {
-        font-size: 3rem;
-        color: var(--rojo);
-        margin-bottom: 1.5rem;
-        display: inline-block;
-      }
-      .step-title {
-        font-family: 'Playfair Display', serif;
-        font-size: 1.5rem;
-        color: var(--rojo);
-        margin-bottom: 1rem;
-      }
-      .step-description {
-        font-size: 1rem;
-        color: #555;
-      }
-    </style>
+    <link rel="stylesheet" href="CSS/procesos.css" />
   </head>
   <body>
     <!-- Header -->
@@ -84,7 +44,7 @@
             <i class="fas fa-shopping-cart"></i><span class="cart-count" id="cartCount">0</span>
           </div>
           <div class="user-icon" id="userIconBtn" tabindex="0" aria-label="Iniciar sesión o ver perfil">
-            <a href="Login.html" id="userIconLink" style="color:inherit;text-decoration:none;"><i class="fas fa-user-circle"></i></a>
+            <a href="Login.html" id="userIconLink"><i class="fas fa-user-circle"></i></a>
           </div>
           <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
         </div>
@@ -123,9 +83,9 @@
             </div>
           </div>
 
-          <div class="section-header" style="margin-top: 4rem;">
+          <div class="section-header extra-margin">
             <h2 class="section-title">¿Por qué elegirnos?</h2>
-            <p class="section-subtitle" style="max-width: 700px; margin: 0 auto;">Porque no solo vendemos productos, vendemos experiencias, risas y recuerdos. Cada paso de nuestro proceso está pensado para que recibas algo único, divertido y de calidad. ¡Gracias por confiar en nuestro amor tóxico!</p>
+            <p class="section-subtitle limited-width">Porque no solo vendemos productos, vendemos experiencias, risas y recuerdos. Cada paso de nuestro proceso está pensado para que recibas algo único, divertido y de calidad. ¡Gracias por confiar en nuestro amor tóxico!</p>
           </div>
         </div>
       </section>

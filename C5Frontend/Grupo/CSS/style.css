@@ -151,6 +151,12 @@ body {
   color: var(--negro);
   cursor: pointer;
 }
+
+.user-icon a {
+  color: inherit;
+  text-decoration: none;
+}
+
 .mobile-menu-btn {
   display: none;
   background: none;

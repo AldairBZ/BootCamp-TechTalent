@@ -8,55 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="CSS/style.css" />
-    <style>
-        .login-page {
-            background: linear-gradient(135deg, #fdf2f4, #fbe7e9);
-            padding: 4rem 0;
-            min-height: calc(100vh - 120px); /* Ajustar altura */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .auth-container {
-            max-width: 450px;
-            width: 100%;
-            background: #fff;
-            padding: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 8px 40px rgba(230, 57, 70, 0.15);
-        }
-        .auth-tabs {
-            display: flex;
-            margin-bottom: 2rem;
-            border-bottom: 1px solid #f7cac9;
-        }
-        .auth-tab {
-            flex: 1;
-            padding: 1rem;
-            text-align: center;
-            font-weight: 600;
-            color: #d6336c;
-            cursor: pointer;
-            border-bottom: 3px solid transparent;
-            transition: all 0.3s ease;
-        }
-        .auth-tab.active {
-            color: var(--rojo);
-            border-bottom-color: var(--rojo);
-        }
-        .auth-form {
-            display: none;
-        }
-        .auth-form.active {
-            display: block;
-        }
-        .input-group {
-            margin-bottom: 1.5rem;
-        }
-        .input-group input {
-            width: 100%;
-        }
-    </style>
+    <link rel="stylesheet" href="CSS/login.css" />
 </head>
 
 <body>
@@ -93,7 +45,7 @@
                     <i class="fas fa-shopping-cart"></i><span class="cart-count" id="cartCount">0</span>
                 </div>
                 <div class="user-icon" id="userIconBtn" tabindex="0" aria-label="Iniciar sesión o ver perfil">
-                    <a href="Login.html" id="userIconLink" style="color:inherit;text-decoration:none;"><i class="fas fa-user-circle"></i></a>
+                    <a href="Login.html" id="userIconLink"><i class="fas fa-user-circle"></i></a>
                 </div>
                 <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
             </div>
@@ -116,7 +68,7 @@
                     <div class="input-group">
                         <input type="password" id="login-password" placeholder="Contraseña" required>
                     </div>
-                    <button type="submit" class="btn-primary" style="width:100%;">Acceder</button>
+                    <button type="submit" class="btn-primary full-width">Acceder</button>
                 </form>
 
                 <form id="register-form" class="auth-form">
@@ -129,7 +81,7 @@
                     <div class="input-group">
                         <input type="password" id="register-password" placeholder="Contraseña" required>
                     </div>
-                    <button type="submit" class="btn-primary" style="width:100%;">Crear Cuenta</button>
+                    <button type="submit" class="btn-primary full-width">Crear Cuenta</button>
                 </form>
             </div>
         </section>
@@ -177,19 +129,6 @@
       </div>
     </footer>
     <script src="JS/main.js"></script>
-    <script>
-        const tabs = document.querySelectorAll('.auth-tab');
-        const forms = document.querySelectorAll('.auth-form');
-
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                tabs.forEach(item => item.classList.remove('active'));
-                forms.forEach(form => form.classList.remove('active'));
-                
-                tab.classList.add('active');
-                document.getElementById(tab.dataset.form).classList.add('active');
-            });
-        });
-    </script>
+    <script src="JS/login.js"></script>
 </body>
 </html>
