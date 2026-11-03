@@ -23,7 +23,7 @@ Es mi cuaderno de aprendizaje: desde el primer "Hola mundo" hasta un CRUD con pa
 
 ## Proyectos que salieron del bootcamp
 
-- [**LifeLevelUp**](https://github.com/AldairBZ/Frontend): proyecto final en equipo, con React, Node.js y MongoDB.
+- [**LifeLevelUp**](https://github.com/AldairBZ/LifeLevelUp): proyecto final en equipo, con React, Node.js y MongoDB.
 - [**TetrisGame**](https://github.com/AldairBZ/TetrisGame): Tetris en Java con ranking en MySQL, tests y CI.
 
 ---
