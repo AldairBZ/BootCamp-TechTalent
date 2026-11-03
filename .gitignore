@@ -1,2 +1,16 @@
-/bin/
-/.metadata/
+# Compilación
+bin/
+target/
+*.class
+*.jar
+
+# Eclipse, VS Code y servidores locales
+.metadata/
+.settings/
+.classpath
+.project
+.vscode/
+Servers/
+
+# Dependencias
+node_modules/
